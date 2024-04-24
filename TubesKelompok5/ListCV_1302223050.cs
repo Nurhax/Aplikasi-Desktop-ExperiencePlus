@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace TubesKelompok5
@@ -20,10 +21,17 @@ namespace TubesKelompok5
 
         public class CV
         {
-            private string Nama;
-            private string Pengalaman;
-            private string Edukasi;
-            private string Email;
+            [JsonPropertyName("Nama")]
+            private string Nama { get; set; }
+
+            [JsonPropertyName("Pengalaman")]
+            private string Pengalaman { get; set; }
+
+            [JsonPropertyName("Edukasi")]
+            private string Edukasi { get; set; }
+
+            [JsonPropertyName("Email")]
+            private string Email { get; set; }
 
             public string getNama()
             {
@@ -45,6 +53,26 @@ namespace TubesKelompok5
                 return Email;
             }
 
+
+            public void setNama(string nama)
+            {
+                this.Nama = nama;
+            }
+
+            public void setPengalaman(string pengalaman)
+            {
+                this.Pengalaman = pengalaman;
+            }
+
+            public void setEdukasi(string edukasi)
+            {
+                this.Edukasi = edukasi;
+            }
+
+            public void setEmail(string email)
+            {
+                this.Email = email;
+            }
         }
         //buat ngedapetin list mahasiswa terkini
         public List<CV> getListCV()

@@ -1,4 +1,6 @@
-﻿public class MainProgram
+﻿using TubesKelompok5;
+
+public class MainProgram
 {
     public static void Main(string[] args)
     {
