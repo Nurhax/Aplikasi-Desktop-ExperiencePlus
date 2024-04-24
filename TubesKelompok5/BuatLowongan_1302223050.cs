@@ -13,6 +13,7 @@ namespace TubesKelompok5
 
         private Lowongan lowonganPerusahaan;
 
+     
         public class Lowongan
         {
             private string deskripsiPekerjaan;
@@ -64,7 +65,7 @@ namespace TubesKelompok5
             string setDeskripsi;
             string setSyarat;
             string setPeriode;
-            int konfirmasi;
+            string konfirmasi;
 
             //Mengisi deskripsi
             Console.WriteLine("Masukkan deskripsi dari lowongan ini (gunakan underscore untuk spasi) : ");
@@ -73,17 +74,19 @@ namespace TubesKelompok5
             Console.WriteLine("Masukkan syarat dari lowongan ini:");
             setSyarat = Console.ReadLine();
             
-            Console.WriteLine("Masukkan periode dari lowongan (contoh 24/04/2024");
+            Console.WriteLine("Masukkan tanggal dari lowongan terakhir dibuka (contoh 24/04/2024");
             setPeriode = Console.ReadLine();
 
             
 
             Console.WriteLine("Apakah kamu yakin?");
-            Console.WriteLine("1. Iya");
-            Console.WriteLine("2. Tidak");
-            konfirmasi = Console.Read();
+            Console.WriteLine("1. iya");
+            Console.WriteLine("2. tidak");
+            konfirmasi = Console.ReadLine();
 
-            if(konfirmasi == 1)
+            MenuEnum_1302223050.Konfirmasi Menu = (MenuEnum_1302223050.Konfirmasi)Convert.ToInt32(konfirmasi);
+
+            if (MenuEnum_1302223050.GetKonfirmasi(Menu) == 1)
             {
                 getlowonganPerusahaan().setdeskripsiPekerjaan(setDeskripsi);
                 getlowonganPerusahaan().setsyarat(setSyarat);
