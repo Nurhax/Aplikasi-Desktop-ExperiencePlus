@@ -1,20 +1,23 @@
 [
   {
     "nama": "Software Developer",
-    "edukasi": "Degree in Computer Science",
+    "syarat": "Degree in Computer Science",
+    "deskripsi": "Membangun_software_baru",
     "Status": 0,
-    "periode": "01/05/2023"
+    "periode": "01/04/2023"
   },
   {
     "nama": "Graphic Designer",
-    "edukasi": "Experience in Adobe Creative Suite",
+    "syarat": "Experience in Adobe Creative Suite",
+    "deskripsi": "Pekerjaan_ini_bertujuan_untuk_membuat_design_dari_produk_yang_akan_launch",
     "Status": 0,
-    "periode": "05/04/2024"
+    "periode": "05/07/2024"
   },
   {
     "nama": "Marketing Manager",
-    "edukasi": "MBA in Marketing",
-    "Status": 1,
-    "periode": "01/06/2023"
+    "syarat": "MBA in Marketing",
+    "deskripsi": "tes",
+    "Status": 0,
+    "periode": "01/04/2023"
   }
 ]
