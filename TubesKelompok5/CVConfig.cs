@@ -5,12 +5,14 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using static TubesKelompok5.BuatLowongan_1302223050;
 
 namespace TubesKelompok5
 {
     public class CVConfig
     {
         public ListCV_1302223050.CV CV = new ListCV_1302223050.CV();
+
 
         public CVConfig()
         {
@@ -38,14 +40,9 @@ namespace TubesKelompok5
 
         public void writeConfig()
         {
-            JsonSerializer serializer = new JsonSerializer();
-            serializer.NullValueHandling = NullValueHandling.Ignore;
-
-            using (StreamWriter sw = new StreamWriter("C:\\Kuliah\\kpl\\tubes KPL 2\\TubesKelompok5\\CVConfig1.json"))
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(writer, CV);
-            }
+            string json =("C:\\Kuliah\\kpl\\tubes KPL 2\\TubesKelompok5\\CVConfig1.json");
+            string jsonData = JsonConvert.SerializeObject(CV, Formatting.Indented);
+            File.WriteAllText( json, jsonData);
         }
 
         public ListCV_1302223050.CV readConfig()

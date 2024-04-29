@@ -22,16 +22,24 @@ namespace TubesKelompok5
         public class CV
         {
             [JsonPropertyName("Nama")]
-            private string Nama { get; set; }
+            public string Nama { get; set; }
 
             [JsonPropertyName("Pengalaman")]
-            private string Pengalaman { get; set; }
+            public string Pengalaman { get; set; }
 
             [JsonPropertyName("Edukasi")]
-            private string Edukasi { get; set; }
+            public string Edukasi { get; set; }
 
             [JsonPropertyName("Email")]
-            private string Email { get; set; }
+            public string Email { get; set; }
+
+            public CV()
+            {
+                this.Nama = Nama;
+                this.Pengalaman = Pengalaman;
+                this.Edukasi = Edukasi;
+                this.Email = Email;
+            }
 
             public string getNama()
             {
