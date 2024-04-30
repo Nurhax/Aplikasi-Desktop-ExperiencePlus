@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TubesKelompok5
 {
-   public class ListCV_1302223050
+    public class ListCV_1302223050
     {
         //Constructor buat inisiasi list cv awal
         public ListCV_1302223050() { }
@@ -91,7 +91,7 @@ namespace TubesKelompok5
         //buat nunjukin semua CV mahasiswa di jobListing tertentu
         public void showALLCVMahasiswa()
         {
-            for(int i = 0; i <  listcvMahasiswa.Count; i++)
+            for (int i = 0; i < listcvMahasiswa.Count; i++)
             {
                 Console.WriteLine($"Nama : {listcvMahasiswa[i].getNama()} ");
                 Console.WriteLine($"Pengalaman : {listcvMahasiswa[i].getEdukasi()}");
@@ -110,6 +110,21 @@ namespace TubesKelompok5
             }
         }
 
+        //method agar user dapat memasukkan inputan untuk upload CV
+        public ListCV_1302223050.CV uploadCV2()
+        {
+            ListCV_1302223050.CV tempCV = new ListCV_1302223050.CV();
+            Console.Write("Nama : ");
+            tempCV.setNama(Console.ReadLine());
+            Console.Write("E-mail : ");
+            tempCV.setEmail(Console.ReadLine());
+            Console.Write("Edukasi : ");
+            tempCV.setEdukasi(Console.ReadLine());
+            Console.Write("pengalaman :");
+            tempCV.setPengalaman(Console.ReadLine());
+
+            return tempCV;
+        }
 
     }
 }
