@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{57DC40B6-4431-4C41-8FB5-7D265B6A21C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TubesKelompok5", "TubesKelompok5\TubesKelompok5.csproj", "{EDE43FD6-B92C-4528-8275-147B57C109B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TubesKelompok5", "TubesKelompok5\TubesKelompok5.csproj", "{EDE43FD6-B92C-4528-8275-147B57C109B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MINGGU 10", "MINGGU 10\MINGGU 10.csproj", "{5DE5625D-A0B3-48AE-99A5-9E3231C65F48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{EDE43FD6-B92C-4528-8275-147B57C109B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDE43FD6-B92C-4528-8275-147B57C109B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDE43FD6-B92C-4528-8275-147B57C109B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE5625D-A0B3-48AE-99A5-9E3231C65F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE5625D-A0B3-48AE-99A5-9E3231C65F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE5625D-A0B3-48AE-99A5-9E3231C65F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE5625D-A0B3-48AE-99A5-9E3231C65F48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
