@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using static TubesKelompok5.ListCV_1302223050;
 
 namespace TubesKelompok5
 {
@@ -99,6 +100,14 @@ namespace TubesKelompok5
                 Console.WriteLine($"Email : {listcvMahasiswa[i].getEmail()} ");
             }
         }
+        public void showCV()
+        {
+            for (int i = 0; i < listcvMahasiswa.Count; i++)
+            {
+                Console.WriteLine($"Nama : {listcvMahasiswa[i].getNama()} ");
+                Console.WriteLine($"Email : {listcvMahasiswa[i].getEmail()} ");
+            }
+        }
 
         //buat
         public void addCVMahasiswa(CV CVMahasiswa, bool telahApply)
@@ -124,6 +133,38 @@ namespace TubesKelompok5
             tempCV.setPengalaman(Console.ReadLine());
 
             return tempCV;
+        }
+        public void seleksiCV()
+        {
+            showCV();
+            int cvIndex = int.Parse(Console.ReadLine());
+
+            if (cvIndex >= 0 && cvIndex < listcvMahasiswa.Count)
+            {
+                
+                CV selectedCv = listcvMahasiswa[cvIndex + 1];
+                showALLCVMahasiswa();
+
+                Console.Write("Masukkan penilaian CV (Layak/Tidak Layak): ");
+                string penilaian = Console.ReadLine();
+
+                // Memproses penilaian
+                if (penilaian.ToLower() == "tidak layak")
+                {
+                    // Hapus CV dari list
+                    listcvMahasiswa.RemoveAt(cvIndex+1);
+                    Console.WriteLine("CV telah dihapus dari lowongan.");
+                }
+                else
+                {
+                    Console.WriteLine("CV dinyatakan lulus.");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Index CV tidak valid.");
+            }
         }
 
     }
