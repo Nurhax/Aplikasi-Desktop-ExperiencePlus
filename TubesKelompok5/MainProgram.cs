@@ -8,7 +8,7 @@ public class MainProgram
         BuatLowongan_1302223050 lowongan= new BuatLowongan_1302223050();
         lowongan.CreateLowongan();
         lowongan.CreateLowongan();
-
-        lowongan.showAllLowongan();
+        /*lowongan.showAllLowongan();*/
+        /*lowongan.searchingLowongan();*/
     }
 }
