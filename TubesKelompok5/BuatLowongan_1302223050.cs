@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,14 +12,15 @@ namespace TubesKelompok5
         //Constructor
         public BuatLowongan_1302223050() { }
 
-        private Lowongan lowonganPerusahaan;
-
+        private List<Lowongan> listLowonganPerusahaan = new List<Lowongan>();
      
         public class Lowongan
         {
+            private string namaLowongan;
             private string deskripsiPekerjaan;
             private string syaratLowongan;
             private string periodeLowongan;
+            
 
             public Lowongan() { }
 
@@ -37,6 +39,12 @@ namespace TubesKelompok5
                 return periodeLowongan;
             }
 
+            public string getNamaLowongan()
+            {
+                return namaLowongan;
+            }
+
+
             public void setdeskripsiPekerjaan(string deskripsi)
             {
                 deskripsiPekerjaan = deskripsi;
@@ -52,45 +60,68 @@ namespace TubesKelompok5
                 periodeLowongan = periode;
             }
 
+            public void setNamaLowongan(string nama)
+            {
+                namaLowongan = nama;
+            }
+
 
         }
 
-        public Lowongan getlowonganPerusahaan()
+        public List<Lowongan> getlowonganPerusahaan()
         {
-            return lowonganPerusahaan;
+            return listLowonganPerusahaan;
         }
 
         public void CreateLowongan()
         {
+            string setNamaLowongan;
             string setDeskripsi;
             string setSyarat;
             string setPeriode;
             string konfirmasi;
 
-            //Mengisi deskripsi
+            //Mengisi deskripsi lowongan
+            Console.WriteLine("Masukkan judul/nama dari lowongan : ");
+            setNamaLowongan = Console.ReadLine();
+
             Console.WriteLine("Masukkan deskripsi dari lowongan ini (gunakan underscore untuk spasi) : ");
             setDeskripsi = Console.ReadLine();
             
             Console.WriteLine("Masukkan syarat dari lowongan ini:");
             setSyarat = Console.ReadLine();
             
-            Console.WriteLine("Masukkan tanggal dari lowongan terakhir dibuka (contoh 24/04/2024");
+            Console.WriteLine("Masukkan tanggal dari lowongan terakhir dibuka (gunakan waktu per bulan)");
             setPeriode = Console.ReadLine();
 
-            
+            Debug.Assert(setDeskripsi != null);
+            Debug.Assert(setSyarat != null);
+            Debug.Assert(setPeriode != null);
+            Debug.Assert(setNamaLowongan != null);
+
+
 
             Console.WriteLine("Apakah kamu yakin?");
             Console.WriteLine("1. iya");
             Console.WriteLine("2. tidak");
             konfirmasi = Console.ReadLine();
+            Debug.Assert(konfirmasi != null);
+            Debug.Assert(konfirmasi == "1" || konfirmasi == "2");
 
-            MenuEnum_1302223050.Konfirmasi Menu = (MenuEnum_1302223050.Konfirmasi)Convert.ToInt32(konfirmasi);
+            MenuEnum_1302223050.Konfirmasi Menu = (MenuEnum_1302223050.Konfirmasi)Convert.ToInt32(konfirmasi) - 1;
 
             if (MenuEnum_1302223050.GetKonfirmasi(Menu) == 1)
             {
-                getlowonganPerusahaan().setdeskripsiPekerjaan(setDeskripsi);
-                getlowonganPerusahaan().setsyarat(setSyarat);
-                getlowonganPerusahaan().setperiodeLowongan(setPeriode);
+                Lowongan lowongan = new Lowongan();
+                lowongan.setNamaLowongan(setNamaLowongan);
+                lowongan.setsyarat(setSyarat);
+                lowongan.setperiodeLowongan(setPeriode);
+                lowongan.setdeskripsiPekerjaan(setDeskripsi);
+                listLowonganPerusahaan.Add(lowongan);
+            }
+            else
+            {
+                Console.WriteLine("Lowongan tidak jadi ditambahkan!");
             }
         }
     }

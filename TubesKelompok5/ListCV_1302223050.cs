@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace TubesKelompok5
             listcvMahasiswa = listCVMahasiswa;
         }
         //variabel list buat naro data mahasiswa
-        private List<CV> listcvMahasiswa;
+        private List<CV> listcvMahasiswa = new List<CV>();
 
         public class CV
         {
@@ -55,6 +56,7 @@ namespace TubesKelompok5
         //buat nunjukin semua CV mahasiswa di jobListing tertentu
         public void showALLCVMahasiswa()
         {
+            Debug.Assert(listcvMahasiswa != null);
             for(int i = 0; i <  listcvMahasiswa.Count; i++)
             {
                 Console.WriteLine($"Nama : {listcvMahasiswa[i].getNama()} ");
@@ -65,9 +67,11 @@ namespace TubesKelompok5
         }
 
         //buat
-        public void addCVMahasiswa(CV CVMahasiswa, bool telahApply)
+        public void addCVMahasiswa(List<CV> CVMahasiswa, bool telahApply)
         {
             //Buat nambahin CV mahasiswa setiap kali mahasiswa apply ke suatu lowongan
+            Debug.Assert(CVMahasiswa != null);
+
             if (telahApply)
             {
                 listcvMahasiswa.Add(CVMahasiswa);
