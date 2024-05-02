@@ -10,8 +10,14 @@ namespace TubesKelompok5
     {
         public enum Konfirmasi
         {
-            Iya = 1,
+            Iya,
             Tidak
+        }
+
+        public enum akun
+        {
+            guest,
+            punyaAkun
         }
 
         public static int GetKonfirmasi(Konfirmasi inputKonfirm)
@@ -19,5 +25,7 @@ namespace TubesKelompok5
             int[] input = { 1, 2 };
             return input[(int)inputKonfirm];
         }
+
+
     }
 }
