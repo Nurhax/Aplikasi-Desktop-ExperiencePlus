@@ -26,6 +26,16 @@ namespace TubesKelompok5
             private string Edukasi;
             private string Email;
 
+            public CV() { }
+
+            public CV(string nama, string pengalaman, string edukasi, string email)
+            {
+                Nama = nama;
+                Pengalaman = pengalaman;
+                Edukasi = edukasi;
+                Email = email;
+            }
+
             public string getNama()
             {
                 return Nama;
@@ -67,7 +77,7 @@ namespace TubesKelompok5
         }
 
         //buat
-        public void addCVMahasiswa(List<CV> CVMahasiswa, bool telahApply)
+        public void addCVMahasiswa(CV CVMahasiswa, bool telahApply)
         {
             //Buat nambahin CV mahasiswa setiap kali mahasiswa apply ke suatu lowongan
             Debug.Assert(CVMahasiswa != null);
