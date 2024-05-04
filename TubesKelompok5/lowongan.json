@@ -1,0 +1,30 @@
+[
+  {
+    "nama": "Software Developer",
+    "syarat": "Degree in Computer Science",
+    "deskripsi": "Deskripsi baru",
+    "Status": 0,
+    "periode": "01/05/2023"
+  },
+  {
+    "nama": "Graphic Designer",
+    "syarat": "Experience in Adobe Premier Pro",
+    "deskripsi": "Create a new product design that will launcing",
+    "Status": 0,
+    "periode": "05/07/2024"
+  },
+  {
+    "nama": "Marketing Manager",
+    "syarat": "MBA in Marketing",
+    "deskripsi": "Make a marketing plan",
+    "Status": 0,
+    "periode": "01/01/01"
+  },
+  {
+    "nama": "Software Developer",
+    "syarat": "Master in Computer Science",
+    "deskripsi": "make software with flutter",
+    "Status": 0,
+    "periode": "01/05/2024"
+  }
+]
