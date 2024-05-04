@@ -14,18 +14,11 @@ namespace TubesKelompok5
             Tidak
         }
 
-        public enum akun
-        {
-            guest,
-            punyaAkun
-        }
-
         public static int GetKonfirmasi(Konfirmasi inputKonfirm)
         {
             int[] input = { 1, 2 };
             return input[(int)inputKonfirm];
         }
-
 
     }
 }

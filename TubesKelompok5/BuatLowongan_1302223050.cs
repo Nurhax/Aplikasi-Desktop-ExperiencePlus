@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,13 @@ namespace TubesKelompok5
             private string periodeLowongan;
 
 
-            public Lowongan() { }
+            public Lowongan(string namaLowongan, string deskripsiPekerjaan, string syaratLowongan,string periodeLowongan) 
+            {
+                this.namaLowongan = namaLowongan;
+                this.deskripsiPekerjaan = deskripsiPekerjaan;
+                this.syaratLowongan = syaratLowongan;  
+                this.periodeLowongan = periodeLowongan;
+            }
 
             public string getdeskripsiPekerjaan()
             {
@@ -111,7 +118,7 @@ namespace TubesKelompok5
 
             if (MenuEnum_1302223050.GetKonfirmasi(Menu) == 1)
             {
-                Lowongan lowongan = new Lowongan();
+                Lowongan lowongan = new Lowongan(setNamaLowongan, setDeskripsi, setSyarat, setPeriode);
                 lowongan.setNamaLowongan(setNamaLowongan);
                 lowongan.setsyarat(setSyarat);
                 lowongan.setperiodeLowongan(setPeriode);
@@ -124,9 +131,21 @@ namespace TubesKelompok5
             }
         }
 
+        public void ShowAllLowongan()
+        {
+            Debug.Assert(listLowonganPerusahaan != null);
+            foreach (Lowongan data in listLowonganPerusahaan)
+            {
+                Console.WriteLine($"Nama Lowongan       : {data.getNamaLowongan()}");
+                Console.WriteLine($"Deskripsi Lowongan  : {data.getdeskripsiPekerjaan()}");
+                Console.WriteLine($"Syarat Lowongan     : {data.getsyarat()}");
+                Console.WriteLine($"Periode Lowongan    : {data.getPeriode()}");
+            }   
+        }
+
         public void searchingLowongan()
         {
-            BuatLowongan_1302223050.Lowongan lowongan = new BuatLowongan_1302223050.Lowongan();
+            /*BuatLowongan_1302223050.Lowongan lowongan = new BuatLowongan_1302223050.Lowongan();*/
 
             Console.WriteLine("Masukan posisi lowongan yang dicari: ");
             string posisi = Console.ReadLine();
@@ -142,8 +161,36 @@ namespace TubesKelompok5
                     Console.WriteLine($"Syarat Lowongan     : {data.getsyarat()}");
                     Console.WriteLine($"Periode Lowongan    : {data.getPeriode()}");
                 }
+                else
+                {
+                    Console.WriteLine("Lowongan Tidak Ditemukan!");
+                }
             }
-            Console.WriteLine("Lowongan Tidak Ditemukan!");
+        }
+
+        public void searchingLowonganTesting()
+        {
+            /*BuatLowongan_1302223050.Lowongan lowongan = new BuatLowongan_1302223050.Lowongan();*/
+
+            Console.WriteLine("Masukan posisi lowongan yang dicari: ");
+            string posisi = "Web Developer";
+            Debug.Assert(posisi != null);
+            Debug.Assert(!string.IsNullOrEmpty(posisi));
+
+            foreach (Lowongan data in listLowonganPerusahaan)
+            {
+                if (posisi.ToLower() == data.getNamaLowongan().ToLower())
+                {
+                    Console.WriteLine($"Nama Lowongan       : {data.getNamaLowongan()}");
+                    Console.WriteLine($"Deskripsi Lowongan  : {data.getdeskripsiPekerjaan()}");
+                    Console.WriteLine($"Syarat Lowongan     : {data.getsyarat()}");
+                    Console.WriteLine($"Periode Lowongan    : {data.getPeriode()}");
+                }
+                else
+                {
+                    Console.WriteLine("Lowongan Tidak Ditemukan!");
+                }
+            }
         }
     }
 }
