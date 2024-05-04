@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -124,14 +125,21 @@ namespace TubesKelompok5
         {
             ListCV_1302223050.CV tempCV = new ListCV_1302223050.CV();
             Console.Write("Nama : ");
-            tempCV.setNama(Console.ReadLine());
+            var nama = Console.ReadLine();
+            Debug.Assert(tempCV.setNama != null && nama.Length > 0);
+            tempCV.setNama(nama);
             Console.Write("E-mail : ");
-            tempCV.setEmail(Console.ReadLine());
+            var email = Console.ReadLine();
+            Debug.Assert(tempCV.setEmail != null && email.Length > 0);
+            tempCV.setEmail(email);
             Console.Write("Edukasi : ");
-            tempCV.setEdukasi(Console.ReadLine());
+            var edukasi = Console.ReadLine();
+            Debug.Assert(tempCV.setEdukasi != null && edukasi.Length > 0);
+            tempCV.setEdukasi(edukasi);
             Console.Write("pengalaman :");
-            tempCV.setPengalaman(Console.ReadLine());
-
+            var pengalaman = Console.ReadLine();
+            Debug.Assert(tempCV.setPengalaman != null && edukasi.Length > 0);
+            tempCV.setPengalaman(pengalaman);
             return tempCV;
         }
         public void seleksiCV()
@@ -165,6 +173,27 @@ namespace TubesKelompok5
             {
                 Console.WriteLine("Index CV tidak valid.");
             }
+        }
+        public ListCV_1302223050.CV testuploadCV2(string nama, string email, string edukasi,string pengalaman)
+        {
+            ListCV_1302223050.CV tempCV = new ListCV_1302223050.CV();
+            Console.Write("Nama : ");
+           
+            Debug.Assert(tempCV.setNama != null && nama.Length > 0);
+            tempCV.setNama(nama);
+            Console.Write("E-mail : ");
+           
+            Debug.Assert(tempCV.setEmail != null && email.Length > 0);
+            tempCV.setEmail(email);
+            Console.Write("Edukasi : ");
+           
+            Debug.Assert(tempCV.setEdukasi != null && edukasi.Length > 0);
+            tempCV.setEdukasi(edukasi);
+            Console.Write("pengalaman :");
+         
+            Debug.Assert(tempCV.setPengalaman != null && edukasi.Length > 0);
+            tempCV.setPengalaman(pengalaman);
+            return tempCV;
         }
 
     }
