@@ -10,7 +10,7 @@ namespace TubesKelompok5
     {
         public enum Konfirmasi
         {
-            Iya = 1,
+            Iya,
             Tidak
         }
 
@@ -19,5 +19,6 @@ namespace TubesKelompok5
             int[] input = { 1, 2 };
             return input[(int)inputKonfirm];
         }
+
     }
 }
