@@ -7,11 +7,13 @@ namespace TubesKelompok5
     [Route("api/[controller]")]
     public class UsersController_1302220096 : ControllerBase
     {
+        private readonly IUserService_1302220096 _userService;
         private readonly IAuthService_1302220096 _authService;
 
-        public UsersController_1302220096(IAuthService_1302220096 authService)
+        public UsersController_1302220096()
         {
-            _authService = authService;
+            _userService = new UserService();
+            _authService = new AuthService_1302220096();
         }
 
         [HttpPost("register")]
@@ -43,25 +45,55 @@ namespace TubesKelompok5
         [HttpPost]
         public async Task<IActionResult> CreateUser(UserModel_1302220096 model)
         {
-            //nambah user baru
+            var result = await _userService.CreateUserAsync(model);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return Ok(result.Data);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
-            //get user pake ID
+            var result = await _userService.GetUserByIdAsync(id);
+
+            if (!result.Success)
+            {
+                return NotFound();
+            }
+
+            return Ok(result.Data);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, UserModel_1302220096 model)
         {
             //update data user
+            var result = await _userService.UpdateUserAsync(id, model);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return Ok(result.Data);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             //hapus user pake ID
+            var result = await _userService.DeleteUserAsync(id);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return Ok(result.Data);
         }
 
         [HttpGet("profile")]

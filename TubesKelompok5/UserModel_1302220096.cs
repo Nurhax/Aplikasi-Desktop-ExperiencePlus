@@ -9,8 +9,13 @@ namespace TubesKelompok5
         public string Password { get; set; }
         public string Email { get; set; }
         public string Role { get; set; }
+        public bool Success { get; set; }
+        public string Message { get; set; }
 
-        public ProfileModel_1302220096 Profile { get; set; }
+        public ProfileMahasiswa_1302220096 ProfileMHS { get; set; }
+        public ProfilePerusahaan_1302220096 ProfileCompany { get; set; }
+
+        
 
         public async Task<UserModel_1302220096> RegisterAsync(UserModel_1302220096 model)
         {

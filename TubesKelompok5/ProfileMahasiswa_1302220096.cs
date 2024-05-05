@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TubesKelompok5
 {
-    internal class ProfileMahasiswa_1302220096
+    public class ProfileMahasiswa_1302220096
     {
         public string FullName { get; set; }
         public int Age { get; set; }
