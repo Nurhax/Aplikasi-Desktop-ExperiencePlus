@@ -19,5 +19,6 @@ namespace TubesKelompok5
             int[] input = { 1, 2 };
             return input[(int)inputKonfirm];
         }
+
     }
 }

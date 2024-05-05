@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using static TubesKelompok5.ListCV_1302223050;
 
 namespace TubesKelompok5
 {
-   public class ListCV_1302223050
+    public class ListCV_1302223050
     {
         //Constructor buat inisiasi list cv awal
         public ListCV_1302223050() { }
@@ -21,10 +23,25 @@ namespace TubesKelompok5
 
         public class CV
         {
-            private string Nama;
-            private string Pengalaman;
-            private string Edukasi;
-            private string Email;
+            [JsonPropertyName("Nama")]
+            public string Nama { get; set; }
+
+            [JsonPropertyName("Pengalaman")]
+            public string Pengalaman { get; set; }
+
+            [JsonPropertyName("Edukasi")]
+            public string Edukasi { get; set; }
+
+            [JsonPropertyName("Email")]
+            public string Email { get; set; }
+
+            public CV()
+            {
+                this.Nama = Nama;
+                this.Pengalaman = Pengalaman;
+                this.Edukasi = Edukasi;
+                this.Email = Email;
+            }
 
             public CV() { }
 
@@ -56,6 +73,26 @@ namespace TubesKelompok5
                 return Email;
             }
 
+
+            public void setNama(string nama)
+            {
+                this.Nama = nama;
+            }
+
+            public void setPengalaman(string pengalaman)
+            {
+                this.Pengalaman = pengalaman;
+            }
+
+            public void setEdukasi(string edukasi)
+            {
+                this.Edukasi = edukasi;
+            }
+
+            public void setEmail(string email)
+            {
+                this.Email = email;
+            }
         }
         //buat ngedapetin list mahasiswa terkini
         public List<CV> getListCV()
@@ -75,6 +112,14 @@ namespace TubesKelompok5
                 Console.WriteLine($"Email : {listcvMahasiswa[i].getEmail()} ");
             }
         }
+        public void showCV()
+        {
+            for (int i = 0; i < listcvMahasiswa.Count; i++)
+            {
+                Console.WriteLine($"Nama : {listcvMahasiswa[i].getNama()} ");
+                Console.WriteLine($"Email : {listcvMahasiswa[i].getEmail()} ");
+            }
+        }
 
         //buat
         public void addCVMahasiswa(CV CVMahasiswa, bool telahApply)
@@ -88,6 +133,81 @@ namespace TubesKelompok5
             }
         }
 
+        //method agar user dapat memasukkan inputan untuk upload CV
+        public ListCV_1302223050.CV uploadCV2()
+        {
+            ListCV_1302223050.CV tempCV = new ListCV_1302223050.CV();
+            Console.Write("Nama : ");
+            var nama = Console.ReadLine();
+            Debug.Assert(tempCV.setNama != null && nama.Length > 0);
+            tempCV.setNama(nama);
+            Console.Write("E-mail : ");
+            var email = Console.ReadLine();
+            Debug.Assert(tempCV.setEmail != null && email.Length > 0);
+            tempCV.setEmail(email);
+            Console.Write("Edukasi : ");
+            var edukasi = Console.ReadLine();
+            Debug.Assert(tempCV.setEdukasi != null && edukasi.Length > 0);
+            tempCV.setEdukasi(edukasi);
+            Console.Write("pengalaman :");
+            var pengalaman = Console.ReadLine();
+            Debug.Assert(tempCV.setPengalaman != null && edukasi.Length > 0);
+            tempCV.setPengalaman(pengalaman);
+            return tempCV;
+        }
+        public void seleksiCV()
+        {
+            showCV();
+            int cvIndex = int.Parse(Console.ReadLine());
+
+            if (cvIndex >= 0 && cvIndex < listcvMahasiswa.Count)
+            {
+                
+                CV selectedCv = listcvMahasiswa[cvIndex + 1];
+                showALLCVMahasiswa();
+
+                Console.Write("Masukkan penilaian CV (Layak/Tidak Layak): ");
+                string penilaian = Console.ReadLine();
+
+                // Memproses penilaian
+                if (penilaian.ToLower() == "tidak layak")
+                {
+                    // Hapus CV dari list
+                    listcvMahasiswa.RemoveAt(cvIndex+1);
+                    Console.WriteLine("CV telah dihapus dari lowongan.");
+                }
+                else
+                {
+                    Console.WriteLine("CV dinyatakan lulus.");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Index CV tidak valid.");
+            }
+        }
+        public ListCV_1302223050.CV testuploadCV2(string nama, string email, string edukasi,string pengalaman)
+        {
+            ListCV_1302223050.CV tempCV = new ListCV_1302223050.CV();
+            Console.Write("Nama : ");
+           
+            Debug.Assert(tempCV.setNama != null && nama.Length > 0);
+            tempCV.setNama(nama);
+            Console.Write("E-mail : ");
+           
+            Debug.Assert(tempCV.setEmail != null && email.Length > 0);
+            tempCV.setEmail(email);
+            Console.Write("Edukasi : ");
+           
+            Debug.Assert(tempCV.setEdukasi != null && edukasi.Length > 0);
+            tempCV.setEdukasi(edukasi);
+            Console.Write("pengalaman :");
+         
+            Debug.Assert(tempCV.setPengalaman != null && edukasi.Length > 0);
+            tempCV.setPengalaman(pengalaman);
+            return tempCV;
+        }
 
     }
 }
