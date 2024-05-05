@@ -63,5 +63,31 @@ namespace TubesKelompok5
         {
             //hapus user pake ID
         }
+
+        [HttpGet("profile")]
+        public async Task<IActionResult> GetProfile()
+        {
+            var user = HttpContext.Items["User"] as UserModel_1302220096;
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(userProfile);
+        }
+
+        [HttpPut("profile")]
+        public async Task<IActionResult> UpdateProfile(UserModel_1302220096 updatedProfile)
+        {
+            var user = HttpContext.Items["User"] as UserModel_1302220096;
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            // Update user profile data in the database or any other source
+
+            return Ok("Profile updated successfully.");
+        }
     }
 }

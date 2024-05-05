@@ -4,6 +4,7 @@ namespace TubesKelompok5
 {
     public class UserModel_1302220096
     {
+        //regsiter dan login
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
@@ -11,6 +12,8 @@ namespace TubesKelompok5
         public bool Success { get; set; }
         public string Message { get; set; }
         public string Data { get; set; }
+
+        public ProfileModel_1302220096 Profile { get; set; }
 
         public async Task<UserModel_1302220096> RegisterAsync(UserModel_1302220096 model)
         {
