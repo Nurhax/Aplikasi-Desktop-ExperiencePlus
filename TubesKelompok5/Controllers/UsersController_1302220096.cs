@@ -7,13 +7,18 @@ namespace TubesKelompok5
     [Route("api/[controller]")]
     public class UsersController_1302220096 : ControllerBase
     {
-        private readonly IUserService_1302220096 _userService;
-        private readonly IAuthService_1302220096 _authService;
-
+        private readonly AuthService_1302220096 _authService;
+        private readonly UserService_1302220096 _userService;
         public UsersController_1302220096()
         {
-            _userService = new UserService();
             _authService = new AuthService_1302220096();
+            _userService = new UserService_1302220096();
+        }
+        public class ServiceResponse<T>
+        {
+            public bool Success { get; set; }
+            public string Message { get; set; }
+            public T Data { get; set; }
         }
 
         [HttpPost("register")]
@@ -105,7 +110,7 @@ namespace TubesKelompok5
                 return Unauthorized();
             }
 
-            return Ok(userProfile);
+            return Ok();
         }
 
         [HttpPut("profile")]
