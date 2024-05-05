@@ -7,12 +7,12 @@ namespace TubesKelompok5
     [Route("api/[controller]")]
     public class UsersController_1302220096 : ControllerBase
     {
-        private readonly AuthService_1302220096 _authService;
-        private readonly UserService_1302220096 _userService;
+        private readonly Service_1302220096 _authService;
+        private readonly Service_1302220096 _userService;
         public UsersController_1302220096()
         {
-            _authService = new AuthService_1302220096();
-            _userService = new UserService_1302220096();
+            _authService = _authService;
+            _userService = _userService;
         }
         public class ServiceResponse<T>
         {
@@ -121,8 +121,6 @@ namespace TubesKelompok5
             {
                 return Unauthorized();
             }
-
-            // Update user profile data in the database or any other source
 
             return Ok("Profile updated successfully.");
         }
