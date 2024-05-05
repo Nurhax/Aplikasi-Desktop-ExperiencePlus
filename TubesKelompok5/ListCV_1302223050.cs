@@ -19,7 +19,7 @@ namespace TubesKelompok5
             listcvMahasiswa = listCVMahasiswa;
         }
         //variabel list buat naro data mahasiswa
-        private List<CV> listcvMahasiswa;
+        private List<CV> listcvMahasiswa = new List<CV>();
 
         public class CV
         {
@@ -41,6 +41,16 @@ namespace TubesKelompok5
                 this.Pengalaman = Pengalaman;
                 this.Edukasi = Edukasi;
                 this.Email = Email;
+            }
+
+            public CV() { }
+
+            public CV(string nama, string pengalaman, string edukasi, string email)
+            {
+                Nama = nama;
+                Pengalaman = pengalaman;
+                Edukasi = edukasi;
+                Email = email;
             }
 
             public string getNama()
@@ -93,7 +103,8 @@ namespace TubesKelompok5
         //buat nunjukin semua CV mahasiswa di jobListing tertentu
         public void showALLCVMahasiswa()
         {
-            for (int i = 0; i < listcvMahasiswa.Count; i++)
+            Debug.Assert(listcvMahasiswa != null);
+            for(int i = 0; i <  listcvMahasiswa.Count; i++)
             {
                 Console.WriteLine($"Nama : {listcvMahasiswa[i].getNama()} ");
                 Console.WriteLine($"Pengalaman : {listcvMahasiswa[i].getEdukasi()}");
@@ -114,6 +125,8 @@ namespace TubesKelompok5
         public void addCVMahasiswa(CV CVMahasiswa, bool telahApply)
         {
             //Buat nambahin CV mahasiswa setiap kali mahasiswa apply ke suatu lowongan
+            Debug.Assert(CVMahasiswa != null);
+
             if (telahApply)
             {
                 listcvMahasiswa.Add(CVMahasiswa);

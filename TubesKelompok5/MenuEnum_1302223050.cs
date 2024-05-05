@@ -10,7 +10,7 @@ namespace TubesKelompok5
     {
         public enum Konfirmasi
         {
-            Iya,
+            Iya ,
             Tidak
         }
 

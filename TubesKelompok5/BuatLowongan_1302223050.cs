@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
@@ -22,6 +23,8 @@ namespace TubesKelompok5
             private string deskripsiPekerjaan;
             private string syaratLowongan;
             private string periodeLowongan;
+            private int IDLowongan;
+            
 
 
             public Lowongan(string namaLowongan, string deskripsiPekerjaan, string syaratLowongan,string periodeLowongan) 
@@ -53,6 +56,12 @@ namespace TubesKelompok5
             }
 
 
+            public int getIDLowongan()
+            {
+                return IDLowongan;
+            }
+
+
             public void setdeskripsiPekerjaan(string deskripsi)
             {
                 deskripsiPekerjaan = deskripsi;
@@ -72,6 +81,13 @@ namespace TubesKelompok5
             {
                 namaLowongan = nama;
             }
+
+
+            public void setIDLowongan(int id)
+            {
+                IDLowongan = id;
+            }
+
         }
 
         public List<Lowongan> getlowonganPerusahaan()
@@ -118,16 +134,78 @@ namespace TubesKelompok5
 
             if (MenuEnum_1302223050.GetKonfirmasi(Menu) == 1)
             {
-                Lowongan lowongan = new Lowongan(setNamaLowongan, setDeskripsi, setSyarat, setPeriode);
+                Random random = new Random();
+                int IDLowongan = random.Next(9999,100000);
+                //int IDLowongan = listLowonganPerusahaan.Count;
+                Lowongan lowongan = new Lowongan();
+                lowongan.setIDLowongan(IDLowongan);
                 lowongan.setNamaLowongan(setNamaLowongan);
                 lowongan.setsyarat(setSyarat);
                 lowongan.setperiodeLowongan(setPeriode);
                 lowongan.setdeskripsiPekerjaan(setDeskripsi);
                 listLowonganPerusahaan.Add(lowongan);
+                Console.WriteLine("Lowongan berhasil dibuat!");
             }
             else
             {
                 Console.WriteLine("Lowongan tidak jadi ditambahkan!");
+            }
+        }
+
+        public void TestCreateLowongan()
+        {
+            string setNamaLowongan;
+            string setDeskripsi;
+            string setSyarat;
+            string setPeriode;
+            string konfirmasi;
+
+
+            //Mengisi deskripsi lowongan
+            Console.WriteLine("Masukkan judul/nama dari lowongan : ");
+            setNamaLowongan = "Software Engineering - Business Analyst";
+
+            Console.WriteLine("Masukkan deskripsi dari lowongan ini (gunakan underscore untuk spasi) : ");
+            setDeskripsi = "Bekerja sebagai business analyst untuk menjabarkan requirements yang didapatkan";
+
+            Console.WriteLine("Masukkan syarat dari lowongan ini:");
+            setSyarat = "Mahasiswa S1 RPL, Memiliki pengalaman 3 bulan dengan projek serupa";
+
+            Console.WriteLine("Masukkan tanggal dari lowongan terakhir dibuka (gunakan waktu per bulan)");
+            setPeriode = "03/06/2024";
+
+            Debug.Assert(setDeskripsi != null);
+            Debug.Assert(setSyarat != null);
+            Debug.Assert(setPeriode != null);
+            Debug.Assert(setNamaLowongan != null);
+            Console.WriteLine("Apakah kamu yakin?");
+            Console.WriteLine("1. iya");
+            Console.WriteLine("2. tidak");
+            konfirmasi = "1";
+            Debug.Assert(konfirmasi != null);
+            Debug.Assert(konfirmasi == "1" || konfirmasi == "2");
+
+            MenuEnum_1302223050.Konfirmasi Menu = (MenuEnum_1302223050.Konfirmasi)Convert.ToInt32(konfirmasi) - 1;
+
+            if (MenuEnum_1302223050.GetKonfirmasi(Menu) == 1)
+            {
+                Random random = new Random();
+                //int IDLowongan = random.Next(9999, 100000);
+                int IDLowongan = listLowonganPerusahaan.Count;
+                Lowongan lowongan = new Lowongan();
+                lowongan.setIDLowongan(IDLowongan);
+                lowongan.setNamaLowongan(setNamaLowongan);
+                lowongan.setsyarat(setSyarat);
+                lowongan.setperiodeLowongan(setPeriode);
+                lowongan.setdeskripsiPekerjaan(setDeskripsi);
+                listLowonganPerusahaan.Add(lowongan);
+                Console.WriteLine("Lowongan berhasil dibuat!");
+
+            }
+            else
+            {
+                Console.WriteLine("Lowongan tidak jadi ditambahkan!");
+
             }
         }
 
