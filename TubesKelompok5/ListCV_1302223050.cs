@@ -35,16 +35,7 @@ namespace TubesKelompok5
             [JsonPropertyName("Email")]
             public string Email { get; set; }
 
-            public CV()
-            {
-                this.Nama = Nama;
-                this.Pengalaman = Pengalaman;
-                this.Edukasi = Edukasi;
-                this.Email = Email;
-            }
-
             public CV() { }
-
             public CV(string nama, string pengalaman, string edukasi, string email)
             {
                 Nama = nama;
@@ -104,7 +95,7 @@ namespace TubesKelompok5
         public void showALLCVMahasiswa()
         {
             Debug.Assert(listcvMahasiswa != null);
-            for(int i = 0; i <  listcvMahasiswa.Count; i++)
+            for (int i = 0; i < listcvMahasiswa.Count; i++)
             {
                 Console.WriteLine($"Nama : {listcvMahasiswa[i].getNama()} ");
                 Console.WriteLine($"Pengalaman : {listcvMahasiswa[i].getEdukasi()}");
@@ -134,9 +125,9 @@ namespace TubesKelompok5
         }
 
         //method agar user dapat memasukkan inputan untuk upload CV
-        public ListCV_1302223050.CV uploadCV2()
+        public CV uploadCV2()
         {
-            ListCV_1302223050.CV tempCV = new ListCV_1302223050.CV();
+            CV tempCV = new CV();
             Console.Write("Nama : ");
             var nama = Console.ReadLine();
             Debug.Assert(tempCV.setNama != null && nama.Length > 0);
@@ -162,7 +153,7 @@ namespace TubesKelompok5
 
             if (cvIndex >= 0 && cvIndex < listcvMahasiswa.Count)
             {
-                
+
                 CV selectedCv = listcvMahasiswa[cvIndex + 1];
                 showALLCVMahasiswa();
 
@@ -173,7 +164,7 @@ namespace TubesKelompok5
                 if (penilaian.ToLower() == "tidak layak")
                 {
                     // Hapus CV dari list
-                    listcvMahasiswa.RemoveAt(cvIndex+1);
+                    listcvMahasiswa.RemoveAt(cvIndex + 1);
                     Console.WriteLine("CV telah dihapus dari lowongan.");
                 }
                 else
@@ -187,23 +178,23 @@ namespace TubesKelompok5
                 Console.WriteLine("Index CV tidak valid.");
             }
         }
-        public ListCV_1302223050.CV testuploadCV2(string nama, string email, string edukasi,string pengalaman)
+        public ListCV_1302223050.CV testuploadCV2(string nama, string email, string edukasi, string pengalaman)
         {
-            ListCV_1302223050.CV tempCV = new ListCV_1302223050.CV();
+            CV tempCV = new CV();
             Console.Write("Nama : ");
-           
+
             Debug.Assert(tempCV.setNama != null && nama.Length > 0);
             tempCV.setNama(nama);
             Console.Write("E-mail : ");
-           
+
             Debug.Assert(tempCV.setEmail != null && email.Length > 0);
             tempCV.setEmail(email);
             Console.Write("Edukasi : ");
-           
+
             Debug.Assert(tempCV.setEdukasi != null && edukasi.Length > 0);
             tempCV.setEdukasi(edukasi);
             Console.Write("pengalaman :");
-         
+
             Debug.Assert(tempCV.setPengalaman != null && edukasi.Length > 0);
             tempCV.setPengalaman(pengalaman);
             return tempCV;
