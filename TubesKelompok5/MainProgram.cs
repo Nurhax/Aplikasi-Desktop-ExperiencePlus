@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 public class MainProgram
 {
-    static async Task Main(string[] args)
+    public static async Task Main(string[] args)
     {
         Console.WriteLine("Selamat datang!");
         Console.WriteLine("Silakan pilih Role:");
