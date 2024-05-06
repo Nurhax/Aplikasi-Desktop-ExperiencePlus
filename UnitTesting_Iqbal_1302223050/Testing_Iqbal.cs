@@ -12,7 +12,7 @@ using TubesKelompok5;
         {
             //Arrange
             BuatLowongan_1302223050 testLowongan = new BuatLowongan_1302223050();
-            BuatLowongan_1302223050.Lowongan lowongan = new BuatLowongan_1302223050.Lowongan();
+            lowongan lowongan = new lowongan();
             lowongan.setNamaLowongan("Software Engineering - Business Analyst");
             lowongan.setdeskripsiPekerjaan("Bekerja sebagai business analyst untuk menjabarkan requirements yang didapatkan");
             lowongan.setsyarat("Mahasiswa S1 RPL, Memiliki pengalaman 3 bulan dengan projek serupa");

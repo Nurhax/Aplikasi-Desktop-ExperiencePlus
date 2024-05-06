@@ -64,11 +64,10 @@ namespace TubesKelompok5
                 int IDLowongan = random.Next(9999, 100000);
                 //int IDLowongan = listLowonganPerusahaan.Count;
                 lowongan lowongan = new lowongan();
-                lowongan.setIDLowongan(IDLowongan);
-                lowongan.setNamaLowongan(setNamaLowongan);
-                lowongan.setsyarat(setSyarat);
-                lowongan.setperiodeLowongan(setPeriode);
-                lowongan.setdeskripsiPekerjaan(setDeskripsi);
+                lowongan.nama = setNamaLowongan;
+                lowongan.deskripsi = setDeskripsi;
+                lowongan.syarat = setSyarat;
+                lowongan.periode = setPeriode;
                 listLowonganPerusahaan.Add(lowongan);
                 Console.WriteLine("Lowongan berhasil dibuat!");
             }
@@ -119,11 +118,10 @@ namespace TubesKelompok5
                 //int IDLowongan = random.Next(9999, 100000);
                 int IDLowongan = listLowonganPerusahaan.Count;
                 lowongan lowongan = new lowongan();
-                lowongan.setIDLowongan(IDLowongan);
-                lowongan.setNamaLowongan(setNamaLowongan);
-                lowongan.setsyarat(setSyarat);
-                lowongan.setperiodeLowongan(setPeriode);
-                lowongan.setdeskripsiPekerjaan(setDeskripsi);
+                lowongan.nama = setNamaLowongan;
+                lowongan.deskripsi = setDeskripsi;
+                lowongan.syarat = setSyarat;
+                lowongan.periode = setPeriode;
                 listLowonganPerusahaan.Add(lowongan);
                 Console.WriteLine("Lowongan berhasil dibuat!");
 
@@ -140,10 +138,10 @@ namespace TubesKelompok5
             Debug.Assert(listLowonganPerusahaan != null);
             foreach (lowongan data in listLowonganPerusahaan)
             {
-                Console.WriteLine($"Nama Lowongan       : {data.getNamaLowongan()}");
-                Console.WriteLine($"Deskripsi Lowongan  : {data.getdeskripsiPekerjaan()}");
-                Console.WriteLine($"Syarat Lowongan     : {data.getsyarat()}");
-                Console.WriteLine($"Periode Lowongan    : {data.getPeriode()}");
+                Console.WriteLine($"Nama Lowongan       : {data.nama}");
+                Console.WriteLine($"Deskripsi Lowongan  : {data.deskripsi}");
+                Console.WriteLine($"Syarat Lowongan     : {data.syarat}");
+                Console.WriteLine($"Periode Lowongan    : {data.periode}");
             }
         }
 
@@ -158,12 +156,12 @@ namespace TubesKelompok5
 
             foreach (lowongan data in listLowonganPerusahaan)
             {
-                if (posisi.ToLower() == data.getNamaLowongan().ToLower())
+                if (posisi.ToLower() == data.nama.ToLower())
                 {
-                    Console.WriteLine($"Nama Lowongan       : {data.getNamaLowongan()}");
-                    Console.WriteLine($"Deskripsi Lowongan  : {data.getdeskripsiPekerjaan()}");
-                    Console.WriteLine($"Syarat Lowongan     : {data.getsyarat()}");
-                    Console.WriteLine($"Periode Lowongan    : {data.getPeriode()}");
+                    Console.WriteLine($"Nama Lowongan       : {data.nama}");
+                    Console.WriteLine($"Deskripsi Lowongan  : {data.deskripsi}");
+                    Console.WriteLine($"Syarat Lowongan     : {data.syarat}");
+                    Console.WriteLine($"Periode Lowongan    : {data.periode}");
                 }
                 else
                 {
@@ -183,12 +181,12 @@ namespace TubesKelompok5
 
             foreach (lowongan data in listLowonganPerusahaan)
             {
-                if (posisi.ToLower() == data.getNamaLowongan().ToLower())
+                if (posisi.ToLower() == data.nama.ToLower())
                 {
-                    Console.WriteLine($"Nama Lowongan       : {data.getNamaLowongan()}");
-                    Console.WriteLine($"Deskripsi Lowongan  : {data.getdeskripsiPekerjaan()}");
-                    Console.WriteLine($"Syarat Lowongan     : {data.getsyarat()}");
-                    Console.WriteLine($"Periode Lowongan    : {data.getPeriode()}");
+                    Console.WriteLine($"Nama Lowongan       : {data.nama}");
+                    Console.WriteLine($"Deskripsi Lowongan  : {data.deskripsi}");
+                    Console.WriteLine($"Syarat Lowongan     : {data.syarat}");
+                    Console.WriteLine($"Periode Lowongan    : {data.periode}");
                 }
                 else
                 {

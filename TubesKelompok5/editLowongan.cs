@@ -11,7 +11,7 @@ namespace TubesKelompok5
 {
     public class editLowongan
     {
-        private const string filepath = "D:\\Tel U\\Semester 4\\KPL\\TUBES\\TubesKelompok5\\lowongan.json";
+        private const string filepath = "C:\\Users\\M.Iqbal Nurhaq\\source\\repos\\Aplikasi-Desktop-ExperiencePlus\\TubesKPLV1\\TubesKelompok5\\lowongan.json";
 
         public List<lowongan> readLowongan()
         {
@@ -26,7 +26,6 @@ namespace TubesKelompok5
         public void EditDeskripsi(List<lowongan> lowongan, int idx)
         {   
             // Meminta deskripsi baru dari pengguna
-            Console.Write("Masukkan deskripsi baru: ");
             string newDeskripsi = Console.ReadLine();
             Debug.Assert(newDeskripsi.Length <= 300, "Deskripsi lowongan tidak boleh lebih dari 300 karakter");
             Debug.Assert(newDeskripsi != "", "Deskripsi lowongan tidak boleh kosong");
@@ -42,7 +41,6 @@ namespace TubesKelompok5
         public void EditNama(List<lowongan> lowongan, int idx)
         {
             // Meminta nama baru dari pengguna
-            Console.Write("Masukkan nama baru: ");
             string newNama = Console.ReadLine();
             Debug.Assert(newNama.Length <= 45, "Nama lowongan tidak boleh lebih dari 45 karakter");
             Debug.Assert(newNama != "", "Nama lowongan tidak boleh kosong");
@@ -57,7 +55,6 @@ namespace TubesKelompok5
         public void EditSyarat(List<lowongan> lowongan, int idx)
         {
             // Meminta syarat baru dari pengguna
-            Console.Write("Masukkan syarat baru: ");
             string newSyarat = Console.ReadLine();
             Debug.Assert(newSyarat.Length <= 300, "Syarat lowongan tidak boleh lebih dari 300 karakter");
             Debug.Assert(newSyarat != "", "Syarat lowongan tidak boleh kosong");
@@ -73,7 +70,6 @@ namespace TubesKelompok5
         public void EditPeriode(List<lowongan> lowongan, int idx)
         {
             // Meminta periode baru dari pengguna
-            Console.Write("Masukkan periode baru: ");
             string newPeriode = Console.ReadLine();
             Debug.Assert(periodeFormat(newPeriode), "Format periode tidak valid. Format yang benar: 01/01/2000");
 
