@@ -1,0 +1,6 @@
+@APIKPL_HostAddress = http://localhost:5062
+
+GET {{APIKPL_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
