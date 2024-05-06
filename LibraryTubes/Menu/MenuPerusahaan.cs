@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryTubes.Menu
 {
-    internal class MenuPerusahaan
+    public class MenuPerusahaan
     {
-        public void menuPerusahaan()
+        public static void menuPerusahaan()
         {
             Console.WriteLine("=========================================");
             Console.WriteLine("             Experience Plus             ");

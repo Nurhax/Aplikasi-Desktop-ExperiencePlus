@@ -107,8 +107,8 @@ namespace TubesKelompok5
         {
             for (int i = 0; i < listcvMahasiswa.Count; i++)
             {
-                Console.WriteLine($"Nama : {listcvMahasiswa[i].getNama()} ");
-                Console.WriteLine($"Email : {listcvMahasiswa[i].getEmail()} ");
+                Console.WriteLine($"{i+1}. Nama : {listcvMahasiswa[i].getNama()} ");
+                Console.WriteLine($"   Email : {listcvMahasiswa[i].getEmail()} ");
             }
         }
 
@@ -149,22 +149,27 @@ namespace TubesKelompok5
         public void seleksiCV()
         {
             showCV();
-            int cvIndex = int.Parse(Console.ReadLine());
+            Console.Write("Pilih CV yang ingin dihapus/simpan:");
+            int cvIndex = Convert.ToInt16(Console.ReadLine())-1;
 
             if (cvIndex >= 0 && cvIndex < listcvMahasiswa.Count)
             {
+                Console.WriteLine();
+                CV selectedCv = listcvMahasiswa[cvIndex];
+                Console.WriteLine($"Nama : {listcvMahasiswa[cvIndex].getNama()} ");
+                Console.WriteLine($"Pengalaman : {listcvMahasiswa[cvIndex].getEdukasi()}");
+                Console.WriteLine($"Edukasi Terakhir : {listcvMahasiswa[cvIndex].getEdukasi()}");
+                Console.WriteLine($"Email : {listcvMahasiswa[cvIndex].getEmail()} ");
 
-                CV selectedCv = listcvMahasiswa[cvIndex + 1];
-                showALLCVMahasiswa();
-
-                Console.Write("Masukkan penilaian CV (Layak/Tidak Layak): ");
+                Console.WriteLine();
+                Console.Write("Masukkan Pilihan CV (Simpan/Hapus): ");
                 string penilaian = Console.ReadLine();
 
                 // Memproses penilaian
-                if (penilaian.ToLower() == "tidak layak")
+                if (penilaian.ToLower() == "hapus")
                 {
                     // Hapus CV dari list
-                    listcvMahasiswa.RemoveAt(cvIndex + 1);
+                    listcvMahasiswa.RemoveAt(cvIndex);
                     Console.WriteLine("CV telah dihapus dari lowongan.");
                 }
                 else

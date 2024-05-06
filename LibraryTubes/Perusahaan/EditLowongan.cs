@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryTubes.Perusahaan
 {
-    internal class EditLowongan
+    public class EditLowongan
     {
-        public void editLowongan()
+        public static void editLowongan()
         {
             Console.WriteLine("=========================================");
             Console.WriteLine("             Experience Plus             ");
@@ -23,7 +23,7 @@ namespace LibraryTubes.Perusahaan
             Console.WriteLine("=========================================");
         }
 
-        public void editNamaLowongan()
+        public static void editNamaLowongan()
         {
             Console.WriteLine("=========================================");
             Console.WriteLine("             Experience Plus             ");
@@ -32,10 +32,10 @@ namespace LibraryTubes.Perusahaan
             Console.WriteLine("  Menu Mengubah Data Lowongan Pekerjaan  ");
             Console.WriteLine("           Lengkapi data berikut         ");
             Console.WriteLine("                   ***                   ");
-            Console.Write("Masukkan nama lowongan baru:             ");
+            Console.Write("Masukkan nama lowongan baru: ");
         }
 
-        public void editDeskripsiLowongan()
+        public static void editDeskripsiLowongan()
         {
             Console.WriteLine("=========================================");
             Console.WriteLine("             Experience Plus             ");
@@ -44,11 +44,11 @@ namespace LibraryTubes.Perusahaan
             Console.WriteLine("  Menu Mengubah Data Lowongan Pekerjaan  ");
             Console.WriteLine("           Lengkapi data berikut         ");
             Console.WriteLine("                   ***                   ");
-            Console.WriteLine("Masukkan deskripsi lowongan baru:        ");
+            Console.Write("Masukkan deskripsi lowongan baru: ");
             
         }
 
-        public void editSyaratLowongan()
+        public static void editSyaratLowongan()
         {
             Console.WriteLine("=========================================");
             Console.WriteLine("             Experience Plus             ");
@@ -57,10 +57,10 @@ namespace LibraryTubes.Perusahaan
             Console.WriteLine("  Menu Mengubah Data Lowongan Pekerjaan  ");
             Console.WriteLine("           Lengkapi data berikut         ");
             Console.WriteLine("                   ***                   ");
-            Console.WriteLine("Masukkan syarat lowongan baru:           ");
+            Console.Write("Masukkan syarat lowongan baru: ");
         }
 
-        public void editPeriodeLowongan()
+        public static void editPeriodeLowongan()
         {
             Console.WriteLine("=========================================");
             Console.WriteLine("             Experience Plus             ");
@@ -69,7 +69,7 @@ namespace LibraryTubes.Perusahaan
             Console.WriteLine("  Menu Mengubah Data Lowongan Pekerjaan  ");
             Console.WriteLine("           Lengkapi data berikut         ");
             Console.WriteLine("                   ***                   ");
-            Console.WriteLine("Masukkan Periode lowongan baru          ");
+            Console.Write("Masukkan Periode lowongan baru: ");
         }
     }
 }

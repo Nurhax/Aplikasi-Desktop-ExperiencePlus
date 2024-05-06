@@ -41,21 +41,21 @@ namespace TubesKelompok5
         public void writeConfig()
         {
             
-            string json =("C:\\Kuliah\\kpl\\tubes KPL 2\\TubesKelompok5\\CVConfig1.json");
+            string json =("C:\\Users\\M.Iqbal Nurhaq\\source\\repos\\Aplikasi-Desktop-ExperiencePlus\\TubesKPLV1\\TubesKelompok5\\CVConfig1.json");
             string jsonData = JsonConvert.SerializeObject(CV, Formatting.Indented);
             File.WriteAllText( json, jsonData);
         }
         public void rewriteConfig()
         {
 
-            string json = ("C:\\Kuliah\\kpl\\tubes KPL 2\\TubesKelompok5\\CVConfig1.json");
+            string json = ("C:\\Users\\M.Iqbal Nurhaq\\source\\repos\\Aplikasi-Desktop-ExperiencePlus\\TubesKPLV1\\TubesKelompok5\\CVConfig1.json");
             string jsonData = JsonConvert.SerializeObject(list.uploadCV2(), Formatting.Indented);
             File.WriteAllText(json, jsonData);
         }
 
         public ListCV_1302223050.CV readConfig()
         {
-            string json = File.ReadAllText("C:\\Kuliah\\kpl\\tubes KPL 2\\TubesKelompok5\\CVConfig1.json");
+            string json = File.ReadAllText("C:\\Users\\M.Iqbal Nurhaq\\source\\repos\\Aplikasi-Desktop-ExperiencePlus\\TubesKPLV1\\TubesKelompok5\\CVConfig1.json");
             ListCV_1302223050.CV Cv = JsonConvert.DeserializeObject<ListCV_1302223050.CV>(json);
             return Cv;
         }

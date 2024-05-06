@@ -27,9 +27,9 @@ namespace TestUnitEditLowongan
                 StringReader stringReader = new StringReader(input);
                 Console.SetIn(stringReader);
 
-                editor.EditDeskripsi(lowongan, 1);
+                editor.EditNama(lowongan, 1);
 
-                Assert.AreEqual("Nama baru", lowongan[0].deskripsi);
+                Assert.AreEqual("Nama baru", lowongan[0].nama);
             }
             finally
             {
@@ -89,9 +89,9 @@ namespace TestUnitEditLowongan
                 StringReader stringReader = new StringReader(input);
                 Console.SetIn(stringReader);
 
-                editor.EditDeskripsi(lowongan, 1);
+                editor.EditSyarat(lowongan, 1);
 
-                Assert.AreEqual("Syarat baru", lowongan[0].deskripsi);
+                Assert.AreEqual("Syarat baru", lowongan[0].syarat);
             }
             finally
             {
@@ -120,9 +120,9 @@ namespace TestUnitEditLowongan
                 StringReader stringReader = new StringReader(input);
                 Console.SetIn(stringReader);
 
-                editor.EditDeskripsi(lowongan, 1);
+                editor.EditPeriode(lowongan, 1);
 
-                Assert.AreEqual("21/05/2024", lowongan[0].deskripsi);
+                Assert.AreEqual("21/05/2024", lowongan[0].periode);
             }
             finally
             {
