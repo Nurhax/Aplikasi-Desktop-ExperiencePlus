@@ -31,6 +31,7 @@ namespace TubesKelompok5
 
         public ProfileMahasiswa_1302220096 ProfileMHS { get; set; }
         public ProfilePerusahaan_1302220096 ProfileCompany { get; set; }
+        public Database Database { get; private set; }
 
         // Metode untuk registrasi dan login
         public async Task<UserModel_1302220096> RegisterAsync(UserModel_1302220096 model)
@@ -58,13 +59,13 @@ namespace TubesKelompok5
 
         private async Task<bool> CheckUsernameExistsAsync(string username)
         {
-            bool usernameExists = await Database.CheckUsernameExistsAsync(username);
+            bool usernameExists = await Database.CheckUsernameExists(username);
             return usernameExists;
         }
 
         private async Task<bool> CheckEmailExistsAsync(string email)
         {
-            bool emailExists = await Database.CheckEmailExistsAsync(email);
+            bool emailExists = await Database.CheckEmailExists(email);
             return emailExists;
         }
 

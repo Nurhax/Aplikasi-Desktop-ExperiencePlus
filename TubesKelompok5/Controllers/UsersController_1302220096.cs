@@ -7,12 +7,11 @@ namespace TubesKelompok5
     [Route("api/[controller]")]
     public class UsersController_1302220096 : ControllerBase
     {
-        private readonly Service_1302220096 _authService;
-        private readonly Service_1302220096 _userService;
+        
+        private readonly List<UserModel_1302220096> _UserModelList = new List<UserModel_1302220096>();
         public UsersController_1302220096()
         {
-            _authService = _authService;
-            _userService = _userService;
+            
         }
         public class ServiceResponse<T>
         {
@@ -22,84 +21,42 @@ namespace TubesKelompok5
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserModel_1302220096 model)
+        public IActionResult Register(UserModel_1302220096 model)
         {
-            var result = await _authService.RegisterAsync(model);
-
-            if (!result.Success)
+            if (string.IsNullOrEmpty(model.Username) || string.IsNullOrEmpty(model.Password))
             {
-                return BadRequest(result.Message);
+                return BadRequest("Username dan password harus diisi.");
             }
 
-            return Ok(result.Data);
+            return Ok("Registrasi berhasil.");
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserModel_1302220096 model)
+        public IActionResult Login(UserModel_1302220096 model)
         {
-            var result = await _authService.LoginAsync(model);
+            var user = _UserModelList.Find(u => u.Username == model.Username && u.Password == model.Password);
 
-            if (!result.Success)
+            if (user == null)
             {
-                return BadRequest(result.Message);
+                return BadRequest("Username atau password salah.");
             }
 
-            return Ok(result.Data);
+            return Ok("Login berhasil.");
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateUser(UserModel_1302220096 model)
+        [HttpPost("CreateUser")]
+        public IActionResult CreateUser(UserModel_1302220096 model)
         {
-            var result = await _userService.CreateUserAsync(model);
-
-            if (!result.Success)
+            if(User == null)
             {
-                return BadRequest(result.Message);
+                return BadRequest("Username Tidak Tersedia");
             }
-
-            return Ok(result.Data);
+            return Ok("Berhasil Membuat User");
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserById(int id)
-        {
-            var result = await _userService.GetUserByIdAsync(id);
-
-            if (!result.Success)
-            {
-                return NotFound();
-            }
-
-            return Ok(result.Data);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, UserModel_1302220096 model)
-        {
-            //update data user
-            var result = await _userService.UpdateUserAsync(id, model);
-
-            if (!result.Success)
-            {
-                return BadRequest(result.Message);
-            }
-
-            return Ok(result.Data);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
-        {
-            //hapus user pake ID
-            var result = await _userService.DeleteUserAsync(id);
-
-            if (!result.Success)
-            {
-                return BadRequest(result.Message);
-            }
-
-            return Ok(result.Data);
-        }
+        
+        //
+        
 
         [HttpGet("profile")]
         public async Task<IActionResult> GetProfile()
