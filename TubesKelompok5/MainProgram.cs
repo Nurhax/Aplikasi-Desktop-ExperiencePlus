@@ -27,7 +27,33 @@ public class MainProgram
 
                         break;
                     case "2":
+                        MenuMahasiswa.menuMahasiswa();
+                        Console.Write("Silahkan Pilih : ");
+                        string menuMahasiswa = Console.ReadLine();
+                        switch (menuMahasiswa)
+                        {
+                            case "1":
+                                CVConfig config = new CVConfig();
+                                if (menuMahasiswa != string.Empty)
+                                {
 
+                                }
+                                break;
+                            case "2":
+                                break;
+                            case "3":
+                                BuatLowongan_1302223050 lowongan = new BuatLowongan_1302223050();
+                                lowongan.ShowAllLowongan();
+                                break;
+                            case "4":
+                                BuatLowongan_1302223050 searching = new BuatLowongan_1302223050();
+                                searching.searchingLowongan();
+                                break;
+                            default:
+                                Console.WriteLine("Input pilihan yang valid");
+                                break;
+
+                        }
                         break;
                     case "3":
                         Console.WriteLine("Berikut adalah lowongan yang tersedia saat ini: ");

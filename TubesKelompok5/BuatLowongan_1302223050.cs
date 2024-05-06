@@ -142,6 +142,7 @@ namespace TubesKelompok5
                 Console.WriteLine($"Deskripsi Lowongan  : {data.deskripsi}");
                 Console.WriteLine($"Syarat Lowongan     : {data.syarat}");
                 Console.WriteLine($"Periode Lowongan    : {data.periode}");
+                Console.WriteLine("");
             }
         }
 
