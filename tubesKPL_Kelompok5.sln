@@ -1,4 +1,3 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
@@ -6,23 +5,21 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{57DC40B6-4431-4C41-8FB5-7D265B6A21C8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TubesKelompok5", "TubesKelompok5\TubesKelompok5.csproj", "{EDE43FD6-B92C-4528-8275-147B57C109B3}"
-
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting_Iqbal_1302223050", "UnitTesting_Iqbal_1302223050\UnitTesting_Iqbal_1302223050.csproj", "{6E04DDC5-9EC1-4230-A8AA-B79E05985652}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTesting_Iqbal_1302223050", "UnitTesting_Iqbal_1302223050\UnitTesting_Iqbal_1302223050.csproj", "{6E04DDC5-9EC1-4230-A8AA-B79E05985652}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MINGGU 10", "MINGGU 10\MINGGU 10.csproj", "{5DE5625D-A0B3-48AE-99A5-9E3231C65F48}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryTubes", "LibraryTubes\LibraryTubes.csproj", "{B844B064-9986-4D39-9587-55E867E56A0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestSearchLowongan", "UnitTestSearchLowongan\UnitTestSearchLowongan.csproj", "{72852290-8F0C-4CEB-A7B4-28EB9A185E3F}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{ABAF1CF8-D467-40D3-975B-FD3BAFA2D771}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUnitEditLowongan", "TestUnitEditLowongan\TestUnitEditLowongan.csproj", "{9129404D-FFC7-41A3-90BA-BBCBA06D3FF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestSearchLowongan", "UnitTestSearchLowongan\UnitTestSearchLowongan.csproj", "{72852290-8F0C-4CEB-A7B4-28EB9A185E3F}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{ABAF1CF8-D467-40D3-975B-FD3BAFA2D771}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestUnitEditLowongan", "TestUnitEditLowongan\TestUnitEditLowongan.csproj", "{9129404D-FFC7-41A3-90BA-BBCBA06D3FF2}"
 EndProject
-
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject_KalEl", "UnitTest_KalEl\TestProject_KalEl.csproj", "{A46E837D-9E24-45A8-AF45-DD86BBD0B10F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,7 +30,6 @@ Global
 		{EDE43FD6-B92C-4528-8275-147B57C109B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDE43FD6-B92C-4528-8275-147B57C109B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDE43FD6-B92C-4528-8275-147B57C109B3}.Release|Any CPU.Build.0 = Release|Any CPU
-
 		{6E04DDC5-9EC1-4230-A8AA-B79E05985652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E04DDC5-9EC1-4230-A8AA-B79E05985652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E04DDC5-9EC1-4230-A8AA-B79E05985652}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,17 +54,19 @@ Global
 		{9129404D-FFC7-41A3-90BA-BBCBA06D3FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9129404D-FFC7-41A3-90BA-BBCBA06D3FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9129404D-FFC7-41A3-90BA-BBCBA06D3FF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A46E837D-9E24-45A8-AF45-DD86BBD0B10F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A46E837D-9E24-45A8-AF45-DD86BBD0B10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A46E837D-9E24-45A8-AF45-DD86BBD0B10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A46E837D-9E24-45A8-AF45-DD86BBD0B10F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-
 		{6E04DDC5-9EC1-4230-A8AA-B79E05985652} = {57DC40B6-4431-4C41-8FB5-7D265B6A21C8}
 		{72852290-8F0C-4CEB-A7B4-28EB9A185E3F} = {57DC40B6-4431-4C41-8FB5-7D265B6A21C8}
 		{ABAF1CF8-D467-40D3-975B-FD3BAFA2D771} = {57DC40B6-4431-4C41-8FB5-7D265B6A21C8}
 	EndGlobalSection
-  
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {74DCFAC1-F2CB-43EE-9249-A012FE85935A}
 	EndGlobalSection

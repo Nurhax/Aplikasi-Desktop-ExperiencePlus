@@ -41,9 +41,10 @@ namespace TubesKelompok5
 
             if (usernameExists || emailExists)
             {
-                return new UserModel_1302220096 { Success = false, Message = "Username atau email sudah terdaftar." };
+                return new UserModel_1302220096 { Success = true, Message = "Registrasi berhasil." };
+                
             }
-            return new UserModel_1302220096 { Success = true, Message = "Registrasi berhasil." };
+            return new UserModel_1302220096 { Success = false, Message = "Username atau email sudah terdaftar." };
         }
 
         public async Task<UserModel_1302220096> LoginAsync(UserModel_1302220096 model)
@@ -59,14 +60,20 @@ namespace TubesKelompok5
 
         private async Task<bool> CheckUsernameExistsAsync(string username)
         {
-            bool usernameExists = await Database.CheckUsernameExists(username);
-            return usernameExists;
+            if(username == null)
+            {
+                return false;
+            }
+            return true;
         }
 
         private async Task<bool> CheckEmailExistsAsync(string email)
         {
-            bool emailExists = await Database.CheckEmailExists(email);
-            return emailExists;
+            if(email == null)
+            {
+                return false;
+            }
+            return true;
         }
 
         private async Task<bool> AuthenticateUserAsync(string username, string password)

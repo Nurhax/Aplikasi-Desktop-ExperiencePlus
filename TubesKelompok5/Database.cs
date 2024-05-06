@@ -21,10 +21,10 @@ namespace TubesKelompok5
             _perusahaanUsers.Add(user);
         }
 
-        public void CheckUsernameExists(UserRole user)
+        public void CheckUsernameExists(UserRole username)
         {
-            _mahasiswaUsers.Contains(user);
-            _perusahaanUsers.Contains(user);
+            _mahasiswaUsers.Contains(username);
+            _perusahaanUsers.Contains(username);
 
         }
         public void CheckEmailExists(UserRole email)

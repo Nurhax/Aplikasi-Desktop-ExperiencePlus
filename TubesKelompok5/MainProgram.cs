@@ -1,5 +1,6 @@
 using TubesKelompok5;
 using System;
+using System.Threading.Tasks;
 
 public class MainProgram
 {
@@ -35,26 +36,8 @@ public class MainProgram
         string password = Console.ReadLine();
         Console.Write("Email: ");
         string email = Console.ReadLine();
-        Console.WriteLine("Pilih Role:");
-        Console.WriteLine("1. Mahasiswa");
-        Console.WriteLine("2. Perusahaan");
-        Console.Write("Pilihan Anda: ");
-        string roleChoice = Console.ReadLine();
 
-        string role;
-        switch (roleChoice)
-        {
-            case "1":
-                role = "Mahasiswa";
-                break;
-            case "2":
-                role = "Perusahaan";
-                break;
-            default:
-                Console.WriteLine("Pilihan tidak valid.");
-                return;
-        }
-
+        // registrasi
         UserModel_1302220096 userModel = new UserModel_1302220096()
         {
             Username = username,
@@ -67,6 +50,7 @@ public class MainProgram
         if (result.Success)
         {
             Console.WriteLine("Registrasi berhasil: " + result.Message);
+            await Login(userModel);
         }
         else
         {
@@ -74,18 +58,30 @@ public class MainProgram
         }
     }
 
-    static async Task Login()
+    static async Task Login(UserModel_1302220096 registeredUser)
     {
         Console.WriteLine("\nLogin");
         Console.Write("Username: ");
         string username = Console.ReadLine();
         Console.Write("Password: ");
         string password = Console.ReadLine();
-        string roleChoice = Console.ReadLine();
 
-        BuatLowongan_1302223050 lowongan = new BuatLowongan_1302223050();
-        lowongan.CreateLowongan();
+        // Memeriksa apakah username dan password yang dimasukkan sesuai dengan yang terdaftar
+        if (username == registeredUser.Username && password == registeredUser.Password)
+        {
+            Console.WriteLine("Login berhasil. Selamat datang, " + registeredUser.Username + "!");
 
+            // Menampilkan data dari user yang telah login 
+            Console.WriteLine("");
+            Console.WriteLine("Data Profil:");
+            Console.WriteLine("Username: " + registeredUser.Username);
+            Console.WriteLine("Email: " + registeredUser.Email);
+            Console.WriteLine("Role: " + registeredUser.Role);
+        }
+        else
+        {
+            Console.WriteLine("Login gagal: Username atau password salah.");
+            Console.WriteLine("Silakan Login kembali.");
+        }
     }
 }
-
