@@ -1,4 +1,4 @@
-﻿using TubesKelompok5;
+using TubesKelompok5;
 using System;
 
 public class MainProgram
@@ -83,56 +83,9 @@ public class MainProgram
         string password = Console.ReadLine();
         string roleChoice = Console.ReadLine();
 
-        // Buat instance UserModel untuk login
-        UserModel_1302220096 userModel = new UserModel_1302220096
-        {
-            Username = username,
-            Password = password
-        };
+        BuatLowongan_1302223050 lowongan = new BuatLowongan_1302223050();
+        lowongan.CreateLowongan();
 
-        // Lakukan login
-        var result = await userModel.LoginAsync(userModel);
-        if (result.Success)
-        {
-            Console.WriteLine("Login berhasil: " + result.Message);
-            switch (roleChoice)
-            {
-                case "mahasiswa":
-                    var mahasiswaProfile = userModel.ProfileMHS;
-                    if (mahasiswaProfile != null)
-                    {
-                        Console.WriteLine($"Full Name: {mahasiswaProfile.FullName}");
-                        Console.WriteLine($"Age: {mahasiswaProfile.Age}");
-                        Console.WriteLine($"Phone Number: {mahasiswaProfile.PhoneNumber}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Data Profil Mahasiswa Tidak Ada.");
-                    }
-                    break;
-                case "perusahaan":
-                    var perusahaanProfile = userModel.ProfileCompany;
-                    if (perusahaanProfile != null)
-                    {
-                        Console.WriteLine($"Company Name: {perusahaanProfile.CompanyName}");
-                        Console.WriteLine($"Company Type: {perusahaanProfile.CompanyType}");
-                        Console.WriteLine($"Address: {perusahaanProfile.Address}");
-                        Console.WriteLine($"Phone Number: {perusahaanProfile.PhoneNumber}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Data Profil Perusahaan Tidak Ada.");
-                    }
-                    break;
-                default:
-                    Console.WriteLine("Peran pengguna tidak valid.");
-                    break;
-            }
-        }
-        else
-        {
-            Console.WriteLine("Login gagal: " + result.Message);
-        }
     }
 }
 
