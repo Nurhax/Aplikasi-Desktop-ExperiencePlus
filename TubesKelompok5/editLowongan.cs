@@ -11,7 +11,7 @@ namespace TubesKelompok5
 {
     public class editLowongan
     {
-        private const string filepath = "C:\\Users\\M.Iqbal Nurhaq\\source\\repos\\Aplikasi-Desktop-ExperiencePlus\\TubesKPLV1\\TubesKelompok5\\lowongan.json";
+        private const string filepath = "C:\\Kuliah\\kpl\\tubeskpl\\TubesKelompok5\\lowongan.json";
 
         public List<lowongan> readLowongan()
         {

@@ -1,6 +1,7 @@
 
 using TubesKelompok5;
 using static TubesKelompok5.ListCV_1302223050;
+using static TubesKelompok5.StatusLowongan;
 
 namespace TestProject
 {

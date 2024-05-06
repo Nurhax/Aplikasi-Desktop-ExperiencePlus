@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TubesKelompok5
 {
@@ -164,10 +165,6 @@ namespace TubesKelompok5
                     Console.WriteLine($"Syarat Lowongan     : {data.syarat}");
                     Console.WriteLine($"Periode Lowongan    : {data.periode}");
                 }
-                else
-                {
-                    Console.WriteLine("Lowongan Tidak Ditemukan!");
-                }
             }
         }
 
@@ -188,10 +185,6 @@ namespace TubesKelompok5
                     Console.WriteLine($"Deskripsi Lowongan  : {data.deskripsi}");
                     Console.WriteLine($"Syarat Lowongan     : {data.syarat}");
                     Console.WriteLine($"Periode Lowongan    : {data.periode}");
-                }
-                else
-                {
-                    Console.WriteLine("Lowongan Tidak Ditemukan!");
                 }
             }
         }

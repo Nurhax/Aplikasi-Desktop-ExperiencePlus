@@ -1,17 +1,21 @@
-﻿namespace LibraryTubes.Searching
+﻿
+namespace LibraryTubes.Searching
 {
-    public class Searchings<T>
+    public static class Searchings
     {
-        public int SequentialSearch(List<T> arr, string target)
-        {
-            for (int i = 0; i < arr.Count; i++)
+        
+     
+            public static T Search<T>(T[] array, Func<T, bool> predicate)
             {
-                if (arr[i].Equals(target))
+                foreach (var item in array)
                 {
-                    return i;
+                    if (predicate(item))
+                    {
+                        return item;
+                    }
                 }
+                return default(T);
             }
-            return -1;
-        }
+   
     }
 }
