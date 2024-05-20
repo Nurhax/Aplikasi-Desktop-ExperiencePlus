@@ -1,3 +1,5 @@
+using LoginDaftar;
+
 namespace Login
 {
     public partial class Form1 : Form
@@ -26,7 +28,10 @@ namespace Login
 
         private void label5_Click(object sender, EventArgs e)
         {
-
+            Form2 form = new Form2();
+            form.Tag = this;
+            form.Show();
+            Hide();
         }
     }
 }

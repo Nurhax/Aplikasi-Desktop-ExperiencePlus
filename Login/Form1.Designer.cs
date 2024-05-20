@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             panel1 = new Panel();
+            panel3 = new Panel();
+            label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -42,8 +44,7 @@
             label2 = new Label();
             panel2 = new Panel();
             label3 = new Label();
-            label8 = new Label();
-            panel3 = new Panel();
+            label9 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -80,6 +81,25 @@
             panel1.RightToLeft = RightToLeft.No;
             panel1.Size = new Size(611, 853);
             panel1.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
+            panel3.Location = new Point(67, 714);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(474, 95);
+            panel3.TabIndex = 11;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.Transparent;
+            label8.Location = new Point(274, 662);
+            label8.Name = "label8";
+            label8.Size = new Size(55, 31);
+            label8.TabIndex = 10;
+            label8.Text = "OR";
             // 
             // label7
             // 
@@ -135,6 +155,7 @@
             textBox2.PlaceholderText = "Password";
             textBox2.Size = new Size(526, 48);
             textBox2.TabIndex = 5;
+            textBox2.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox1
             // 
@@ -145,6 +166,7 @@
             textBox1.PlaceholderText = "Username";
             textBox1.Size = new Size(526, 48);
             textBox1.TabIndex = 4;
+            textBox1.TextAlign = HorizontalAlignment.Center;
             // 
             // button2
             // 
@@ -176,7 +198,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 63.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(39, 59);
+            label2.Location = new Point(39, 49);
             label2.Name = "label2";
             label2.Size = new Size(544, 96);
             label2.TabIndex = 1;
@@ -187,7 +209,7 @@
             panel2.BackColor = Color.Transparent;
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.ForeColor = Color.IndianRed;
-            panel2.Location = new Point(1078, 424);
+            panel2.Location = new Point(1050, 433);
             panel2.Name = "panel2";
             panel2.Size = new Size(59, 47);
             panel2.TabIndex = 2;
@@ -204,24 +226,18 @@
             label3.TabIndex = 3;
             label3.Text = "Experience++";
             // 
-            // label8
+            // label9
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.Transparent;
-            label8.Location = new Point(274, 662);
-            label8.Name = "label8";
-            label8.Size = new Size(55, 31);
-            label8.TabIndex = 10;
-            label8.Text = "OR";
-            // 
-            // panel3
-            // 
-            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
-            panel3.Location = new Point(67, 714);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(474, 95);
-            panel3.TabIndex = 11;
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(1094, 406);
+            label9.Name = "label9";
+            label9.Size = new Size(125, 86);
+            label9.TabIndex = 4;
+            label9.Text = "++";
+            label9.UseMnemonic = false;
             // 
             // Form1
             // 
@@ -229,8 +245,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1904, 1041);
-            Controls.Add(label3);
             Controls.Add(panel2);
+            Controls.Add(label9);
+            Controls.Add(label3);
             Controls.Add(panel1);
             Name = "Form1";
             Text = "Login";
@@ -258,5 +275,6 @@
         private Label label7;
         private Label label8;
         private Panel panel3;
+        private Label label9;
     }
 }

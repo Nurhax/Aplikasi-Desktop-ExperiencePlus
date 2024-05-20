@@ -1,3 +1,5 @@
+using LoginDaftar;
+
 namespace Login
 {
     internal static class Program
