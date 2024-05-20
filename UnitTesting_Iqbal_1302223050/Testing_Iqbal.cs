@@ -2,9 +2,10 @@ namespace UnitTesting_Iqbal_1302223050
 
 
 {
-using TubesKelompok5;
+    using TubesKelompok5;
+    using TubesKelompok5.Model;
 
-[TestClass]
+    [TestClass]
     public class Testing_Iqbal
     {
         [TestMethod]

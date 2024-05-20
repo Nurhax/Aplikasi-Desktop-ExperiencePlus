@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using TubesKelompok5;
+using TubesKelompok5.Model;
 using static TubesKelompok5.StatusLowongan;
 namespace TestUnitEditLowongan
 {
