@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             panel1 = new Panel();
-            button2 = new Button();
-            button1 = new Button();
+            SignUpButtonDaftar = new Button();
+            dummyUploadCompany = new Button();
             label2 = new Label();
             panel7 = new Panel();
             panel3 = new Panel();
-            textBox1 = new TextBox();
+            namaPT = new TextBox();
             panel8 = new Panel();
-            textBox2 = new TextBox();
+            AlamatPT = new TextBox();
             panel4 = new Panel();
             panel9 = new Panel();
             panel5 = new Panel();
-            textBox3 = new TextBox();
+            Username = new TextBox();
             panel10 = new Panel();
             panel6 = new Panel();
-            textBox4 = new TextBox();
+            Password = new TextBox();
             label3 = new Label();
             label1 = new Label();
             panel2 = new Panel();
@@ -59,8 +59,8 @@
             // panel1
             // 
             panel1.BackColor = Color.PaleTurquoise;
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(SignUpButtonDaftar);
+            panel1.Controls.Add(dummyUploadCompany);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel8);
@@ -71,30 +71,30 @@
             panel1.Size = new Size(941, 1080);
             panel1.TabIndex = 0;
             // 
-            // button2
+            // SignUpButtonDaftar
             // 
-            button2.BackColor = Color.DarkSlateGray;
-            button2.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(100, 750);
-            button2.Name = "button2";
-            button2.Size = new Size(614, 78);
-            button2.TabIndex = 18;
-            button2.Text = "Sign Up";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            SignUpButtonDaftar.BackColor = Color.DarkSlateGray;
+            SignUpButtonDaftar.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SignUpButtonDaftar.ForeColor = Color.White;
+            SignUpButtonDaftar.Location = new Point(100, 750);
+            SignUpButtonDaftar.Name = "SignUpButtonDaftar";
+            SignUpButtonDaftar.Size = new Size(614, 78);
+            SignUpButtonDaftar.TabIndex = 18;
+            SignUpButtonDaftar.Text = "Sign Up";
+            SignUpButtonDaftar.UseVisualStyleBackColor = false;
+            SignUpButtonDaftar.Click += button2_Click;
             // 
-            // button1
+            // dummyUploadCompany
             // 
-            button1.BackColor = Color.DarkSlateGray;
-            button1.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(100, 643);
-            button1.Name = "button1";
-            button1.Size = new Size(614, 78);
-            button1.TabIndex = 17;
-            button1.Text = "Upload Your Company Data";
-            button1.UseVisualStyleBackColor = false;
+            dummyUploadCompany.BackColor = Color.DarkSlateGray;
+            dummyUploadCompany.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dummyUploadCompany.ForeColor = Color.White;
+            dummyUploadCompany.Location = new Point(100, 643);
+            dummyUploadCompany.Name = "dummyUploadCompany";
+            dummyUploadCompany.Size = new Size(614, 78);
+            dummyUploadCompany.TabIndex = 17;
+            dummyUploadCompany.Text = "Upload Your Company Data";
+            dummyUploadCompany.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -111,7 +111,7 @@
             // 
             panel7.BackColor = Color.LightSeaGreen;
             panel7.Controls.Add(panel3);
-            panel7.Controls.Add(textBox1);
+            panel7.Controls.Add(namaPT);
             panel7.Location = new Point(100, 169);
             panel7.Name = "panel7";
             panel7.Size = new Size(614, 102);
@@ -126,39 +126,39 @@
             panel3.Size = new Size(44, 39);
             panel3.TabIndex = 9;
             // 
-            // textBox1
+            // namaPT
             // 
-            textBox1.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(70, 21);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Nama PT";
-            textBox1.Size = new Size(526, 48);
-            textBox1.TabIndex = 5;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            namaPT.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            namaPT.Location = new Point(70, 21);
+            namaPT.Multiline = true;
+            namaPT.Name = "namaPT";
+            namaPT.PlaceholderText = "Nama PT";
+            namaPT.Size = new Size(526, 48);
+            namaPT.TabIndex = 5;
+            namaPT.TextAlign = HorizontalAlignment.Center;
             // 
             // panel8
             // 
             panel8.BackColor = Color.LightSeaGreen;
-            panel8.Controls.Add(textBox2);
+            panel8.Controls.Add(AlamatPT);
             panel8.Controls.Add(panel4);
             panel8.Location = new Point(100, 288);
             panel8.Name = "panel8";
             panel8.Size = new Size(614, 91);
             panel8.TabIndex = 14;
             // 
-            // textBox2
+            // AlamatPT
             // 
-            textBox2.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(70, 19);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Alamat PT";
-            textBox2.ShortcutsEnabled = false;
-            textBox2.Size = new Size(526, 48);
-            textBox2.TabIndex = 6;
-            textBox2.TextAlign = HorizontalAlignment.Center;
-            textBox2.TextChanged += textBox2_TextChanged;
+            AlamatPT.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            AlamatPT.Location = new Point(70, 19);
+            AlamatPT.Multiline = true;
+            AlamatPT.Name = "AlamatPT";
+            AlamatPT.PlaceholderText = "Alamat PT";
+            AlamatPT.ShortcutsEnabled = false;
+            AlamatPT.Size = new Size(526, 48);
+            AlamatPT.TabIndex = 6;
+            AlamatPT.TextAlign = HorizontalAlignment.Center;
+            AlamatPT.TextChanged += textBox2_TextChanged;
             // 
             // panel4
             // 
@@ -172,7 +172,7 @@
             // 
             panel9.BackColor = Color.LightSeaGreen;
             panel9.Controls.Add(panel5);
-            panel9.Controls.Add(textBox3);
+            panel9.Controls.Add(Username);
             panel9.Location = new Point(100, 395);
             panel9.Name = "panel9";
             panel9.Size = new Size(614, 88);
@@ -187,23 +187,23 @@
             panel5.Size = new Size(44, 48);
             panel5.TabIndex = 11;
             // 
-            // textBox3
+            // Username
             // 
-            textBox3.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(70, 16);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Username";
-            textBox3.ShortcutsEnabled = false;
-            textBox3.Size = new Size(526, 48);
-            textBox3.TabIndex = 7;
-            textBox3.TextAlign = HorizontalAlignment.Center;
+            Username.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Username.Location = new Point(70, 16);
+            Username.Multiline = true;
+            Username.Name = "Username";
+            Username.PlaceholderText = "Username";
+            Username.ShortcutsEnabled = false;
+            Username.Size = new Size(526, 48);
+            Username.TabIndex = 7;
+            Username.TextAlign = HorizontalAlignment.Center;
             // 
             // panel10
             // 
             panel10.BackColor = Color.LightSeaGreen;
             panel10.Controls.Add(panel6);
-            panel10.Controls.Add(textBox4);
+            panel10.Controls.Add(Password);
             panel10.Location = new Point(100, 500);
             panel10.Name = "panel10";
             panel10.Size = new Size(614, 86);
@@ -218,17 +218,17 @@
             panel6.Size = new Size(44, 48);
             panel6.TabIndex = 12;
             // 
-            // textBox4
+            // Password
             // 
-            textBox4.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(70, 18);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Password";
-            textBox4.ShortcutsEnabled = false;
-            textBox4.Size = new Size(526, 48);
-            textBox4.TabIndex = 8;
-            textBox4.TextAlign = HorizontalAlignment.Center;
+            Password.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Password.Location = new Point(70, 18);
+            Password.Multiline = true;
+            Password.Name = "Password";
+            Password.PlaceholderText = "Password";
+            Password.ShortcutsEnabled = false;
+            Password.Size = new Size(526, 48);
+            Password.TabIndex = 8;
+            Password.TextAlign = HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -289,7 +289,7 @@
             Controls.Add(label3);
             Controls.Add(panel1);
             Name = "Form2";
-            Text = "Form2";
+            Text = "Daftar";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel7.ResumeLayout(false);
@@ -311,10 +311,10 @@
         private Label label3;
         private Label label1;
         private Panel panel2;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox AlamatPT;
+        private TextBox namaPT;
+        private TextBox Username;
+        private TextBox Password;
         private Panel panel4;
         private Panel panel3;
         private Panel panel6;
@@ -323,8 +323,8 @@
         private Panel panel8;
         private Panel panel10;
         private Panel panel9;
-        private Button button1;
-        private Button button2;
+        private Button dummyUploadCompany;
+        private Button SignUpButtonDaftar;
         private Label label9;
     }
 }

@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             panel1 = new Panel();
-            panel3 = new Panel();
+            DummyLogin = new Panel();
             label8 = new Label();
-            label7 = new Label();
+            ClickHere = new Label();
             label6 = new Label();
-            label5 = new Label();
+            SignUpButton = new Label();
             label4 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            button2 = new Button();
-            button1 = new Button();
+            passwordLogin = new TextBox();
+            usernameLogin = new TextBox();
+            LoginButtonLogin = new Button();
+            CompanyDummy = new Button();
             label2 = new Label();
             panel2 = new Panel();
             label3 = new Label();
@@ -63,16 +63,16 @@
             // panel1
             // 
             panel1.BackColor = Color.Teal;
-            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(DummyLogin);
             panel1.Controls.Add(label8);
-            panel1.Controls.Add(label7);
+            panel1.Controls.Add(ClickHere);
             panel1.Controls.Add(label6);
-            panel1.Controls.Add(label5);
+            panel1.Controls.Add(SignUpButton);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(passwordLogin);
+            panel1.Controls.Add(usernameLogin);
+            panel1.Controls.Add(LoginButtonLogin);
+            panel1.Controls.Add(CompanyDummy);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.ForeColor = SystemColors.ControlText;
@@ -82,13 +82,13 @@
             panel1.Size = new Size(611, 853);
             panel1.TabIndex = 1;
             // 
-            // panel3
+            // DummyLogin
             // 
-            panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
-            panel3.Location = new Point(67, 714);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(474, 95);
-            panel3.TabIndex = 11;
+            DummyLogin.BackgroundImage = (Image)resources.GetObject("DummyLogin.BackgroundImage");
+            DummyLogin.Location = new Point(67, 714);
+            DummyLogin.Name = "DummyLogin";
+            DummyLogin.Size = new Size(474, 95);
+            DummyLogin.TabIndex = 11;
             // 
             // label8
             // 
@@ -101,16 +101,16 @@
             label8.TabIndex = 10;
             label8.Text = "OR";
             // 
-            // label7
+            // ClickHere
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.SpringGreen;
-            label7.Location = new Point(377, 617);
-            label7.Name = "label7";
-            label7.Size = new Size(150, 31);
-            label7.TabIndex = 9;
-            label7.Text = "Click Here!";
+            ClickHere.AutoSize = true;
+            ClickHere.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ClickHere.ForeColor = Color.SpringGreen;
+            ClickHere.Location = new Point(377, 617);
+            ClickHere.Name = "ClickHere";
+            ClickHere.Size = new Size(150, 31);
+            ClickHere.TabIndex = 9;
+            ClickHere.Text = "Click Here!";
             // 
             // label6
             // 
@@ -123,17 +123,17 @@
             label6.TabIndex = 8;
             label6.Text = "Forgot Password?";
             // 
-            // label5
+            // SignUpButton
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.SpringGreen;
-            label5.Location = new Point(377, 572);
-            label5.Name = "label5";
-            label5.Size = new Size(180, 31);
-            label5.TabIndex = 7;
-            label5.Text = "Sign Up Here!";
-            label5.Click += label5_Click;
+            SignUpButton.AutoSize = true;
+            SignUpButton.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SignUpButton.ForeColor = Color.SpringGreen;
+            SignUpButton.Location = new Point(377, 572);
+            SignUpButton.Name = "SignUpButton";
+            SignUpButton.Size = new Size(180, 31);
+            SignUpButton.TabIndex = 7;
+            SignUpButton.Text = "Sign Up Here!";
+            SignUpButton.Click += label5_Click;
             // 
             // label4
             // 
@@ -146,52 +146,52 @@
             label4.TabIndex = 6;
             label4.Text = "Don't Have An Account?";
             // 
-            // textBox2
+            // passwordLogin
             // 
-            textBox2.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(39, 392);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Password";
-            textBox2.Size = new Size(526, 48);
-            textBox2.TabIndex = 5;
-            textBox2.TextAlign = HorizontalAlignment.Center;
+            passwordLogin.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            passwordLogin.Location = new Point(39, 392);
+            passwordLogin.Multiline = true;
+            passwordLogin.Name = "passwordLogin";
+            passwordLogin.PlaceholderText = "Password";
+            passwordLogin.Size = new Size(526, 48);
+            passwordLogin.TabIndex = 5;
+            passwordLogin.TextAlign = HorizontalAlignment.Center;
             // 
-            // textBox1
+            // usernameLogin
             // 
-            textBox1.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(39, 301);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Username";
-            textBox1.Size = new Size(526, 48);
-            textBox1.TabIndex = 4;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            usernameLogin.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usernameLogin.Location = new Point(39, 301);
+            usernameLogin.Multiline = true;
+            usernameLogin.Name = "usernameLogin";
+            usernameLogin.PlaceholderText = "Username";
+            usernameLogin.Size = new Size(526, 48);
+            usernameLogin.TabIndex = 4;
+            usernameLogin.TextAlign = HorizontalAlignment.Center;
             // 
-            // button2
+            // LoginButtonLogin
             // 
-            button2.BackColor = Color.DarkSlateGray;
-            button2.Font = new Font("Times New Roman", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(39, 468);
-            button2.Name = "button2";
-            button2.Size = new Size(526, 87);
-            button2.TabIndex = 3;
-            button2.Text = "Login";
-            button2.UseVisualStyleBackColor = false;
+            LoginButtonLogin.BackColor = Color.DarkSlateGray;
+            LoginButtonLogin.Font = new Font("Times New Roman", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LoginButtonLogin.ForeColor = Color.White;
+            LoginButtonLogin.Location = new Point(39, 468);
+            LoginButtonLogin.Name = "LoginButtonLogin";
+            LoginButtonLogin.Size = new Size(526, 87);
+            LoginButtonLogin.TabIndex = 3;
+            LoginButtonLogin.Text = "Login";
+            LoginButtonLogin.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // CompanyDummy
             // 
-            button1.BackColor = Color.DarkSlateGray;
-            button1.Font = new Font("Times New Roman", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(39, 184);
-            button1.Name = "button1";
-            button1.Size = new Size(526, 87);
-            button1.TabIndex = 2;
-            button1.Text = "Company";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            CompanyDummy.BackColor = Color.DarkSlateGray;
+            CompanyDummy.Font = new Font("Times New Roman", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CompanyDummy.ForeColor = Color.White;
+            CompanyDummy.Location = new Point(39, 184);
+            CompanyDummy.Name = "CompanyDummy";
+            CompanyDummy.Size = new Size(526, 87);
+            CompanyDummy.TabIndex = 2;
+            CompanyDummy.Text = "Company";
+            CompanyDummy.UseVisualStyleBackColor = false;
+            CompanyDummy.Click += button1_Click;
             // 
             // label2
             // 
@@ -264,17 +264,17 @@
         private Panel panel1;
         private Label label2;
         private Panel panel2;
-        private Button button1;
+        private Button CompanyDummy;
         private Label label3;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Button button2;
+        private TextBox passwordLogin;
+        private TextBox usernameLogin;
+        private Button LoginButtonLogin;
         private Label label4;
         private Label label6;
-        private Label label5;
-        private Label label7;
+        private Label SignUpButton;
+        private Label ClickHere;
         private Label label8;
-        private Panel panel3;
+        private Panel DummyLogin;
         private Label label9;
     }
 }
