@@ -29,5 +29,10 @@ namespace LoginDaftar
             form1.Show();
             Close();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
