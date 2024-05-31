@@ -179,6 +179,7 @@
             LoginButtonLogin.TabIndex = 3;
             LoginButtonLogin.Text = "Login";
             LoginButtonLogin.UseVisualStyleBackColor = false;
+            LoginButtonLogin.Click += LoginButtonLogin_Click;
             // 
             // CompanyDummy
             // 

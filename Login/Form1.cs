@@ -1,4 +1,5 @@
 using LoginDaftar;
+using System.Windows.Forms;
 
 namespace Login
 {
@@ -31,6 +32,19 @@ namespace Login
             Form2 form = new Form2();
             form.Tag = this;
             form.Show();
+            Hide();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void LoginButtonLogin_Click(object sender, EventArgs e)
+        {
+            Homepage homepage = new Homepage();
+            homepage.Tag = this;
+            homepage.Show();
             Hide();
         }
     }
