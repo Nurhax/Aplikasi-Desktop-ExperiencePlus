@@ -1,0 +1,46 @@
+[
+  {
+    "Username": "raga",
+    "Password": "raga",
+    "Lowongan": [
+      {
+        "Id": 1,
+        "Nama": "Software Developer",
+        "Syarat": "Master in Computer Science",
+        "Deskripsi": "create software using the Kotlin language and create APIs",
+        "Status": 0,
+        "Periode": "10/05/2024"
+      },
+      {
+        "Id": 2,
+        "Nama": "Soft Developer",
+        "Syarat": "Master Science",
+        "Deskripsi": "create Kotlin language and create APIs",
+        "Status": 0,
+        "Periode": "25/05/2024"
+      }
+    ]
+  },
+  {
+    "Username": "artur",
+    "Password": "artur",
+    "Lowongan": [
+      {
+        "Id": 3,
+        "Nama": "Developer",
+        "Syarat": "asd",
+        "Deskripsi": "asd",
+        "Status": 0,
+        "Periode": "18/05/2024"
+      },
+      {
+        "Id": 4,
+        "Nama": "asd Developer",
+        "Syarat": "Computer Science",
+        "Deskripsi": "create software using the Kotlin language",
+        "Status": 0,
+        "Periode": "20/05/2024"
+      }
+    ]
+  }
+]

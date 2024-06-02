@@ -1,0 +1,6 @@
+@APIforGUI_HostAddress = http://localhost:5056
+
+GET {{APIforGUI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
