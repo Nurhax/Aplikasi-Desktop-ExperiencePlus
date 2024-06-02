@@ -37,7 +37,7 @@ namespace Login
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void LoginButtonLogin_Click(object sender, EventArgs e)
@@ -46,6 +46,11 @@ namespace Login
             homepage.Tag = this;
             homepage.Show();
             Hide();
+        }
+
+        private void usernameLogin_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

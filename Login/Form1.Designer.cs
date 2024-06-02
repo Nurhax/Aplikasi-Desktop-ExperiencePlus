@@ -167,6 +167,7 @@
             usernameLogin.Size = new Size(526, 48);
             usernameLogin.TabIndex = 4;
             usernameLogin.TextAlign = HorizontalAlignment.Center;
+            usernameLogin.TextChanged += usernameLogin_TextChanged;
             // 
             // LoginButtonLogin
             // 

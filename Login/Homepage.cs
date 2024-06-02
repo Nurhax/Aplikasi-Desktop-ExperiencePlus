@@ -39,7 +39,10 @@ namespace LoginDaftar
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            BuatLowongan buatLowongan = new BuatLowongan();
+            buatLowongan.Tag = this;
+            buatLowongan.Show();
+            Hide();
         }
 
         private void label5_Click(object sender, EventArgs e)
