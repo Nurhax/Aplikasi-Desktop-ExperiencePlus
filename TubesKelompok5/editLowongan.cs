@@ -14,12 +14,12 @@ namespace TubesKelompok5
     {
         private const string filepath = "C:\\Kuliah\\kpl\\tubeskpl\\TubesKelompok5\\lowongan.json";
 
-        public List<Lowongan_1302223025> readLowongan()
+        public List<Lowongan_1302223025> ReadLowongan()
         {
             string jsonData = File.ReadAllText(filepath);
             return JsonConvert.DeserializeObject<List<Lowongan_1302223025>>(jsonData);   
         }
-        public void writeLowongan(List<Lowongan_1302223025> lowongan)
+        public void WriteLowongan(List<Lowongan_1302223025> lowongan)
         {
             string jsonData = JsonConvert.SerializeObject(lowongan, Formatting.Indented);
             File.WriteAllText(filepath, jsonData);
@@ -34,7 +34,7 @@ namespace TubesKelompok5
             lowongan[idx - 1].Deskripsi = newDeskripsi;
 
             // Menyimpan perubahan ke file JSON
-            writeLowongan(lowongan);
+            WriteLowongan(lowongan);
 
             Console.WriteLine("Deskripsi lowongan telah diperbarui.");
         }
@@ -49,7 +49,7 @@ namespace TubesKelompok5
             lowongan[idx - 1].Nama = newNama;
 
             // Menyimpan perubahan ke file JSON
-            writeLowongan(lowongan);
+            WriteLowongan(lowongan);
 
             Console.WriteLine("Nama lowongan telah diperbarui.");
         }
@@ -64,7 +64,7 @@ namespace TubesKelompok5
             lowongan[idx - 1].Syarat = newSyarat;
 
             // Menyimpan perubahan ke file JSON
-            writeLowongan(lowongan);
+            WriteLowongan(lowongan);
 
             Console.WriteLine("Syarat lowongan telah diperbarui.");
         }
@@ -78,7 +78,7 @@ namespace TubesKelompok5
             lowongan[idx - 1].Periode = newPeriode;
 
             // Menyimpan perubahan ke file JSON
-            writeLowongan(lowongan);
+            WriteLowongan(lowongan);
 
             Console.WriteLine("Periode lowongan telah diperbarui.");
         }

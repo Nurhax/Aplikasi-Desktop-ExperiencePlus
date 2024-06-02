@@ -12,6 +12,7 @@ public class MainProgram
 {
     public static void Main(string[] args)
     {
+
         Menu.MenuUtama();
         Console.Write("Pilih Menu : ");
         string pilih = Console.ReadLine();
@@ -68,7 +69,7 @@ public class MainProgram
                     case "3":
                         Console.WriteLine("Berikut adalah lowongan yang tersedia saat ini: ");
                         editLowongan edit = new editLowongan();
-                        var lowonganTersedia = edit.readLowongan();
+                        var lowonganTersedia = edit.ReadLowongan();
                         for (int i = 0; i < lowonganTersedia.Count; i++)
                         {
                             Console.WriteLine($"{i + 1}. {lowonganTersedia[i].Nama}");
@@ -98,7 +99,7 @@ public class MainProgram
                                 break;
                             case "2":
                                 editLowongan edit = new editLowongan();
-                                var lowongan = edit.readLowongan();
+                                var lowongan = edit.ReadLowongan();
                                 Console.WriteLine("Daftar Lowongan: ");
                                 for (int i = 0; i < lowongan.Count; i++)
                                 {
@@ -143,7 +144,7 @@ public class MainProgram
                             case "3":
                                 Console.Write("Pilih lowongan yang ingin dilihat list CV nya");
                                 editLowongan cekLowongan = new editLowongan();
-                                var cekLowongan2 = cekLowongan.readLowongan();
+                                var cekLowongan2 = cekLowongan.ReadLowongan();
                                 Console.WriteLine("Daftar Lowongan: ");
                                 for (int i = 0; i < cekLowongan2.Count; i++)
                                 {

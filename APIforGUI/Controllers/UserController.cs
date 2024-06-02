@@ -25,6 +25,22 @@ namespace APIforGUI.Controllers
             }
         }
 
+        // Singleton Instance.
+        private static PerusahaanController _instance;
+
+        // Public static method to get the instance.
+        public static PerusahaanController Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new PerusahaanController();
+                }
+                return _instance;
+            }
+        }
+
         private void LoadUsers()
         {
             if (System.IO.File.Exists(filePath))
