@@ -150,7 +150,6 @@ namespace TubesKelompok5
 
         public void searchingLowongan()
         {
-            /*BuatLowongan_1302223050.Lowongan lowongan = new BuatLowongan_1302223050.Lowongan();*/
 
             Console.WriteLine("Masukan posisi lowongan yang dicari: ");
             string posisi = Console.ReadLine();
