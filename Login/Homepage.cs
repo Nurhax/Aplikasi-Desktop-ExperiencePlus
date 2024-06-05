@@ -29,6 +29,10 @@ namespace LoginDaftar
 
         private void btnPostingan_Click(object sender, EventArgs e)
         {
+            Form3 form = new Form3();
+            form.Tag = this;
+            form.Show();
+            Hide();
 
         }
 
