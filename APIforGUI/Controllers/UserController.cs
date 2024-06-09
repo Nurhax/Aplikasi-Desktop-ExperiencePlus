@@ -25,6 +25,13 @@ namespace APIforGUI.Controllers
             }
         }
 
+        //Getuser non API untuk login
+        public List<User_1302223025> GetUsers()
+        {
+            return _users;
+        }
+        
+
         // Singleton Instance.
         private static PerusahaanController _instance;
 

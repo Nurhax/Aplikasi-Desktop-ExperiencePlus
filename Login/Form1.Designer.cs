@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             panel1 = new Panel();
+            ErrorPlaceHolder = new Label();
             DummyLogin = new Panel();
             label8 = new Label();
             ClickHere = new Label();
@@ -63,6 +64,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(ErrorPlaceHolder);
             panel1.Controls.Add(DummyLogin);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(ClickHere);
@@ -82,10 +84,21 @@
             panel1.Size = new Size(611, 853);
             panel1.TabIndex = 1;
             // 
+            // ErrorPlaceHolder
+            // 
+            ErrorPlaceHolder.AutoSize = true;
+            ErrorPlaceHolder.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ErrorPlaceHolder.ForeColor = Color.DarkRed;
+            ErrorPlaceHolder.Location = new Point(67, 558);
+            ErrorPlaceHolder.Name = "ErrorPlaceHolder";
+            ErrorPlaceHolder.Size = new Size(0, 24);
+            ErrorPlaceHolder.TabIndex = 12;
+            ErrorPlaceHolder.TextAlign = ContentAlignment.TopCenter;
+            // 
             // DummyLogin
             // 
             DummyLogin.BackgroundImage = (Image)resources.GetObject("DummyLogin.BackgroundImage");
-            DummyLogin.Location = new Point(67, 714);
+            DummyLogin.Location = new Point(67, 743);
             DummyLogin.Name = "DummyLogin";
             DummyLogin.Size = new Size(474, 95);
             DummyLogin.TabIndex = 11;
@@ -95,7 +108,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Transparent;
-            label8.Location = new Point(274, 662);
+            label8.Location = new Point(274, 691);
             label8.Name = "label8";
             label8.Size = new Size(55, 31);
             label8.TabIndex = 10;
@@ -106,7 +119,7 @@
             ClickHere.AutoSize = true;
             ClickHere.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ClickHere.ForeColor = Color.SpringGreen;
-            ClickHere.Location = new Point(377, 617);
+            ClickHere.Location = new Point(377, 646);
             ClickHere.Name = "ClickHere";
             ClickHere.Size = new Size(150, 31);
             ClickHere.TabIndex = 9;
@@ -117,7 +130,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(144, 617);
+            label6.Location = new Point(144, 646);
             label6.Name = "label6";
             label6.Size = new Size(227, 31);
             label6.TabIndex = 8;
@@ -128,7 +141,7 @@
             SignUpButton.AutoSize = true;
             SignUpButton.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SignUpButton.ForeColor = Color.SpringGreen;
-            SignUpButton.Location = new Point(377, 572);
+            SignUpButton.Location = new Point(377, 601);
             SignUpButton.Name = "SignUpButton";
             SignUpButton.Size = new Size(180, 31);
             SignUpButton.TabIndex = 7;
@@ -140,7 +153,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(67, 572);
+            label4.Location = new Point(67, 601);
             label4.Name = "label4";
             label4.Size = new Size(304, 31);
             label4.TabIndex = 6;
@@ -152,10 +165,13 @@
             passwordLogin.Location = new Point(39, 392);
             passwordLogin.Multiline = true;
             passwordLogin.Name = "passwordLogin";
+            passwordLogin.PasswordChar = '*';
             passwordLogin.PlaceholderText = "Password";
             passwordLogin.Size = new Size(526, 48);
             passwordLogin.TabIndex = 5;
             passwordLogin.TextAlign = HorizontalAlignment.Center;
+            passwordLogin.UseSystemPasswordChar = true;
+            passwordLogin.TextChanged += passwordLogin_TextChanged;
             // 
             // usernameLogin
             // 
@@ -268,7 +284,6 @@
         private Panel panel2;
         private Button CompanyDummy;
         private Label label3;
-        private TextBox passwordLogin;
         private TextBox usernameLogin;
         private Button LoginButtonLogin;
         private Label label4;
@@ -278,5 +293,7 @@
         private Label label8;
         private Panel DummyLogin;
         private Label label9;
+        private Label ErrorPlaceHolder;
+        private TextBox passwordLogin;
     }
 }
