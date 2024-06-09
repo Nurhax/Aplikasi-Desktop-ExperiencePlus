@@ -31,9 +31,9 @@ namespace Login
 
         private void label5_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2();
-            form.Tag = this;
-            form.Show();
+            Form2 Form = new Form2();
+            Form.Tag = this;
+            Form.Show();
             Hide();
         }
 

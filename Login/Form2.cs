@@ -35,5 +35,10 @@ namespace LoginDaftar
         {
 
         }
+
+        private void dummyUploadCompany_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

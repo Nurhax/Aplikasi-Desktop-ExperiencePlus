@@ -96,6 +96,7 @@
             dummyUploadCompany.TabIndex = 17;
             dummyUploadCompany.Text = "Upload Your Company Data";
             dummyUploadCompany.UseVisualStyleBackColor = false;
+            dummyUploadCompany.Click += dummyUploadCompany_Click;
             // 
             // label2
             // 
