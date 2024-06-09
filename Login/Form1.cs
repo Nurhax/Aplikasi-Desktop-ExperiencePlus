@@ -42,10 +42,19 @@ namespace Login
 
         private void LoginButtonLogin_Click(object sender, EventArgs e)
         {
-            Homepage homepage = new Homepage();
-            homepage.Tag = this;
-            homepage.Show();
-            Hide();
+            //Verifikasi login dengan secure code
+            try
+            {
+                Homepage homepage = new Homepage();
+                homepage.Tag = this;
+                homepage.Show();
+                Hide();
+            }
+            catch(ArgumentException EX)
+            {
+
+            }
+            
         }
 
         private void usernameLogin_TextChanged(object sender, EventArgs e)

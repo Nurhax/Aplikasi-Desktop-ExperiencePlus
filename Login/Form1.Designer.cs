@@ -252,7 +252,7 @@
             Controls.Add(label3);
             Controls.Add(panel1);
             Name = "Form1";
-            Text = "Login";
+            Text = " ";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

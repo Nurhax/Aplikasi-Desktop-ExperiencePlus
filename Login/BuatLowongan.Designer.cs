@@ -74,6 +74,7 @@
             button1.TabIndex = 9;
             button1.Text = "Buat Lowongan";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label5
             // 

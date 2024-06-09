@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             panel1 = new Panel();
+            label12 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -45,7 +46,6 @@
             label5 = new Label();
             label4 = new Label();
             pictureBox2 = new PictureBox();
-            label12 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -62,10 +62,22 @@
             panel1.Controls.Add(button1);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(panel2);
-            panel1.Location = new Point(1, 1);
+            panel1.Location = new Point(-10, -8);
             panel1.Name = "panel1";
-            panel1.Size = new Size(866, 1041);
+            panel1.Size = new Size(877, 1050);
             panel1.TabIndex = 0;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.Transparent;
+            label12.Font = new Font("Segoe UI", 48F);
+            label12.Image = (Image)resources.GetObject("label12.Image");
+            label12.Location = new Point(-141, 8);
+            label12.Name = "label12";
+            label12.Size = new Size(1009, 86);
+            label12.TabIndex = 12;
+            label12.Text = "                                                      ";
             // 
             // label3
             // 
@@ -236,18 +248,6 @@
             pictureBox2.TabIndex = 11;
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.Transparent;
-            label12.Font = new Font("Segoe UI", 48F);
-            label12.Image = (Image)resources.GetObject("label12.Image");
-            label12.Location = new Point(-141, 8);
-            label12.Name = "label12";
-            label12.Size = new Size(1009, 86);
-            label12.TabIndex = 12;
-            label12.Text = "                                                      ";
             // 
             // Form3
             // 

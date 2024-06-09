@@ -25,9 +25,10 @@ namespace LoginDaftar
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var form1 = (Form1)Tag;
-            form1.Show();
-            Close();
+            Form1 BackToLogin = new Form1();
+            BackToLogin.Tag = this;
+            BackToLogin.Show();
+            Dispose();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

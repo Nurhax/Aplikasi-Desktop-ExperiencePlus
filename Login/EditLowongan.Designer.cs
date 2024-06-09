@@ -56,10 +56,10 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(2, 2);
+            panel1.Location = new Point(-9, -8);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(970, 1048);
+            panel1.Size = new Size(981, 1058);
             panel1.TabIndex = 1;
             // 
             // button1
@@ -74,6 +74,7 @@
             button1.TabIndex = 9;
             button1.Text = "Edit Lowongan";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label5
             // 

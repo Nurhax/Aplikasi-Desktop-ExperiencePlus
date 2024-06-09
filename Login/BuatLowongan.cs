@@ -31,5 +31,14 @@ namespace LoginDaftar
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Message buatlowongan berhasil dibuat
+            Homepage BackToHomepage = new Homepage();
+            BackToHomepage.Tag = this;
+            BackToHomepage.Show();
+            Dispose();
+        }
     }
 }
