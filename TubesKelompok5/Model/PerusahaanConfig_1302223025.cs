@@ -8,7 +8,7 @@ using TubesKelompok5.Model;
 namespace TubesKelompok5
 {
 
-    public class User_1302223025
+    public class User_1302223025 
     {
         public string Username { get; set; }
         public string Password { get; set; }
@@ -19,6 +19,10 @@ namespace TubesKelompok5
             Username = username;
             Password = password;
             Lowongan = lowongan;
+        }
+        public List<Lowongan_1302223025> getLowongan()
+        {
+            return Lowongan;
         }
     }
 }

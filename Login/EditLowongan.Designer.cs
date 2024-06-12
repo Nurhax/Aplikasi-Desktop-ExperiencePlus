@@ -29,132 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditLowongan));
-            panel1 = new Panel();
-            button1 = new Button();
-            label5 = new Label();
-            textBox4 = new TextBox();
-            label4 = new Label();
-            textBox3 = new TextBox();
-            label3 = new Label();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            textBox1 = new TextBox();
             label1 = new Label();
+            textNama = new TextBox();
+            label2 = new Label();
+            textDeskripsi = new TextBox();
+            label3 = new Label();
+            textSyarat = new TextBox();
+            label4 = new Label();
+            textPeriode = new TextBox();
+            label5 = new Label();
+            buttonEdit = new Button();
+            panel1 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Teal;
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(-9, -8);
-            panel1.Margin = new Padding(3, 2, 3, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(981, 1058);
-            panel1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.DarkSlateGray;
-            button1.Font = new Font("Times New Roman", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(269, 838);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(374, 47);
-            button1.TabIndex = 9;
-            button1.Text = "Edit Lowongan";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.ButtonHighlight;
-            label5.Location = new Point(47, 623);
-            label5.Name = "label5";
-            label5.Size = new Size(120, 36);
-            label5.TabIndex = 8;
-            label5.Text = "Periode";
-            // 
-            // textBox4
-            // 
-            textBox4.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(237, 621);
-            textBox4.Margin = new Padding(3, 2, 3, 2);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(629, 44);
-            textBox4.TabIndex = 7;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(47, 364);
-            label4.Name = "label4";
-            label4.Size = new Size(105, 36);
-            label4.TabIndex = 6;
-            label4.Text = "Syarat";
-            // 
-            // textBox3
-            // 
-            textBox3.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(237, 362);
-            textBox3.Margin = new Padding(3, 2, 3, 2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(629, 44);
-            textBox3.TabIndex = 5;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(24, 495);
-            label3.Name = "label3";
-            label3.Size = new Size(143, 36);
-            label3.TabIndex = 4;
-            label3.Text = "Deskripsi";
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(237, 495);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(629, 44);
-            textBox2.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(70, 230);
-            label2.Name = "label2";
-            label2.Size = new Size(97, 36);
-            label2.TabIndex = 2;
-            label2.Text = "Nama";
-            // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(237, 228);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(629, 44);
-            textBox1.TabIndex = 1;
             // 
             // label1
             // 
@@ -168,6 +55,124 @@
             label1.TabIndex = 0;
             label1.Text = "                                                      ";
             label1.Click += label1_Click_1;
+            // 
+            // textNama
+            // 
+            textNama.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textNama.Location = new Point(237, 228);
+            textNama.Margin = new Padding(3, 2, 3, 2);
+            textNama.Name = "textNama";
+            textNama.Size = new Size(629, 44);
+            textNama.TabIndex = 1;
+            textNama.TextChanged += textNama_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(70, 230);
+            label2.Name = "label2";
+            label2.Size = new Size(97, 36);
+            label2.TabIndex = 2;
+            label2.Text = "Nama";
+            // 
+            // textDeskripsi
+            // 
+            textDeskripsi.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textDeskripsi.Location = new Point(237, 495);
+            textDeskripsi.Margin = new Padding(3, 2, 3, 2);
+            textDeskripsi.Name = "textDeskripsi";
+            textDeskripsi.Size = new Size(629, 44);
+            textDeskripsi.TabIndex = 3;
+            textDeskripsi.TextChanged += textDeskripsi_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(24, 495);
+            label3.Name = "label3";
+            label3.Size = new Size(143, 36);
+            label3.TabIndex = 4;
+            label3.Text = "Deskripsi";
+            // 
+            // textSyarat
+            // 
+            textSyarat.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textSyarat.Location = new Point(237, 362);
+            textSyarat.Margin = new Padding(3, 2, 3, 2);
+            textSyarat.Name = "textSyarat";
+            textSyarat.Size = new Size(629, 44);
+            textSyarat.TabIndex = 5;
+            textSyarat.TextChanged += textSyarat_TextChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ButtonHighlight;
+            label4.Location = new Point(47, 364);
+            label4.Name = "label4";
+            label4.Size = new Size(105, 36);
+            label4.TabIndex = 6;
+            label4.Text = "Syarat";
+            // 
+            // textPeriode
+            // 
+            textPeriode.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textPeriode.Location = new Point(237, 621);
+            textPeriode.Margin = new Padding(3, 2, 3, 2);
+            textPeriode.Name = "textPeriode";
+            textPeriode.Size = new Size(629, 44);
+            textPeriode.TabIndex = 7;
+            textPeriode.TextChanged += textPeriode_TextChanged;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Times New Roman", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Location = new Point(47, 623);
+            label5.Name = "label5";
+            label5.Size = new Size(120, 36);
+            label5.TabIndex = 8;
+            label5.Text = "Periode";
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.BackColor = Color.DarkSlateGray;
+            buttonEdit.Font = new Font("Times New Roman", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonEdit.ForeColor = SystemColors.ButtonHighlight;
+            buttonEdit.Location = new Point(269, 838);
+            buttonEdit.Margin = new Padding(3, 2, 3, 2);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(374, 47);
+            buttonEdit.TabIndex = 9;
+            buttonEdit.Text = "Edit Lowongan";
+            buttonEdit.UseVisualStyleBackColor = false;
+            buttonEdit.Click += button1_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(buttonEdit);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(textPeriode);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(textSyarat);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(textDeskripsi);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(textNama);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(-9, -8);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(981, 1058);
+            panel1.TabIndex = 1;
+            panel1.Paint += panel1_Paint;
             // 
             // EditLowongan
             // 
@@ -186,16 +191,16 @@
 
         #endregion
 
-        private Panel panel1;
-        private Button button1;
-        private Label label5;
-        private TextBox textBox4;
-        private Label label4;
-        private TextBox textBox3;
-        private Label label3;
-        private TextBox textBox2;
-        private Label label2;
-        private TextBox textBox1;
         private Label label1;
+        private TextBox textNama;
+        private Label label2;
+        private TextBox textDeskripsi;
+        private Label label3;
+        private TextBox textSyarat;
+        private Label label4;
+        private TextBox textPeriode;
+        private Label label5;
+        private Button buttonEdit;
+        private Panel panel1;
     }
 }
