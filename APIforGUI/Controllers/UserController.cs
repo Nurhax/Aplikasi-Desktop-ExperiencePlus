@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Text.Json;
 using TubesKelompok5;
 using TubesKelompok5.Model;
@@ -9,7 +10,7 @@ namespace APIforGUI.Controllers
     [Route("api/[controller]")]
     public class PerusahaanController : ControllerBase
     {
-        private const string filePath = "perusahaan.json";
+        private const string filePath = "D:\\Tel U\\Semester 4\\KPL\\TubesV3\\APIforGUI\\perusahaan.json";
         private List<User_1302223025> _users;
         private List<Lowongan_1302223025> _lowongan = new List<Lowongan_1302223025>();
 
@@ -17,7 +18,8 @@ namespace APIforGUI.Controllers
         {
             try
             {
-                LoadUsers(); // Load data dari file saat aplikasi dimulai
+                _users = LoadUsersFromFile(); // Load data dari file saat aplikasi dimulai
+                _lowongan = LoadLowonganFromFile();
             }
             catch (Exception ex)
             {
@@ -30,7 +32,7 @@ namespace APIforGUI.Controllers
         {
             return _users;
         }
-        
+
 
         // Singleton Instance.
         private static PerusahaanController _instance;
@@ -48,17 +50,15 @@ namespace APIforGUI.Controllers
             }
         }
 
-        private void LoadUsers()
+        private static List<User_1302223025> LoadUsersFromFile()
         {
-            if (System.IO.File.Exists(filePath))
+            if (!System.IO.File.Exists(filePath))
             {
-                string json = System.IO.File.ReadAllText(filePath);
-                _users = JsonSerializer.Deserialize<List<User_1302223025>>(json);
+                return new List<User_1302223025>();
             }
-            else
-            {
-                _users = new List<User_1302223025>();
-            }
+
+            string json = System.IO.File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<List<User_1302223025>>(json) ?? new List<User_1302223025>();
         }
 
         internal void SetUsers(List<User_1302223025> users)
@@ -68,8 +68,25 @@ namespace APIforGUI.Controllers
 
         private void SaveUsers()
         {
-            string json = JsonSerializer.Serialize(_users);
+            string json = JsonConvert.SerializeObject(_users);
             System.IO.File.WriteAllText(filePath, json);
+        }
+
+        private void SaveLowonganListToFile()
+        {
+            string json = JsonConvert.SerializeObject(_lowongan);
+            System.IO.File.WriteAllText("lowongan.json", json);
+        }
+
+        private static List<Lowongan_1302223025> LoadLowonganFromFile()
+        {
+            if (!System.IO.File.Exists("lowongan.json"))
+            {
+                return new List<Lowongan_1302223025>();
+            }
+
+            string json = System.IO.File.ReadAllText("lowongan.json");
+            return JsonConvert.DeserializeObject<List<Lowongan_1302223025>>(json) ?? new List<Lowongan_1302223025>();
         }
 
         [HttpGet]
@@ -92,7 +109,7 @@ namespace APIforGUI.Controllers
                 throw new ArgumentNullException(nameof(user));
             }
 
-            // Precondition: Email harus valid
+            // Precondition: Username harus valid
             if (string.IsNullOrWhiteSpace(user.Username))
             {
                 throw new ArgumentException("Username tidak boleh kosong", nameof(user.Username));
@@ -103,14 +120,55 @@ namespace APIforGUI.Controllers
             {
                 throw new ArgumentException("Password tidak boleh kosong", nameof(user.Password));
             }
-                       
-            // Precondition: Email harus unik
+
+            // Precondition: Username harus unik
             if (_users.Any(u => u.Username == user.Username))
             {
-                return Conflict("Email sudah terdaftar");
+                return Conflict("Username sudah terdaftar");
             }
 
-            // Operasi registrasi berhasil
+            // Menangani Lowongan
+            if (user.Lowongan != null)
+            {
+                foreach (var lowongan in user.Lowongan)
+                {
+                    // Cek apakah ada lowongan dengan ID yang sama
+                    if (_lowongan.Any(l => l.Id == lowongan.Id))
+                    {
+                        return Conflict($"Lowongan dengan ID {lowongan.Id} sudah ada");
+                    }
+
+                    // Pencarian ID kosong
+                    var emptyId = _lowongan.FirstOrDefault(l => l.Id == 0);
+                    if (emptyId != null)
+                    {
+                        // Gunakan ID yang kosong
+                        lowongan.Id = emptyId.Id;
+                        emptyId.Nama = lowongan.Nama;
+                        emptyId.Syarat = lowongan.Syarat;
+                        emptyId.Deskripsi = lowongan.Deskripsi;
+                        emptyId.Status = lowongan.Status;
+                        emptyId.Periode = lowongan.Periode;
+                    }
+                    else
+                    {
+                        // Cari ID yang belum digunakan
+                        int newId = 1;
+                        while (_lowongan.Any(l => l.Id == newId))
+                        {
+                            newId++;
+                        }
+                        lowongan.Id = newId;
+                        _lowongan.Add(lowongan);
+                    }
+                }
+            }
+            else
+            {
+                user.Lowongan = new List<Lowongan_1302223025>();
+            }
+
+            // Menambahkan pengguna baru ke daftar pengguna
             _users.Add(user);
             SaveUsers();
 
@@ -150,7 +208,7 @@ namespace APIforGUI.Controllers
                 return Unauthorized("Email atau password salah");
             }
 
-            return Ok(new { message = "Login berhasil"});
+            return Ok(new { message = "Login berhasil" });
         }
 
         [HttpPost("create-lowongan/{username}")]
@@ -182,7 +240,7 @@ namespace APIforGUI.Controllers
                 return Conflict("Lowongan dengan ID yang sama sudah ada");
             }
 
-            lowongan.Id = new int();
+            //lowongan.Id = new int();
             var emptyId = _lowongan.FirstOrDefault(l => l.Id == 0);
             if (emptyId != null)
             {
@@ -203,8 +261,16 @@ namespace APIforGUI.Controllers
                     newId++;
                 }
                 lowongan.Id = newId;
+            }
+            // Tambahkan Lowongan baru ke daftar pengguna
+            user.Lowongan.Add(lowongan);
+            
+            // Tambahkan lowongan baru ke daftar umum lowongan jika bukan menggunakan ID kosong
+            if (emptyId == null)
+            {
                 _lowongan.Add(lowongan);
             }
+            SaveLowonganListToFile();
             SaveUsers();
 
             return Ok("Lowongan berhasil dibuat");
@@ -229,18 +295,24 @@ namespace APIforGUI.Controllers
                 return NotFound("User tidak ditemukan");
             }
 
+            if (user.Lowongan == null)
+            {
+                return NotFound("User tidak memiliki lowongan");
+            }
+
             var lowongan = user.Lowongan.FirstOrDefault(l => l.Id == lowonganId);
             if (lowongan == null)
             {
                 return NotFound("Lowongan tidak ditemukan");
             }
-                        
+
             lowongan.Nama = updatedLowongan.Nama;
             lowongan.Syarat = updatedLowongan.Syarat;
             lowongan.Deskripsi = updatedLowongan.Deskripsi;
             lowongan.Status = updatedLowongan.Status;
             lowongan.Periode = updatedLowongan.Periode;
 
+            SaveLowonganListToFile();
             SaveUsers();
 
             return Ok("Lowongan berhasil diperbarui");
