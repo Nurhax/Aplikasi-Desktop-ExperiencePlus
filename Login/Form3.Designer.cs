@@ -30,24 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             panel1 = new Panel();
+            buttonEdit = new Button();
+            listView1 = new ListView();
+            buttonLoad = new Button();
             label12 = new Label();
             label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
             button1 = new Button();
-            pictureBox1 = new PictureBox();
             panel2 = new Panel();
-            label10 = new Label();
+            labelSyarat = new Label();
             label11 = new Label();
-            label9 = new Label();
+            labelDeskripsi = new Label();
             label8 = new Label();
-            label6 = new Label();
-            label7 = new Label();
             label5 = new Label();
-            label4 = new Label();
+            labelNama = new Label();
             pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -55,17 +52,45 @@
             // panel1
             // 
             panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(buttonEdit);
+            panel1.Controls.Add(listView1);
+            panel1.Controls.Add(buttonLoad);
             panel1.Controls.Add(label12);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(-10, -8);
             panel1.Name = "panel1";
             panel1.Size = new Size(877, 1050);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.Location = new Point(481, 339);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(75, 23);
+            buttonEdit.TabIndex = 16;
+            buttonEdit.Text = "Edit";
+            buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(126, 138);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(322, 224);
+            listView1.TabIndex = 15;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // buttonLoad
+            // 
+            buttonLoad.Location = new Point(481, 301);
+            buttonLoad.Name = "buttonLoad";
+            buttonLoad.Size = new Size(75, 23);
+            buttonLoad.TabIndex = 14;
+            buttonLoad.Text = "Load Data";
+            buttonLoad.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -73,7 +98,7 @@
             label12.BackColor = Color.Transparent;
             label12.Font = new Font("Segoe UI", 48F);
             label12.Image = (Image)resources.GetObject("label12.Image");
-            label12.Location = new Point(-141, 8);
+            label12.Location = new Point(-135, 17);
             label12.Name = "label12";
             label12.Size = new Size(1009, 86);
             label12.TabIndex = 12;
@@ -89,28 +114,6 @@
             label3.Size = new Size(0, 24);
             label3.TabIndex = 4;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(128, 440);
-            label2.Name = "label2";
-            label2.Size = new Size(211, 24);
-            label2.TabIndex = 4;
-            label2.Text = "<Alamat Perusahaan>";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(126, 365);
-            label1.Name = "label1";
-            label1.Size = new Size(260, 31);
-            label1.TabIndex = 3;
-            label1.Text = "<Nama Perusahaan>";
-            // 
             // button1
             // 
             button1.BackColor = Color.DarkCyan;
@@ -124,97 +127,63 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.MediumAquamarine;
-            pictureBox1.Location = new Point(126, 153);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(259, 193);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
             // panel2
             // 
             panel2.BackColor = Color.DarkCyan;
-            panel2.Controls.Add(label10);
+            panel2.Controls.Add(labelSyarat);
             panel2.Controls.Add(label11);
-            panel2.Controls.Add(label9);
+            panel2.Controls.Add(labelDeskripsi);
             panel2.Controls.Add(label8);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(label7);
             panel2.Controls.Add(label5);
-            panel2.Controls.Add(label4);
-            panel2.Location = new Point(127, 501);
+            panel2.Controls.Add(labelNama);
+            panel2.Location = new Point(126, 428);
             panel2.Name = "panel2";
             panel2.Size = new Size(665, 421);
             panel2.TabIndex = 0;
             // 
-            // label10
+            // labelSyarat
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = SystemColors.ButtonFace;
-            label10.Location = new Point(34, 290);
-            label10.Name = "label10";
-            label10.Size = new Size(424, 19);
-            label10.TabIndex = 11;
-            label10.Text = "<deskripsi persyaratan posisi yang sedang dibuka pelamaran>";
+            labelSyarat.AutoSize = true;
+            labelSyarat.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelSyarat.ForeColor = SystemColors.ButtonFace;
+            labelSyarat.Location = new Point(34, 208);
+            labelSyarat.Name = "labelSyarat";
+            labelSyarat.Size = new Size(424, 19);
+            labelSyarat.TabIndex = 11;
+            labelSyarat.Text = "<deskripsi persyaratan posisi yang sedang dibuka pelamaran>";
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = SystemColors.ButtonFace;
-            label11.Location = new Point(34, 255);
+            label11.Location = new Point(34, 184);
             label11.Name = "label11";
             label11.Size = new Size(126, 24);
             label11.TabIndex = 10;
             label11.Text = "Persyaratan:";
             // 
-            // label9
+            // labelDeskripsi
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.ButtonFace;
-            label9.Location = new Point(34, 204);
-            label9.Name = "label9";
-            label9.Size = new Size(340, 19);
-            label9.TabIndex = 9;
-            label9.Text = "<deskripsi posisi yang sedang dibuka pelamaran>";
+            labelDeskripsi.AutoSize = true;
+            labelDeskripsi.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelDeskripsi.ForeColor = SystemColors.ButtonFace;
+            labelDeskripsi.Location = new Point(34, 126);
+            labelDeskripsi.Name = "labelDeskripsi";
+            labelDeskripsi.Size = new Size(340, 19);
+            labelDeskripsi.TabIndex = 9;
+            labelDeskripsi.Text = "<deskripsi posisi yang sedang dibuka pelamaran>";
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = SystemColors.ButtonFace;
-            label8.Location = new Point(34, 169);
+            label8.Location = new Point(34, 102);
             label8.Name = "label8";
             label8.Size = new Size(188, 24);
             label8.TabIndex = 8;
             label8.Text = "Deskripsi Pekerjaan";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = SystemColors.ButtonFace;
-            label6.Location = new Point(34, 128);
-            label6.Name = "label6";
-            label6.Size = new Size(162, 19);
-            label6.TabIndex = 6;
-            label6.Text = "<Gaji Posisi Lamaran>";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.ButtonFace;
-            label7.Location = new Point(34, 104);
-            label7.Name = "label7";
-            label7.Size = new Size(151, 24);
-            label7.TabIndex = 7;
-            label7.Text = "<Lokasi Kerja>";
             // 
             // label5
             // 
@@ -223,20 +192,19 @@
             label5.ForeColor = SystemColors.ButtonFace;
             label5.Location = new Point(34, 63);
             label5.Name = "label5";
-            label5.Size = new Size(149, 19);
+            label5.Size = new Size(0, 19);
             label5.TabIndex = 5;
-            label5.Text = "<Nama Perusahaan>";
             // 
-            // label4
+            // labelNama
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ButtonFace;
-            label4.Location = new Point(34, 39);
-            label4.Name = "label4";
-            label4.Size = new Size(232, 24);
-            label4.TabIndex = 5;
-            label4.Text = "<Nama Posisi Lamaran>";
+            labelNama.AutoSize = true;
+            labelNama.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelNama.ForeColor = SystemColors.ButtonFace;
+            labelNama.Location = new Point(34, 39);
+            labelNama.Name = "labelNama";
+            labelNama.Size = new Size(232, 24);
+            labelNama.TabIndex = 5;
+            labelNama.Text = "<Nama Posisi Lamaran>";
             // 
             // pictureBox2
             // 
@@ -255,7 +223,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkCyan;
             BackgroundImage = Properties.Resources.BG;
-            ClientSize = new Size(1904, 1041);
+            ClientSize = new Size(1370, 749);
             Controls.Add(pictureBox2);
             Controls.Add(panel1);
             Name = "Form3";
@@ -263,7 +231,6 @@
             Load += Form3_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -274,20 +241,18 @@
 
         private Panel panel1;
         private Panel panel2;
-        private PictureBox pictureBox1;
         private Button button1;
-        private Label label1;
         private Label label3;
-        private Label label2;
-        private Label label9;
+        private Label labelDeskripsi;
         private Label label8;
-        private Label label6;
-        private Label label7;
         private Label label5;
-        private Label label4;
-        private Label label10;
+        private Label labelNama;
+        private Label labelSyarat;
         private Label label11;
         private PictureBox pictureBox2;
         private Label label12;
+        private Button buttonLoad;
+        private ListView listView1;
+        private Button buttonEdit;
     }
 }
