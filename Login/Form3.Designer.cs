@@ -66,33 +66,33 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(877, 1050);
             panel1.TabIndex = 0;
-            
             // 
             // listBox1
             // 
             listBox1.BackColor = Color.DarkCyan;
+            listBox1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
+            listBox1.ItemHeight = 21;
             listBox1.Location = new Point(126, 163);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(325, 199);
+            listBox1.Size = new Size(325, 193);
             listBox1.TabIndex = 17;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // buttonEdit
             // 
-            buttonEdit.Location = new Point(481, 339);
+            buttonEdit.Location = new Point(126, 376);
             buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(75, 23);
+            buttonEdit.Size = new Size(160, 32);
             buttonEdit.TabIndex = 16;
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = true;
             // 
             // buttonLoad
             // 
-            buttonLoad.Location = new Point(481, 301);
+            buttonLoad.Location = new Point(457, 163);
             buttonLoad.Name = "buttonLoad";
-            buttonLoad.Size = new Size(75, 23);
+            buttonLoad.Size = new Size(60, 45);
             buttonLoad.TabIndex = 14;
             buttonLoad.Text = "Refresh";
             buttonLoad.UseVisualStyleBackColor = true;
@@ -235,7 +235,6 @@
             Controls.Add(panel1);
             Name = "Form3";
             Text = "Form3";
-            
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

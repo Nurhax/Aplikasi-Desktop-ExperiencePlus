@@ -9,55 +9,58 @@ namespace LoginDaftar
 {
     public partial class Form3 : Form
     {
+        // Menghubungkan dengan API
         private static readonly HttpClient httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7102/") };
         private List<Lowongan> jobs = new List<Lowongan>();
 
+        // Merefresh konten listBox saat tombol 'refresh' diklik
         public Form3()
         {
             InitializeComponent();
-            buttonLoad.Click += buttonLoad_Click; // Event handler for the Load button
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged; // Event handler for item selection
+            buttonLoad.Click += buttonLoad_Click;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
         }
 
-        // Event handler for the Load button
+        // Event handler untuk tombol 'Refresh'
         private async void buttonLoad_Click(object sender, EventArgs e)
         {
-            await LoadJobsFromApi("api/Lowongan"); // Pass the API endpoint to the method
+            await LoadJobsFromApi("api/Lowongan");
         }
 
-        // Method to load jobs from the API
+        // Method untuk mengambil data lowongan melalui API
         private async Task LoadJobsFromApi(string apiUrl)
         {
             try
             {
-                HttpResponseMessage response = await httpClient.GetAsync(apiUrl); // Send GET request
-                response.EnsureSuccessStatusCode(); // Ensure the request was successful
+                HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
+                response.EnsureSuccessStatusCode();
 
-                string jsonData = await response.Content.ReadAsStringAsync(); // Read the response content
-                jobs = JsonConvert.DeserializeObject<List<Lowongan>>(jsonData); // Deserialize JSON to list of jobs
+                string jsonData = await response.Content.ReadAsStringAsync();
+                jobs = JsonConvert.DeserializeObject<List<Lowongan>>(jsonData);
 
-                // Bind the data to the ListBox
-                listBox1.Items.Clear(); // Clear any existing items
-                foreach (var job in jobs)
+
+                listBox1.Items.Clear();
+                foreach (var lowongan in jobs)
                 {
-                    listBox1.Items.Add(job.Nama); // Add each job's name to the ListBox
+                    listBox1.Items.Add(lowongan.Nama);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading data from API: {ex.Message}");
+                MessageBox.Show($"Gagal Memuat Data Dari API: {ex.Message}");
             }
         }
 
-        // Event handler for item selection in the ListBox
+        // Event Handler untuk nama lowongan yang dipilih pada listBox
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex >= 0 && listBox1.SelectedIndex < jobs.Count) // Check if a valid item is selected
+            if (listBox1.SelectedIndex >= 0 && listBox1.SelectedIndex < jobs.Count)
             {
-                var selectedJob = jobs[listBox1.SelectedIndex]; // Get the selected job based on the index
-                labelNama.Text = selectedJob.Nama;
-                labelDeskripsi.Text = selectedJob.Deskripsi;
-                labelSyarat.Text = selectedJob.Syarat;
+                // Memunculkan detail lowongan berdasarkan nama lowongan yang dipilih
+                var lowonganKlik = jobs[listBox1.SelectedIndex];
+                labelNama.Text = lowonganKlik.Nama;
+                labelDeskripsi.Text = lowonganKlik.Deskripsi;
+                labelSyarat.Text = lowonganKlik.Syarat;
             }
         }
 
