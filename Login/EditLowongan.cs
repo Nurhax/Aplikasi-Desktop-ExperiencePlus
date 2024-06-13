@@ -20,12 +20,12 @@ namespace LoginDaftar
 {
     public partial class EditLowongan : Form
     {
-        private int indexList = 0;
-        private readonly string apiUrl = "https://localhost:7102";
+        private int IndexList = 0;
+        private readonly string ApiUrl = "https://localhost:7102";
         public EditLowongan(int indexList)
         {
             InitializeComponent();
-            this.indexList = indexList;
+            this.IndexList = indexList;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace LoginDaftar
 
 
                 // Validasi apakah nilai input sama dengan nilai yang ada
-                if (textNama.Text == editLowongan.GetLowongan()[indexList].Nama && textDeskripsi.Text == editLowongan.GetLowongan()[indexList].Deskripsi && textSyarat.Text == editLowongan.GetLowongan()[indexList].Syarat && textPeriode.Text == editLowongan.GetLowongan()[indexList].Periode)
+                if (textNama.Text == editLowongan.GetLowongan()[IndexList].Nama && textDeskripsi.Text == editLowongan.GetLowongan()[IndexList].Deskripsi && textSyarat.Text == editLowongan.GetLowongan()[IndexList].Syarat && textPeriode.Text == editLowongan.GetLowongan()[IndexList].Periode)
                 {
                     throw new ArgumentException("Tidak ada perubahan pada kolom.");
                 }
@@ -81,7 +81,7 @@ namespace LoginDaftar
                 // Membuat objek untuk lowongan yang mau diedit
                 Lowongan_1302223025 editLowonganTersedia = new Lowongan_1302223025
                 {
-                    Id = editLowongan.GetLowongan()[indexList].Id,  // Pastikan ID tetap sama
+                    Id = editLowongan.GetLowongan()[IndexList].Id,  // Pastikan ID tetap sama
                     Nama = textNama.Text,
                     Syarat = textSyarat.Text,
                     Deskripsi = textDeskripsi.Text,
@@ -98,7 +98,7 @@ namespace LoginDaftar
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                     
                     // Kirim permintaan PUT ke API
-                    HttpResponseMessage response = await client.PutAsync(apiUrl + "/edit/" + editLowongan.GetLowongan()[indexList].Id, new StringContent(jsonLowongan, Encoding.UTF8, "application/json"));
+                    HttpResponseMessage response = await client.PutAsync(ApiUrl + "/edit/" + editLowongan.GetLowongan()[IndexList].Id, new StringContent(jsonLowongan, Encoding.UTF8, "application/json"));
 
                     // Tanggapi hasil dari API
                     if (response.IsSuccessStatusCode)
