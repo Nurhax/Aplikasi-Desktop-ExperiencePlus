@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using TubesKelompok5.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LoginDaftar
@@ -26,7 +27,7 @@ namespace LoginDaftar
             string jsonFilePath = Path.Combine(Application.StartupPath, "D:\\KPLFinal\\APIforGUI\\lowongan.json");
 
             string jsonData = File.ReadAllText(jsonFilePath);
-            List<Job> jobs = JsonConvert.DeserializeObject<List<Job>>(jsonData);
+            List<Lowongan_1302223025> jobs = JsonConvert.DeserializeObject<List<Lowongan_1302223025>>(jsonData);
             listBox1.Items.Clear();
             foreach (var job in jobs)
             {
@@ -40,7 +41,7 @@ namespace LoginDaftar
         {
             if (e.IsSelected)
             {
-                var selectedJob = (Job)e.Item.Tag;
+                var selectedJob = (Lowongan_1302223025)e.Item.Tag;
                 labelNama.Text = selectedJob.Nama;
                 labelDeskripsi.Text = selectedJob.Deskripsi;
                 labelSyarat.Text = selectedJob.Syarat;
@@ -88,15 +89,5 @@ namespace LoginDaftar
         {
 
         }
-    }
-
-    public class Job
-    {
-        public int Id { get; set; }
-        public string Nama { get; set; }
-        public string Syarat { get; set; }
-        public string Deskripsi { get; set; }
-        public int Status { get; set; }
-        public string Periode { get; set; }
     }
 }
