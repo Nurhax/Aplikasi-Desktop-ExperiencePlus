@@ -11,8 +11,9 @@ namespace Login
 {
     public partial class Form1 : Form
     {
-        private readonly string apiUrl = "https://localhost:7102/api/Perusahaan";
+        private readonly string apiUrl = "https://localhost:7102/api/Perusahaan"; 
 
+        char[] BannedChar = { '&','=','-','+',',','<','>' };
         public Form1()
         {
             InitializeComponent();
@@ -58,6 +59,14 @@ namespace Login
                 if (string.IsNullOrEmpty(usernameLogin.Text) && string.IsNullOrEmpty(passwordLogin.Text))
                 {
                     throw new ArgumentException("Username dan Password harus diisi terlebih dahulu!");
+                }
+
+                for(int i = 0; i < BannedChar.Length; i++)
+                {
+                    if (usernameLogin.Text.Contains(BannedChar[i]) || passwordLogin.Text.Contains(BannedChar[i]))
+                    {
+                        throw new ArgumentException("Input tidak boleh memakai karakter &, = , _, -, +, dan <>");
+                    }
                 }
 
                 // Buat objek user dari inputan

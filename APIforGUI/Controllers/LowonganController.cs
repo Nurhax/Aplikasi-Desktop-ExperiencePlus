@@ -109,7 +109,7 @@ namespace APIforGUI.Controllers
             return Ok("Lowongan berhasil ditambahkan");
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("/edit/{id}")]
         public IActionResult UpdateLowongan(int id, Lowongan_1302223025 low)
         {
             // Precondition: ID harus positif

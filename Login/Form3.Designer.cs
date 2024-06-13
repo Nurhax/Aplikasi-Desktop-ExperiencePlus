@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             panel1 = new Panel();
             listBox1 = new ListBox();
@@ -44,9 +45,11 @@
             label5 = new Label();
             labelNama = new Label();
             pictureBox2 = new PictureBox();
+            perusahaanControllerBindingSource = new BindingSource(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)perusahaanControllerBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -70,9 +73,9 @@
             listBox1.BackColor = Color.DarkCyan;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(127, 149);
+            listBox1.Location = new Point(126, 172);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(325, 214);
+            listBox1.Size = new Size(325, 199);
             listBox1.TabIndex = 17;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -84,7 +87,7 @@
             buttonEdit.TabIndex = 16;
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = true;
-            buttonEdit.Click += buttonEdit_Click;
+            buttonEdit.Click += buttonEdit_Click_1;
             // 
             // buttonLoad
             // 
@@ -94,6 +97,7 @@
             buttonLoad.TabIndex = 14;
             buttonLoad.Text = "Refresh";
             buttonLoad.UseVisualStyleBackColor = true;
+            buttonLoad.Click += buttonLoad_Click_1;
             // 
             // label12
             // 
@@ -101,7 +105,7 @@
             label12.BackColor = Color.Transparent;
             label12.Font = new Font("Segoe UI", 48F);
             label12.Image = (Image)resources.GetObject("label12.Image");
-            label12.Location = new Point(-135, 17);
+            label12.Location = new Point(-75, 40);
             label12.Name = "label12";
             label12.Size = new Size(1009, 86);
             label12.TabIndex = 12;
@@ -128,7 +132,6 @@
             button1.TabIndex = 2;
             button1.Text = "EDIT LOWONGAN\r\n";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // panel2
             // 
@@ -143,6 +146,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(665, 421);
             panel2.TabIndex = 0;
+            panel2.Paint += panel2_Paint;
             // 
             // labelSyarat
             // 
@@ -176,7 +180,6 @@
             labelDeskripsi.Size = new Size(29, 19);
             labelDeskripsi.TabIndex = 9;
             labelDeskripsi.Text = "     ";
-            labelDeskripsi.Click += labelDeskripsi_Click;
             // 
             // label8
             // 
@@ -219,7 +222,10 @@
             pictureBox2.Size = new Size(100, 64);
             pictureBox2.TabIndex = 11;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            // 
+            // perusahaanControllerBindingSource
+            // 
+            perusahaanControllerBindingSource.DataSource = typeof(APIforGUI.Controllers.PerusahaanController);
             // 
             // Form3
             // 
@@ -232,12 +238,12 @@
             Controls.Add(panel1);
             Name = "Form3";
             Text = "Form3";
-            Load += Form3_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)perusahaanControllerBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -258,5 +264,6 @@
         private Button buttonLoad;
         private Button buttonEdit;
         private ListBox listBox1;
+        private BindingSource perusahaanControllerBindingSource;
     }
 }

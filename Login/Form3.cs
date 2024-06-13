@@ -1,75 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TubesKelompok5.Model;
 
 namespace LoginDaftar
 {
     public partial class Form3 : Form
     {
+        private static readonly HttpClient httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7102/") };
+        private List<Lowongan_1302223025> jobs = new List<Lowongan_1302223025>();
+
         public Form3()
         {
             InitializeComponent();
-
-            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            buttonLoad.Click += buttonLoad_Click; // Event handler for the Load button
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged; // Event handler for item selection
         }
 
-        private void buttonLoad_Click(object sender, EventArgs e)
+        // Event handler for the Load button
+        private async void buttonLoad_Click(object sender, EventArgs e)
         {
-            string jsonFilePath = Path.Combine(Application.StartupPath, "D:\\KPLFinal\\APIforGUI\\lowongan.json");
+            await LoadJobsFromApi("api/Lowongan"); // Pass the API endpoint to the method
+        }
 
-            string jsonData = File.ReadAllText(jsonFilePath);
-            List<Job> jobs = JsonConvert.DeserializeObject<List<Job>>(jsonData);
-            listBox1.Items.Clear();
-            foreach (var job in jobs)
+        // Method to load jobs from the API
+        private async Task LoadJobsFromApi(string apiUrl)
+        {
+            try
             {
-                ListViewItem item = new ListViewItem(job.Nama);
-                item.Tag = job;
-                listBox1.Items.Add(item);
+                HttpResponseMessage response = await httpClient.GetAsync(apiUrl); // Send GET request
+                response.EnsureSuccessStatusCode(); // Ensure the request was successful
+
+                string jsonData = await response.Content.ReadAsStringAsync(); // Read the response content
+                jobs = JsonConvert.DeserializeObject<List<Lowongan_1302223025>>(jsonData); // Deserialize JSON to list of jobs
+
+                // Bind the data to the ListBox
+                listBox1.Items.Clear(); // Clear any existing items
+                foreach (var job in jobs)
+                {
+                    listBox1.Items.Add(job.Nama); // Add each job's name to the ListBox
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading data from API: {ex.Message}");
             }
         }
 
-        private void listBox1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        // Event handler for item selection in the ListBox
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.IsSelected)
+            if (listBox1.SelectedIndex >= 0 ) // Check if a valid item is selected
             {
-                var selectedJob = (Job)e.Item.Tag;
+                var selectedJob = jobs[listBox1.SelectedIndex]; // Get the selected job based on the index
                 labelNama.Text = selectedJob.Nama;
                 labelDeskripsi.Text = selectedJob.Deskripsi;
                 labelSyarat.Text = selectedJob.Syarat;
             }
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            EditLowongan edit = new EditLowongan();
-            edit.Tag = this;
-            edit.Show();
-            Hide();
-        }
-
         private void Form3_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -79,24 +76,19 @@ namespace LoginDaftar
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void buttonEdit_Click_1(object sender, EventArgs e)
+        {
+            int selectedJob = listBox1.SelectedIndex;
+            EditLowongan edit = new EditLowongan(selectedJob);
+            edit.Tag = this;
+            edit.Show();
+            Hide();
+        }
+
+        private void buttonLoad_Click_1(object sender, EventArgs e)
         {
 
         }
-
-        private void labelDeskripsi_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
-
-    public class Job
-    {
-        public int Id { get; set; }
-        public string Nama { get; set; }
-        public string Syarat { get; set; }
-        public string Deskripsi { get; set; }
-        public int Status { get; set; }
-        public string Periode { get; set; }
     }
 }
+

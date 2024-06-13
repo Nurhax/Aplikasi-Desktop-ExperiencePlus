@@ -40,6 +40,7 @@
             label5 = new Label();
             buttonEdit = new Button();
             panel1 = new Panel();
+            errorMessage = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -157,6 +158,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(errorMessage);
             panel1.Controls.Add(buttonEdit);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(textPeriode);
@@ -170,9 +172,19 @@
             panel1.Location = new Point(-9, -8);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(981, 1058);
+            panel1.Size = new Size(1275, 1058);
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
+            // 
+            // errorMessage
+            // 
+            errorMessage.AutoSize = true;
+            errorMessage.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            errorMessage.ForeColor = Color.Red;
+            errorMessage.Location = new Point(129, 737);
+            errorMessage.Name = "errorMessage";
+            errorMessage.Size = new Size(0, 25);
+            errorMessage.TabIndex = 10;
             // 
             // EditLowongan
             // 
@@ -202,5 +214,6 @@
         private Label label5;
         private Button buttonEdit;
         private Panel panel1;
+        private Label errorMessage;
     }
 }

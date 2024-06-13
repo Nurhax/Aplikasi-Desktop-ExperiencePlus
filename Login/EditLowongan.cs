@@ -12,16 +12,20 @@ using TubesKelompok5.Model;
 using System.Text.RegularExpressions;
 using APIforGUI.Controllers;
 using TubesKelompok5;
+using Newtonsoft.Json;
+using LoginDaftar;
+using LibraryTubes.Perusahaan;
 
 namespace LoginDaftar
 {
     public partial class EditLowongan : Form
     {
-        private int indexList = 0;
+        private int IndexList = 0;
+        private readonly string ApiUrl = "https://localhost:7102";
         public EditLowongan(int indexList)
         {
             InitializeComponent();
-            this.indexList = indexList;
+            this.IndexList = indexList;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -39,56 +43,97 @@ namespace LoginDaftar
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             PerusahaanController editLowongan = new PerusahaanController();
-            Lowongan_1302223025 hasilEdit = new Lowongan_1302223025();
-            //Message lowongan berhasil diedit
-            if (textNama.Text.Length >= 45)
-            {
-                throw new Exception("Nama lowongan lebih dari 45 karakter!");
-            }
-            if(String.IsNullOrEmpty(textSyarat.Text) && String.IsNullOrEmpty(textNama.Text) && String.IsNullOrEmpty(textDeskripsi.Text) && String.IsNullOrEmpty(textPeriode.Text) )
-            {
-                throw new Exception("Kolom tidak boleh kosong!");
-            }
-            if(textSyarat.Text.Length >= 300)
-            {
-                throw new Exception("syarat tidak boleh lebih dari 300 karakter!");
-            }
-            if(textDeskripsi.Text.Length >= 300)
-            {
-                throw new Exception("Deskripsi tidak boleh lebih dari 300 karakter!");
-            }
-            if (periodeFormat(textPeriode.Text))
-            {
-                throw new Exception("Format periode tidak valid. Format yang benar: dd/mm/yyyy!");
-            }
 
-            /*var edit = editLowongan.GetUsers();
-            if (indexList >= 0 && indexList < edit.Count)
+            try
             {
-                if(textNama.Text != edit[indexList].getLowongan()[indexList].Nama || textDeskripsi.Text != edit[indexList].getLowongan()[indexList].Deskripsi || textSyarat.Text != edit[indexList].getLowongan()[indexList].Syarat || textPeriode.Text != edit[indexList].getLowongan()[indexList].Periode)
+                // Validasi input
+                if (textNama.Text.Length >= 45)
                 {
-                    editLowongan.EditLowongan(edit[indexList].Username,indexList,hasilEdit);
-                }else
-                {
-                    throw new Exception("Kolom tidak boleh sama");
+                    throw new ArgumentException("Nama lowongan lebih dari 45 karakter!");
                 }
-            }*/
+                if (string.IsNullOrEmpty(textSyarat.Text) || string.IsNullOrEmpty(textNama.Text) || string.IsNullOrEmpty(textDeskripsi.Text) || string.IsNullOrEmpty(textPeriode.Text))
+                {
+                    throw new ArgumentException("Kolom tidak boleh kosong!");
+                }
+                if (textSyarat.Text.Length >= 300)
+                {
+                    throw new ArgumentException("Syarat tidak boleh lebih dari 300 karakter!");
+                }
+                if (textDeskripsi.Text.Length >= 300)
+                {
+                    throw new ArgumentException("Deskripsi tidak boleh lebih dari 300 karakter!");
+                }
+                if (!PeriodeFormat(textPeriode.Text))
+                {
+                    throw new ArgumentException("Format periode tidak valid. Format yang benar: dd/mm/yyyy!");
+                }
 
 
-            Homepage BackToHomePage = new Homepage();
-            BackToHomePage.Tag = this;
-            BackToHomePage.Show();
-            Dispose();
+                // Validasi apakah nilai input sama dengan nilai yang ada
+                if (textNama.Text == editLowongan.GetLowongan()[IndexList].Nama && textDeskripsi.Text == editLowongan.GetLowongan()[IndexList].Deskripsi && textSyarat.Text == editLowongan.GetLowongan()[IndexList].Syarat && textPeriode.Text == editLowongan.GetLowongan()[IndexList].Periode)
+                {
+                    throw new ArgumentException("Tidak ada perubahan pada kolom.");
+                }
+
+                // Membuat objek untuk lowongan yang mau diedit
+                Lowongan_1302223025 editLowonganTersedia = new Lowongan_1302223025
+                {
+                    Id = editLowongan.GetLowongan()[IndexList].Id,  // Pastikan ID tetap sama
+                    Nama = textNama.Text,
+                    Syarat = textSyarat.Text,
+                    Deskripsi = textDeskripsi.Text,
+                    Periode = textPeriode.Text
+                };
+
+                // Serialize lowongan menjadi JSON
+                string jsonLowongan = JsonConvert.SerializeObject(editLowonganTersedia);
+
+                // Buat client HTTP untuk mengirim permintaan ke API
+                using (HttpClient client = new HttpClient())
+                {
+                    // Set header Content-Type untuk JSON
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    
+                    // Kirim permintaan PUT ke API
+                    HttpResponseMessage response = await client.PutAsync(ApiUrl + "/edit/" + editLowongan.GetLowongan()[IndexList].Id, new StringContent(jsonLowongan, Encoding.UTF8, "application/json"));
+
+                    // Tanggapi hasil dari API
+                    if (response.IsSuccessStatusCode)
+                    {
+                        ClearForm();
+                        MessageBox.Show("Lowongan berhasil diedit!");
+                        Form3 backToListLowongan = new Form3();
+                        backToListLowongan.Tag = this;
+                        backToListLowongan.Show();
+                        Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"{editLowongan.GetLowongan().Count}");
+                        string errorMessage = await response.Content.ReadAsStringAsync();
+                        throw new Exception($"Gagal mengedit lowongan. Error: {errorMessage}");
+                    }
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show($"{editLowongan.GetLowongan().Count}");
+                errorMessage.Text = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-        private bool periodeFormat(string periode)
+        private bool PeriodeFormat(string periode)
         {
             // Regex untuk format ../../..
             var regex1 = new Regex(@"^\d{2}/\d{2}/\d{4}$");
@@ -115,5 +160,103 @@ namespace LoginDaftar
         {
 
         }
+        private void ClearForm()
+        {
+            textNama.Clear();
+            textDeskripsi.Clear();
+            textSyarat.Clear();
+            textPeriode.Clear();
+        }
     }
 }
+/*
+private async void button1_Click(object sender, EventArgs e)
+{
+    try
+    {
+        // Validasi input
+        if (textNama.Text.Length >= 45)
+        {
+            throw new ArgumentException("Nama lowongan lebih dari 45 karakter!");
+        }
+        if (string.IsNullOrEmpty(textSyarat.Text) || string.IsNullOrEmpty(textNama.Text) || string.IsNullOrEmpty(textDeskripsi.Text) || string.IsNullOrEmpty(textPeriode.Text))
+        {
+            throw new ArgumentException("Kolom tidak boleh kosong!");
+        }
+        if (textSyarat.Text.Length >= 300)
+        {
+            throw new ArgumentException("Syarat tidak boleh lebih dari 300 karakter!");
+        }
+        if (textDeskripsi.Text.Length >= 300)
+        {
+            throw new ArgumentException("Deskripsi tidak boleh lebih dari 300 karakter!");
+        }
+        if (!PeriodeFormat(textPeriode.Text))
+        {
+            throw new ArgumentException("Format periode tidak valid. Format yang benar: dd/mm/yyyy!");
+        }
+
+        // Dapatkan indeks lowongan yang dipilih
+        int selectedIndex = listBox1.SelectedIndex;
+        if (selectedIndex < 0 || selectedIndex >= jobs.Count)
+        {
+            throw new ArgumentException("Pilih lowongan yang valid dari daftar.");
+        }
+
+        var selectedJob = jobs[selectedIndex];
+
+        // Validasi apakah nilai input sama dengan nilai yang ada
+        if (textNama.Text == selectedJob.Nama && textDeskripsi.Text == selectedJob.Deskripsi && textSyarat.Text == selectedJob.Syarat && textPeriode.Text == selectedJob.Periode)
+        {
+            throw new ArgumentException("Tidak ada perubahan pada kolom.");
+        }
+
+        // Membuat objek untuk lowongan yang mau diedit
+        Lowongan_1302223025 editLowonganTersedia = new Lowongan_1302223025
+        {
+            Id = selectedJob.Id,  // Pastikan ID tetap sama
+            Nama = textNama.Text,
+            Syarat = textSyarat.Text,
+            Deskripsi = textDeskripsi.Text,
+            Periode = textPeriode.Text
+        };
+
+        // Serialize lowongan menjadi JSON
+        string jsonLowongan = JsonConvert.SerializeObject(editLowonganTersedia);
+
+        // Buat client HTTP untuk mengirim permintaan ke API
+        using (HttpClient client = new HttpClient())
+        {
+            // Set header Content-Type untuk JSON
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            // Kirim permintaan PUT ke API
+            HttpResponseMessage response = await client.PutAsync(apiUrl + "/edit/" + selectedJob.Id, new StringContent(jsonLowongan, Encoding.UTF8, "application/json"));
+
+            // Tanggapi hasil dari API
+            if (response.IsSuccessStatusCode)
+            {
+                ClearForm();
+                MessageBox.Show("Lowongan berhasil diedit!");
+                Homepage backToHomepage = new Homepage();
+                backToHomepage.Tag = this;
+                backToHomepage.Show();
+                Dispose();
+            }
+            else
+            {
+                string errorMessage = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Gagal mengedit lowongan. Error: {errorMessage}");
+            }
+        }
+    }
+    catch (ArgumentException ex)
+    {
+        errorMessage.Text = ex.Message;
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+}
+*/

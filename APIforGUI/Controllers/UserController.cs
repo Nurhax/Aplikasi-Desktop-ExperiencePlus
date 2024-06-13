@@ -11,7 +11,8 @@ namespace APIforGUI.Controllers
     [Route("api/[controller]")]
     public class PerusahaanController : ControllerBase
     {
-        private const string filePath = "D:\\Tel U\\Semester 4\\KPL\\TubesV3\\APIforGUI\\perusahaan.json";
+        private const string filePath = "C:\\Kuliah\\kpl\\Aplikasi-Desktop-ExperiencePlus\\APIforGUI\\perusahaan.json";
+
         private List<User_1302223025> _users;
         public List<Lowongan_1302223025> _lowongan = new List<Lowongan_1302223025>();
         // Properti untuk menyimpan pengguna yang sedang login
@@ -70,17 +71,17 @@ namespace APIforGUI.Controllers
         private void SaveLowonganListToFile()
         {
             string json = JsonConvert.SerializeObject(_lowongan);
-            System.IO.File.WriteAllText("lowongan.json", json);
+            System.IO.File.WriteAllText("C:\\Kuliah\\kpl\\Aplikasi-Desktop-ExperiencePlus\\APIforGUI\\lowongan.json", json);
         }
 
         private static List<Lowongan_1302223025> LoadLowonganFromFile()
         {
-            if (!System.IO.File.Exists("lowongan.json"))
+            if (!System.IO.File.Exists("C:\\Kuliah\\kpl\\Aplikasi-Desktop-ExperiencePlus\\APIforGUI\\lowongan.json"))
             {
                 return new List<Lowongan_1302223025>();
             }
 
-            string json = System.IO.File.ReadAllText("lowongan.json");
+            string json = System.IO.File.ReadAllText("C:\\Kuliah\\kpl\\Aplikasi-Desktop-ExperiencePlus\\APIforGUI\\lowongan.json");
             return JsonConvert.DeserializeObject<List<Lowongan_1302223025>>(json) ?? new List<Lowongan_1302223025>();
         }
 
