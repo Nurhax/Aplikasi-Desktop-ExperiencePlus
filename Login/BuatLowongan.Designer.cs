@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuatLowongan));
             panel1 = new Panel();
-            button1 = new Button();
+            ErrorHandlingLabel = new Label();
+            ButtonBuatLowongan = new Button();
             label5 = new Label();
             textBoxPeriode = new TextBox();
             label4 = new Label();
@@ -40,7 +41,6 @@
             label2 = new Label();
             textBoxNama = new TextBox();
             label1 = new Label();
-            ErrorHandlingLabel = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,7 +48,7 @@
             // 
             panel1.BackColor = Color.Teal;
             panel1.Controls.Add(ErrorHandlingLabel);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(ButtonBuatLowongan);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(textBoxPeriode);
             panel1.Controls.Add(label4);
@@ -64,19 +64,30 @@
             panel1.Size = new Size(970, 1048);
             panel1.TabIndex = 0;
             // 
-            // button1
+            // ErrorHandlingLabel
             // 
-            button1.BackColor = Color.DarkSlateGray;
-            button1.Font = new Font("Times New Roman", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(269, 838);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(374, 47);
-            button1.TabIndex = 9;
-            button1.Text = "Buat Lowongan";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            ErrorHandlingLabel.AutoSize = true;
+            ErrorHandlingLabel.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ErrorHandlingLabel.ForeColor = Color.Red;
+            ErrorHandlingLabel.Location = new Point(237, 712);
+            ErrorHandlingLabel.Name = "ErrorHandlingLabel";
+            ErrorHandlingLabel.Size = new Size(0, 23);
+            ErrorHandlingLabel.TabIndex = 10;
+            ErrorHandlingLabel.Click += ErrorHandlingLabel_Click;
+            // 
+            // ButtonBuatLowongan
+            // 
+            ButtonBuatLowongan.BackColor = Color.DarkSlateGray;
+            ButtonBuatLowongan.Font = new Font("Times New Roman", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ButtonBuatLowongan.ForeColor = SystemColors.ButtonHighlight;
+            ButtonBuatLowongan.Location = new Point(269, 838);
+            ButtonBuatLowongan.Margin = new Padding(3, 2, 3, 2);
+            ButtonBuatLowongan.Name = "ButtonBuatLowongan";
+            ButtonBuatLowongan.Size = new Size(374, 47);
+            ButtonBuatLowongan.TabIndex = 9;
+            ButtonBuatLowongan.Text = "Buat Lowongan";
+            ButtonBuatLowongan.UseVisualStyleBackColor = false;
+            ButtonBuatLowongan.Click += button1_Click;
             // 
             // label5
             // 
@@ -176,17 +187,6 @@
             label1.Text = "                                                      ";
             label1.Click += label1_Click;
             // 
-            // ErrorHandlingLabel
-            // 
-            ErrorHandlingLabel.AutoSize = true;
-            ErrorHandlingLabel.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ErrorHandlingLabel.ForeColor = Color.Red;
-            ErrorHandlingLabel.Location = new Point(237, 712);
-            ErrorHandlingLabel.Name = "ErrorHandlingLabel";
-            ErrorHandlingLabel.Size = new Size(0, 23);
-            ErrorHandlingLabel.TabIndex = 10;
-            ErrorHandlingLabel.Click += ErrorHandlingLabel_Click;
-            // 
             // BuatLowongan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -208,7 +208,7 @@
         private Label label1;
         private TextBox textBoxNama;
         private Label label2;
-        private Button button1;
+        private Button ButtonBuatLowongan;
         private Label label5;
         private TextBox textBoxPeriode;
         private Label label4;

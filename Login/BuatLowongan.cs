@@ -17,7 +17,7 @@ namespace LoginDaftar
 {
     public partial class BuatLowongan : Form
     {
-        private readonly string apiUrl = "https://localhost:7102/api/Perusahaan";
+        private readonly string ApiUrl = "https://localhost:7102/api/Perusahaan";
         public BuatLowongan()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace LoginDaftar
         {
 
         }
-        private bool periodeFormat(string periode)
+        private bool PeriodeFormat(string periode)
         {
             // Regex untuk format ../../..
             var regex1 = new Regex(@"^\d{2}/\d{2}/\d{4}$");
@@ -67,7 +67,7 @@ namespace LoginDaftar
                 }
 
                 // Validasi format periode
-                if (!periodeFormat(textBoxPeriode.Text))
+                if (!PeriodeFormat(textBoxPeriode.Text))
                 {
                     throw new ArgumentException("Format periode tidak valid. Format yang benar: dd/MM/yyyy");
                 }
@@ -101,7 +101,7 @@ namespace LoginDaftar
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
                     // Kirim permintaan POST ke API
-                    HttpResponseMessage response = await client.PostAsync(apiUrl + "/create-lowongan/" + currentUser.Username, new StringContent(jsonLowongan, Encoding.UTF8, "application/json"));
+                    HttpResponseMessage response = await client.PostAsync(ApiUrl + "/create-lowongan/" + currentUser.Username + currentUser.Lowongan, new StringContent(jsonLowongan, Encoding.UTF8, "application/json"));
 
                     // Tanggapi hasil dari API
                     if (response.IsSuccessStatusCode)
