@@ -66,7 +66,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(877, 1050);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+            
             // 
             // listBox1
             // 
@@ -87,7 +87,6 @@
             buttonEdit.TabIndex = 16;
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = true;
-            buttonEdit.Click += buttonEdit_Click;
             // 
             // buttonLoad
             // 
@@ -131,7 +130,6 @@
             button1.TabIndex = 2;
             button1.Text = "EDIT LOWONGAN\r\n";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // panel2
             // 
@@ -146,7 +144,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(665, 421);
             panel2.TabIndex = 0;
-            panel2.Paint += panel2_Paint;
             // 
             // labelSyarat
             // 
@@ -180,7 +177,6 @@
             labelDeskripsi.Size = new Size(29, 19);
             labelDeskripsi.TabIndex = 9;
             labelDeskripsi.Text = "     ";
-            labelDeskripsi.Click += labelDeskripsi_Click;
             // 
             // label8
             // 
@@ -223,7 +219,6 @@
             pictureBox2.Size = new Size(100, 64);
             pictureBox2.TabIndex = 11;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
             // 
             // perusahaanControllerBindingSource
             // 
@@ -240,7 +235,7 @@
             Controls.Add(panel1);
             Name = "Form3";
             Text = "Form3";
-            Load += Form3_Load;
+            
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
