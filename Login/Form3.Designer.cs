@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             panel1 = new Panel();
             listBox1 = new ListBox();
@@ -44,9 +45,11 @@
             label5 = new Label();
             labelNama = new Label();
             pictureBox2 = new PictureBox();
+            perusahaanControllerBindingSource = new BindingSource(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)perusahaanControllerBindingSource).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -70,9 +73,9 @@
             listBox1.BackColor = Color.DarkCyan;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(127, 149);
+            listBox1.Location = new Point(126, 163);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(325, 214);
+            listBox1.Size = new Size(325, 199);
             listBox1.TabIndex = 17;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
@@ -143,6 +146,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(665, 421);
             panel2.TabIndex = 0;
+            panel2.Paint += panel2_Paint;
             // 
             // labelSyarat
             // 
@@ -221,6 +225,10 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
+            // perusahaanControllerBindingSource
+            // 
+            perusahaanControllerBindingSource.DataSource = typeof(APIforGUI.Controllers.PerusahaanController);
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -238,6 +246,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)perusahaanControllerBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -258,5 +267,6 @@
         private Button buttonLoad;
         private Button buttonEdit;
         private ListBox listBox1;
+        private BindingSource perusahaanControllerBindingSource;
     }
 }
