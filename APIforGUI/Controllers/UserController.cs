@@ -10,7 +10,7 @@ namespace APIforGUI.Controllers
     [Route("api/[controller]")]
     public class PerusahaanController : ControllerBase
     {
-        private const string filePath = "C:\\Kuliah\\kpl\\Aplikasi-Desktop-ExperiencePlus\\APIforGUI\\perusahaan.json";
+        private const string filePath = "C:\\GINA\\KULIAH\\SEMESTER 4\\KONTRUKSI PERANGKAT LUNAK\\TUBES\\APIforGUI\\perusahaan.json";
         private List<User_1302223025> _users;
         public List<Lowongan_1302223025> _lowongan = new List<Lowongan_1302223025>();
 
@@ -27,10 +27,10 @@ namespace APIforGUI.Controllers
             }
         }
 
-        public List<Lowongan_1302223025> GetLowongan()
+        /*public List<Lowongan_1302223025> GetLowongan()
         {
             return _lowongan;
-        }
+        }*/
         //Getuser non API untuk login
         public List<User_1302223025> GetUsers()
         {

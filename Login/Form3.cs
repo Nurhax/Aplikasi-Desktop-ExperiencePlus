@@ -24,10 +24,10 @@ namespace LoginDaftar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EditLowongan edit = new EditLowongan();
-            edit.Tag = this;
+  /*          EditLowongan edit = new EditLowongan();*/
+/*            edit.Tag = this;
             edit.Show();
-            Hide();
+            Hide();*/
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

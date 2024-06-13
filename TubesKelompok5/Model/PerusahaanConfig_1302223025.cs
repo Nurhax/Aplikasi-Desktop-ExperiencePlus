@@ -20,6 +20,9 @@ namespace TubesKelompok5
             Password = password;
             Lowongan = lowongan;
         }
+
+        public User_1302223025() { }
+
         public List<Lowongan_1302223025> getLowongan()
         {
             return Lowongan;
