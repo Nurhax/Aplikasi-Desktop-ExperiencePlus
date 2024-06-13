@@ -26,5 +26,13 @@ namespace TubesKelompok5.Model
             Status = status;
             Periode = periode;
         }
+        public Lowongan_1302223025( string nama, string syarat, string deskripsi, string periode)
+        {
+          
+            Nama = nama;
+            Syarat = syarat;
+            Deskripsi = deskripsi;
+            Periode = periode;
+        }
     }
 }

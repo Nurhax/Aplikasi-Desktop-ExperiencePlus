@@ -4,13 +4,14 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using TubesKelompok5.Model;
 
 namespace LoginDaftar
 {
     public partial class Form3 : Form
     {
         private static readonly HttpClient httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7102/") };
-        private List<Lowongan> jobs = new List<Lowongan>();
+        private List<Lowongan_1302223025> jobs = new List<Lowongan_1302223025>();
 
         public Form3()
         {
@@ -34,7 +35,7 @@ namespace LoginDaftar
                 response.EnsureSuccessStatusCode(); // Ensure the request was successful
 
                 string jsonData = await response.Content.ReadAsStringAsync(); // Read the response content
-                jobs = JsonConvert.DeserializeObject<List<Lowongan>>(jsonData); // Deserialize JSON to list of jobs
+                jobs = JsonConvert.DeserializeObject<List<Lowongan_1302223025>>(jsonData); // Deserialize JSON to list of jobs
 
                 // Bind the data to the ListBox
                 listBox1.Items.Clear(); // Clear any existing items
@@ -52,7 +53,7 @@ namespace LoginDaftar
         // Event handler for item selection in the ListBox
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex >= 0 && listBox1.SelectedIndex < jobs.Count) // Check if a valid item is selected
+            if (listBox1.SelectedIndex >= 0 ) // Check if a valid item is selected
             {
                 var selectedJob = jobs[listBox1.SelectedIndex]; // Get the selected job based on the index
                 labelNama.Text = selectedJob.Nama;
@@ -61,33 +62,33 @@ namespace LoginDaftar
             }
         }
 
-
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            /*EditLowongan edit = new EditLowongan();
-            edit.Tag = this;
-            edit.Show();
-            Hide();*/
-        }
-
         private void Form3_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            public int Id { get; set; }
-            public string Nama { get; set; }
-            public string Syarat { get; set; }
-            public string Deskripsi { get; set; }
-            public int Status { get; set; }
-            public string Periode { get; set; }
+
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonEdit_Click_1(object sender, EventArgs e)
+        {
+            int selectedJob = listBox1.SelectedIndex;
+            EditLowongan edit = new EditLowongan(selectedJob);
+            edit.Tag = this;
+            edit.Show();
+            Hide();
+        }
+
+        private void buttonLoad_Click_1(object sender, EventArgs e)
         {
 
         }
     }
 }
+

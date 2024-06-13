@@ -66,14 +66,14 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(877, 1050);
             panel1.TabIndex = 0;
-            
+            panel1.Paint += panel1_Paint;
             // 
             // listBox1
             // 
             listBox1.BackColor = Color.DarkCyan;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(126, 163);
+            listBox1.Location = new Point(126, 172);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(325, 199);
             listBox1.TabIndex = 17;
@@ -87,6 +87,7 @@
             buttonEdit.TabIndex = 16;
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click_1;
             // 
             // buttonLoad
             // 
@@ -96,6 +97,7 @@
             buttonLoad.TabIndex = 14;
             buttonLoad.Text = "Refresh";
             buttonLoad.UseVisualStyleBackColor = true;
+            buttonLoad.Click += buttonLoad_Click_1;
             // 
             // label12
             // 
@@ -103,7 +105,7 @@
             label12.BackColor = Color.Transparent;
             label12.Font = new Font("Segoe UI", 48F);
             label12.Image = (Image)resources.GetObject("label12.Image");
-            label12.Location = new Point(-135, 17);
+            label12.Location = new Point(-75, 40);
             label12.Name = "label12";
             label12.Size = new Size(1009, 86);
             label12.TabIndex = 12;
@@ -236,7 +238,6 @@
             Controls.Add(panel1);
             Name = "Form3";
             Text = "Form3";
-            
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
