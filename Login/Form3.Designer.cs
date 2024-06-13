@@ -144,6 +144,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(665, 421);
             panel2.TabIndex = 0;
+            panel2.Paint += panel2_Paint;
             // 
             // labelSyarat
             // 

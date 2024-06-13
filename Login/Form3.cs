@@ -64,7 +64,21 @@ namespace LoginDaftar
             }
         }
 
-        public class Lowongan
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            /*EditLowongan edit = new EditLowongan();
+            edit.Tag = this;
+            edit.Show();
+            Hide();*/
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             public int Id { get; set; }
             public string Nama { get; set; }
@@ -72,6 +86,11 @@ namespace LoginDaftar
             public string Deskripsi { get; set; }
             public int Status { get; set; }
             public string Periode { get; set; }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
