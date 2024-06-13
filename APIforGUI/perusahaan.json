@@ -48,6 +48,14 @@
         "Deskripsi": "create software using the Kotlin language",
         "Status": 0,
         "Periode": "20/05/2024"
+      },
+      {
+        "Id": 8,
+        "Nama": "asdasd",
+        "Syarat": "aobndoa",
+        "Deskripsi": "asdsad",
+        "Status": 0,
+        "Periode": "10/10/2024"
       }
     ]
   },

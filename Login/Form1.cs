@@ -1,12 +1,17 @@
 using APIforGUI.Controllers;
 using LoginDaftar;
+using Newtonsoft.Json;
+using System.Diagnostics;
+using System.Text;
 using System.Windows.Forms;
 using TubesKelompok5;
+using TubesKelompok5.Model;
 
 namespace Login
 {
     public partial class Form1 : Form
     {
+        private readonly string apiUrl = "https://localhost:7102/api/Perusahaan";
 
         public Form1()
         {
@@ -42,7 +47,7 @@ namespace Login
 
         }
 
-        private void LoginButtonLogin_Click(object sender, EventArgs e)
+        private async void LoginButtonLogin_Click(object sender, EventArgs e)
         {
             //Verifikasi login dengan secure code
             try
@@ -55,32 +60,60 @@ namespace Login
                     throw new ArgumentException("Username dan Password harus diisi terlebih dahulu!");
                 }
 
-                //Searching kredensial user yang sesuai
-                bool isUserVerified = false;
-                for (int i = 0; i < UserVerification.GetUsers().Count; i++)
-                {
-                    if (usernameLogin.Text == UserVerification.GetUsers()[i].Username && passwordLogin.Text == UserVerification.GetUsers()[i].Password)
-                    {
-                        isUserVerified = true;
-                        break;
-                    }
-                }
+                // Buat objek user dari inputan
+                User_1302223025 user = PerusahaanController.Instance.GetUsers().FirstOrDefault(u => u.Username == usernameLogin.Text && u.Password == passwordLogin.Text);
 
-                if (isUserVerified)
-                {
-                    Homepage Homepage = new Homepage();
-                    Homepage.Tag = this;
-                    Homepage.Show();
-                    Hide();
-                }
-                else
+                if (user == null)
                 {
                     throw new ArgumentException("Username atau Password salah!");
+                }
+
+
+                // Serialize user ke JSON
+                string jsonUser = JsonConvert.SerializeObject(user);
+
+                // Buat client HTTP untuk mengirim permintaan ke API
+                using (HttpClient client = new HttpClient())
+                {
+                    // Set header Content-Type untuk JSON
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+                    // Kirim permintaan POST ke API
+                    HttpResponseMessage response = await client.PostAsync(apiUrl + "/login/", new StringContent(jsonUser, Encoding.UTF8, "application/json"));
+
+                    // Tanggapi hasil dari API
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseBody = await response.Content.ReadAsStringAsync();
+                        dynamic result = JsonConvert.DeserializeObject(responseBody);
+                        // Ambil data pengguna dari API dan simpan sebagai CurrentUser
+                        PerusahaanController.Instance.CurrentUser = user;
+                        MessageBox.Show(result.message.ToString());
+                        // Pindah ke Homepage
+                        Homepage homepage = new Homepage();
+                        homepage.Tag = this;
+                        homepage.Show();
+                        Hide();
+                    }
+                    else
+                    {
+                        string errorMessage = await response.Content.ReadAsStringAsync();
+                        throw new Exception($"Login gagal. Error: {errorMessage}");
+                    }
+                Debug.WriteLine($"API URL: {apiUrl}");
+                Debug.WriteLine($"JSON User: {jsonUser}");
+                Debug.WriteLine($"Response Status Code: {response.StatusCode}");
+                Debug.WriteLine($"Response Content: {await response.Content.ReadAsStringAsync()}");
                 }
             }
             catch (ArgumentException EX)
             {
                 ErrorPlaceHolder.Text = EX.Message;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
 
         }
@@ -92,7 +125,7 @@ namespace Login
 
         private void passwordLogin_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
     }

@@ -24,7 +24,8 @@ namespace LoginDaftar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EditLowongan edit = new EditLowongan();
+            int i = 0;
+            EditLowongan edit = new EditLowongan(i);
             edit.Tag = this;
             edit.Show();
             Hide();
