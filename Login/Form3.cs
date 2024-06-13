@@ -15,6 +15,7 @@ namespace LoginDaftar
 {
     public partial class Form3 : Form
     {
+        private List<Lowongan_1302223025> jobs;
         public Form3()
         {
             InitializeComponent();
@@ -28,12 +29,11 @@ namespace LoginDaftar
 
             string jsonData = File.ReadAllText(jsonFilePath);
             List<Lowongan_1302223025> jobs = JsonConvert.DeserializeObject<List<Lowongan_1302223025>>(jsonData);
-            listBox1.Items.Clear();
+            listBox1.DataSource = jobs;
             foreach (var job in jobs)
             {
                 ListViewItem item = new ListViewItem(job.Nama);
-                item.Tag = job;
-                listBox1.Items.Add(item);
+                item.Tag = job.Nama;
             }
         }
 
@@ -50,10 +50,25 @@ namespace LoginDaftar
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            EditLowongan edit = new EditLowongan();
+            EditLowongan edit = new EditLowongan(listBox1.SelectedIndex);
             edit.Tag = this;
             edit.Show();
             Hide();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = listBox1.SelectedIndex;
+            if (selectedIndex >= 0 && selectedIndex < jobs.Count)
+            {
+                var selectedJob = jobs[selectedIndex];
+
+                labelNama.Text = selectedJob.Nama;
+                labelDeskripsi.Text = selectedJob.Deskripsi;
+                labelSyarat.Text = selectedJob.Syarat;
+
+                listBox1.Text = selectedJob.Nama;
+            }
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -63,6 +78,7 @@ namespace LoginDaftar
 
         private void button1_Click(object sender, EventArgs e)
         {
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -80,10 +96,6 @@ namespace LoginDaftar
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void labelDeskripsi_Click(object sender, EventArgs e)
         {
