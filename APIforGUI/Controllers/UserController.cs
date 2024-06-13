@@ -12,6 +12,7 @@ namespace APIforGUI.Controllers
     public class PerusahaanController : ControllerBase
     {
         private const string filePath = "D:\\KPLFinal\\APIforGUI\\perusahaan.json";
+
         private List<User_1302223025> _users;
         public List<Lowongan_1302223025> _lowongan = new List<Lowongan_1302223025>();
         // Properti untuk menyimpan pengguna yang sedang login
