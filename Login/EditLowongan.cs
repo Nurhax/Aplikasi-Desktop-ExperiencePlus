@@ -65,7 +65,7 @@ namespace LoginDaftar
                 throw new Exception("Format periode tidak valid. Format yang benar: dd/mm/yyyy!");
             }
 
-            var edit = editLowongan.GetUsers();
+            /*var edit = editLowongan.GetUsers();
             if (indexList >= 0 && indexList < edit.Count)
             {
                 if(textNama.Text != edit[indexList].getLowongan()[indexList].Nama || textDeskripsi.Text != edit[indexList].getLowongan()[indexList].Deskripsi || textSyarat.Text != edit[indexList].getLowongan()[indexList].Syarat || textPeriode.Text != edit[indexList].getLowongan()[indexList].Periode)
@@ -75,7 +75,7 @@ namespace LoginDaftar
                 {
                     throw new Exception("Kolom tidak boleh sama");
                 }
-            }
+            }*/
 
 
             Homepage BackToHomePage = new Homepage();

@@ -32,29 +32,31 @@
             panel1 = new Panel();
             button1 = new Button();
             label5 = new Label();
-            textBox4 = new TextBox();
+            textBoxPeriode = new TextBox();
             label4 = new Label();
-            textBox3 = new TextBox();
+            textBoxSyarat = new TextBox();
             label3 = new Label();
-            textBox2 = new TextBox();
+            textBoxDeskripsi = new TextBox();
             label2 = new Label();
-            textBox1 = new TextBox();
+            textBoxNama = new TextBox();
             label1 = new Label();
+            ErrorHandlingLabel = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(ErrorHandlingLabel);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(textBoxPeriode);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(textBoxSyarat);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(textBoxDeskripsi);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(textBoxNama);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(-4, -3);
             panel1.Margin = new Padding(3, 2, 3, 2);
@@ -87,14 +89,15 @@
             label5.TabIndex = 8;
             label5.Text = "Periode";
             // 
-            // textBox4
+            // textBoxPeriode
             // 
-            textBox4.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(237, 621);
-            textBox4.Margin = new Padding(3, 2, 3, 2);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(629, 44);
-            textBox4.TabIndex = 7;
+            textBoxPeriode.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxPeriode.Location = new Point(237, 621);
+            textBoxPeriode.Margin = new Padding(3, 2, 3, 2);
+            textBoxPeriode.Name = "textBoxPeriode";
+            textBoxPeriode.Size = new Size(629, 44);
+            textBoxPeriode.TabIndex = 7;
+            textBoxPeriode.TextChanged += textBoxPeriode_TextChanged;
             // 
             // label4
             // 
@@ -107,14 +110,15 @@
             label4.TabIndex = 6;
             label4.Text = "Syarat";
             // 
-            // textBox3
+            // textBoxSyarat
             // 
-            textBox3.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(237, 362);
-            textBox3.Margin = new Padding(3, 2, 3, 2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(629, 44);
-            textBox3.TabIndex = 5;
+            textBoxSyarat.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxSyarat.Location = new Point(237, 362);
+            textBoxSyarat.Margin = new Padding(3, 2, 3, 2);
+            textBoxSyarat.Name = "textBoxSyarat";
+            textBoxSyarat.Size = new Size(629, 44);
+            textBoxSyarat.TabIndex = 5;
+            textBoxSyarat.TextChanged += textBoxSyarat_TextChanged;
             // 
             // label3
             // 
@@ -127,14 +131,15 @@
             label3.TabIndex = 4;
             label3.Text = "Deskripsi";
             // 
-            // textBox2
+            // textBoxDeskripsi
             // 
-            textBox2.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(237, 495);
-            textBox2.Margin = new Padding(3, 2, 3, 2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(629, 44);
-            textBox2.TabIndex = 3;
+            textBoxDeskripsi.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxDeskripsi.Location = new Point(237, 495);
+            textBoxDeskripsi.Margin = new Padding(3, 2, 3, 2);
+            textBoxDeskripsi.Name = "textBoxDeskripsi";
+            textBoxDeskripsi.Size = new Size(629, 44);
+            textBoxDeskripsi.TabIndex = 3;
+            textBoxDeskripsi.TextChanged += textBoxDeskripsi_TextChanged;
             // 
             // label2
             // 
@@ -148,14 +153,15 @@
             label2.Text = "Nama";
             label2.Click += label2_Click;
             // 
-            // textBox1
+            // textBoxNama
             // 
-            textBox1.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(237, 228);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(629, 44);
-            textBox1.TabIndex = 1;
+            textBoxNama.Font = new Font("Times New Roman", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxNama.Location = new Point(237, 228);
+            textBoxNama.Margin = new Padding(3, 2, 3, 2);
+            textBoxNama.Name = "textBoxNama";
+            textBoxNama.Size = new Size(629, 44);
+            textBoxNama.TabIndex = 1;
+            textBoxNama.TextChanged += textBoxNama_TextChanged;
             // 
             // label1
             // 
@@ -169,6 +175,17 @@
             label1.TabIndex = 0;
             label1.Text = "                                                      ";
             label1.Click += label1_Click;
+            // 
+            // ErrorHandlingLabel
+            // 
+            ErrorHandlingLabel.AutoSize = true;
+            ErrorHandlingLabel.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ErrorHandlingLabel.ForeColor = Color.Red;
+            ErrorHandlingLabel.Location = new Point(237, 712);
+            ErrorHandlingLabel.Name = "ErrorHandlingLabel";
+            ErrorHandlingLabel.Size = new Size(0, 23);
+            ErrorHandlingLabel.TabIndex = 10;
+            ErrorHandlingLabel.Click += ErrorHandlingLabel_Click;
             // 
             // BuatLowongan
             // 
@@ -189,14 +206,15 @@
 
         private Panel panel1;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textBoxNama;
         private Label label2;
         private Button button1;
         private Label label5;
-        private TextBox textBox4;
+        private TextBox textBoxPeriode;
         private Label label4;
-        private TextBox textBox3;
+        private TextBox textBoxSyarat;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox textBoxDeskripsi;
+        private Label ErrorHandlingLabel;
     }
 }
