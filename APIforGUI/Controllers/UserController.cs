@@ -11,8 +11,7 @@ namespace APIforGUI.Controllers
     [Route("api/[controller]")]
     public class PerusahaanController : ControllerBase
     {
-
-        private const string filePath = "C:\\GINA\\KULIAH\\SEMESTER 4\\KONTRUKSI PERANGKAT LUNAK\\TUBES\\APIforGUI\\perusahaan.json";
+        private const string filePath = "D:\\KPLFinal\\APIforGUI\\perusahaan.json";
 
         private List<User_1302223025> _users;
         public List<Lowongan_1302223025> _lowongan = new List<Lowongan_1302223025>();
