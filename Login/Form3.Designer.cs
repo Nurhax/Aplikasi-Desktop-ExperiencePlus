@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             panel1 = new Panel();
+            listBox1 = new ListBox();
             buttonEdit = new Button();
-            listView1 = new ListView();
             buttonLoad = new Button();
             label12 = new Label();
             label3 = new Label();
@@ -52,8 +52,8 @@
             // panel1
             // 
             panel1.BackColor = Color.Teal;
+            panel1.Controls.Add(listBox1);
             panel1.Controls.Add(buttonEdit);
-            panel1.Controls.Add(listView1);
             panel1.Controls.Add(buttonLoad);
             panel1.Controls.Add(label12);
             panel1.Controls.Add(label3);
@@ -65,6 +65,17 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // listBox1
+            // 
+            listBox1.BackColor = Color.DarkCyan;
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(127, 149);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(325, 214);
+            listBox1.TabIndex = 17;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
             // buttonEdit
             // 
             buttonEdit.Location = new Point(481, 339);
@@ -75,21 +86,13 @@
             buttonEdit.UseVisualStyleBackColor = true;
             buttonEdit.Click += buttonEdit_Click;
             // 
-            // listView1
-            // 
-            listView1.Location = new Point(126, 138);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(322, 224);
-            listView1.TabIndex = 15;
-            listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // buttonLoad
             // 
             buttonLoad.Location = new Point(481, 301);
             buttonLoad.Name = "buttonLoad";
             buttonLoad.Size = new Size(75, 23);
             buttonLoad.TabIndex = 14;
-            buttonLoad.Text = "Load Data";
+            buttonLoad.Text = "Refresh";
             buttonLoad.UseVisualStyleBackColor = true;
             // 
             // label12
@@ -148,9 +151,9 @@
             labelSyarat.ForeColor = SystemColors.ButtonFace;
             labelSyarat.Location = new Point(34, 208);
             labelSyarat.Name = "labelSyarat";
-            labelSyarat.Size = new Size(424, 19);
+            labelSyarat.Size = new Size(29, 19);
             labelSyarat.TabIndex = 11;
-            labelSyarat.Text = "<deskripsi persyaratan posisi yang sedang dibuka pelamaran>";
+            labelSyarat.Text = "     ";
             // 
             // label11
             // 
@@ -170,9 +173,10 @@
             labelDeskripsi.ForeColor = SystemColors.ButtonFace;
             labelDeskripsi.Location = new Point(34, 126);
             labelDeskripsi.Name = "labelDeskripsi";
-            labelDeskripsi.Size = new Size(340, 19);
+            labelDeskripsi.Size = new Size(29, 19);
             labelDeskripsi.TabIndex = 9;
-            labelDeskripsi.Text = "<deskripsi posisi yang sedang dibuka pelamaran>";
+            labelDeskripsi.Text = "     ";
+            labelDeskripsi.Click += labelDeskripsi_Click;
             // 
             // label8
             // 
@@ -202,9 +206,9 @@
             labelNama.ForeColor = SystemColors.ButtonFace;
             labelNama.Location = new Point(34, 39);
             labelNama.Name = "labelNama";
-            labelNama.Size = new Size(232, 24);
+            labelNama.Size = new Size(35, 24);
             labelNama.TabIndex = 5;
-            labelNama.Text = "<Nama Posisi Lamaran>";
+            labelNama.Text = "     ";
             // 
             // pictureBox2
             // 
@@ -252,7 +256,7 @@
         private PictureBox pictureBox2;
         private Label label12;
         private Button buttonLoad;
-        private ListView listView1;
         private Button buttonEdit;
+        private ListBox listBox1;
     }
 }

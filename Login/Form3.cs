@@ -18,31 +18,41 @@ namespace LoginDaftar
         {
             InitializeComponent();
 
-            listView1.View = View.Details;
-            listView1.Columns.Add("Nama", 150);
-            listView1.Columns.Add("Syarat", 150);
-            listView1.Columns.Add("Deskripsi", 250);
-            listView1.Columns.Add("Periode", 100);
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
         }
 
         private void buttonLoad_Click(object sender, EventArgs e)
         {
-            // Path ke file JSON
             string jsonFilePath = Path.Combine(Application.StartupPath, "D:\\KPLFinal\\APIforGUI\\lowongan.json");
 
-            // Baca isi file JSON
             string jsonData = File.ReadAllText(jsonFilePath);
-
-            // Deserialisasi JSON ke list of objects
             List<Job> jobs = JsonConvert.DeserializeObject<List<Job>>(jsonData);
+            listBox1.Items.Clear();
+            foreach (var job in jobs)
+            {
+                ListViewItem item = new ListViewItem(job.Nama);
+                item.Tag = job;
+                listBox1.Items.Add(item);
+            }
+        }
 
-            // Misalkan kita ambil data pekerjaan pertama untuk ditampilkan
-            var job = jobs[0];
+        private void listBox1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (e.IsSelected)
+            {
+                var selectedJob = (Job)e.Item.Tag;
+                labelNama.Text = selectedJob.Nama;
+                labelDeskripsi.Text = selectedJob.Deskripsi;
+                labelSyarat.Text = selectedJob.Syarat;
+            }
+        }
 
-            // Tampilkan data di Label
-            labelNama.Text = job.Nama;
-            labelDeskripsi.Text = job.Deskripsi;
-            labelSyarat.Text = job.Syarat;
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            EditLowongan edit = new EditLowongan();
+            edit.Tag = this;
+            edit.Show();
+            Hide();
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -64,26 +74,22 @@ namespace LoginDaftar
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EditLowongan edit = new EditLowongan();
-            edit.Tag = this;
-            edit.Show();
-            Hide();
+
+        }
+
+        private void labelDeskripsi_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
-    // Kelas untuk merepresentasikan data JSON
     public class Job
     {
         public int Id { get; set; }
