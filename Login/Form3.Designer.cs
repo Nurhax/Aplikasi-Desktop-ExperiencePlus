@@ -87,6 +87,7 @@
             buttonEdit.TabIndex = 16;
             buttonEdit.Text = "Edit";
             buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
             // 
             // buttonLoad
             // 
