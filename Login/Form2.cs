@@ -17,7 +17,7 @@ namespace LoginDaftar
 {
     public partial class Form2 : Form
     {
-        private readonly string apiUrl = "https://localhost:7102/api/Perusahaan";
+        private readonly string ApiUrl = "https://localhost:7102/api/Perusahaan";
         public Form2()
         {
             InitializeComponent();
@@ -30,48 +30,33 @@ namespace LoginDaftar
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            PerusahaanController userVerification = new PerusahaanController();
+            PerusahaanController userVerification = PerusahaanController.Instance;
 
             try
             {
                 // validasi input
-                if (string.IsNullOrEmpty(textUsername.Text) || string.IsNullOrEmpty(textPassword.Text)) 
+                if (string.IsNullOrEmpty(textUsername.Text) || string.IsNullOrEmpty(textPassword.Text))
                 {
                     throw new ArgumentException("Semua kolom harus diisi!");
                 }
-                else if (textUsername.Text.Length < 8)
+                if (textUsername.Text.Length < 8)
                 {
                     throw new ArgumentException("Username Harus Lebih dari 8 Karakter");
                 }
-                else if (textUsername.Text.Length > 20)
+                if (textUsername.Text.Length > 20)
                 {
                     throw new ArgumentException("Username Harus Kurang dari 20 Karakter");
                 }
-                else if (textUsername.TextLength > 8 && textUsername.TextLength < 20)
-                {
-                    string hashedPassword = HashingPassword.HashPassword(textPassword.Text);
-                }
 
-                // validasi jika memiliki username yang sudah tersedia
-                bool chekAccount = false;
-                for (int i = 0; i < userVerification.GetUsers().Count; i++)
-                {
-                    if (textUsername.Text == userVerification.GetUsers()[i].Username)
-                    {
-                        throw new ArgumentException("Username Sudah Tersedia");
-                    }
-                    else
-                    {
-                        chekAccount = true;
-                        break;
-                    }
-                }
+                // Hashing password
+                string hashedPassword = HashingPassword.HashPassword(textPassword.Text);
 
                 // buat objek akun baru
-                User_1302223025 newUser = new User_1302223025
+                User_1302223025 newUser = new User_1302223025(textUsername.Text, textPassword.Text, new List<TubesKelompok5.Model.Lowongan_1302223025>())
                 {
                     Username = textUsername.Text,
-                    Password = textPassword.Text
+                    Password = textPassword.Text,
+                    Lowongan = new List<TubesKelompok5.Model.Lowongan_1302223025> { }
                 };
 
                 // Serialize akun menjadi JSON 
@@ -84,24 +69,33 @@ namespace LoginDaftar
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
                     // Kirim permintaan POST ke API
-                    HttpResponseMessage response = await client.PostAsync(apiUrl + "/register/", new StringContent(jsonAkun, Encoding.UTF8, "application/json"));
+                    HttpResponseMessage response = await client.PostAsync(ApiUrl + "/register/", new StringContent(jsonAkun, Encoding.UTF8, "application/json"));
 
                     // Tanggapi hasil dari API
-                    if (response.IsSuccessStatusCode) 
+                    if (response.IsSuccessStatusCode)
                     {
+                        MessageBox.Show("Registrasi berhasil");
                         Form1 BackToLogin = new Form1();
                         BackToLogin.Tag = this;
                         BackToLogin.Show();
                         Dispose();
                     }
+                    else
+                    {
+                        string errorMessage = await response.Content.ReadAsStringAsync();
+                        throw new Exception($"Gagal Registrasi. Error: {errorMessage}");
+                    }
                 }
-                
-            } 
+
+            }
             catch (ArgumentException ex)
             {
                 warningMessage.Text = ex.Message;
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

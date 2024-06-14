@@ -11,7 +11,7 @@ namespace APIforGUI.Controllers
     [Route("api/[controller]")]
     public class PerusahaanController : ControllerBase
     {
-        private const string filePath = "C:\\Kuliah\\kpl\\Aplikasi-Desktop-ExperiencePlus\\APIforGUI\\perusahaan.json";
+        private const string filePath = "D:\\Tel U\\Semester 4\\KPL\\TubesV3 - Copy\\APIforGUI\\perusahaan.json";
 
         private List<User_1302223025> _users;
         public List<Lowongan_1302223025> _lowongan = new List<Lowongan_1302223025>();
@@ -71,21 +71,21 @@ namespace APIforGUI.Controllers
         private void SaveLowonganListToFile()
         {
             string json = JsonConvert.SerializeObject(_lowongan);
-            System.IO.File.WriteAllText("C:\\Kuliah\\kpl\\Aplikasi-Desktop-ExperiencePlus\\APIforGUI\\lowongan.json", json);
+            System.IO.File.WriteAllText("D:\\Tel U\\Semester 4\\KPL\\TubesV3 - Copy\\APIforGUI\\lowongan.json", json);
         }
 
         private static List<Lowongan_1302223025> LoadLowonganFromFile()
         {
-            if (!System.IO.File.Exists("C:\\Kuliah\\kpl\\Aplikasi-Desktop-ExperiencePlus\\APIforGUI\\lowongan.json"))
+            if (!System.IO.File.Exists("D:\\Tel U\\Semester 4\\KPL\\TubesV3 - Copy\\APIforGUI\\lowongan.json"))
             {
                 return new List<Lowongan_1302223025>();
             }
 
-            string json = System.IO.File.ReadAllText("C:\\Kuliah\\kpl\\Aplikasi-Desktop-ExperiencePlus\\APIforGUI\\lowongan.json");
+            string json = System.IO.File.ReadAllText("D:\\Tel U\\Semester 4\\KPL\\TubesV3 - Copy\\APIforGUI\\lowongan.json");
             return JsonConvert.DeserializeObject<List<Lowongan_1302223025>>(json) ?? new List<Lowongan_1302223025>();
         }
 
-        private bool periodeFormat(string periode)
+        private bool PeriodeFormat(string periode)
         {
             // Regex untuk format ../../..
             var regex1 = new Regex(@"^\d{2}/\d{2}/\d{4}$");
@@ -239,7 +239,7 @@ namespace APIforGUI.Controllers
             }
 
             // Validasi periode format
-            if (!periodeFormat(newLowongan.Periode))
+            if (!PeriodeFormat(newLowongan.Periode))
             {
                 return BadRequest("Format periode tidak valid. Format yang benar: dd/MM/yyyy");
             }

@@ -101,7 +101,7 @@ namespace LoginDaftar
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
                     // Kirim permintaan POST ke API
-                    HttpResponseMessage response = await client.PostAsync(ApiUrl + "/create-lowongan/" + currentUser.Username + currentUser.Lowongan, new StringContent(jsonLowongan, Encoding.UTF8, "application/json"));
+                    HttpResponseMessage response = await client.PostAsync(ApiUrl + "/create-lowongan/" + currentUser.Username, new StringContent(jsonLowongan, Encoding.UTF8, "application/json"));
 
                     // Tanggapi hasil dari API
                     if (response.IsSuccessStatusCode)
